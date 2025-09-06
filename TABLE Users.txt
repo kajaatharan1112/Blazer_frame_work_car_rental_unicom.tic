@@ -1,0 +1,84 @@
+TABLE: Users
+-----------------
+UserID (PK)
+Name
+Role (Admin / Staff / Customer)
+Username
+Password
+
+TABLE: Admin
+-----------------
+AdminID (PK)
+Name
+ContactNo
+Age
+Gender
+EmailAddress
+
+TABLE: Staff
+-----------------
+StaffID (PK)
+Name
+ContactNo
+Age
+Gender
+EmailAddress
+Status (Active / Inactive)
+
+TABLE: Customers
+-----------------
+CustomerID (PK)
+Name
+ContactNo
+Age
+Gender
+EmailAddress
+
+TABLE: Car
+-----------------
+CarID (PK)
+ModelName
+ModelYear
+ImagePath
+NumberPlate
+SeatCount
+AC (Yes/No)
+TopSpeed
+GearSystem (e.g. 6 Speed Manual)
+Mileage
+CarStatus (Active / Non-Active)
+
+TABLE: Booking
+-----------------
+BookingID (PK)
+CarID (FK → Car.CarID)
+UserID (FK → Users.UserID)
+StartDate
+EndDate
+BookingStatus (Pre-Book / Current / Finished)
+
+TABLE: RentalPayment
+-----------------
+PaymentID (PK)
+CarID (FK → Car.CarID)
+RentPerDay
+ServiceCharge
+MaintenanceCharge
+
+TABLE: Bills
+-----------------
+BillID (PK)
+CustomerID (FK → Customers.CustomerID)
+CarID (FK → Car.CarID)
+RentalDuration
+PaymentAmount
+CheckoutBy (FK → Staff.StaffID OR Admin.AdminID)
+BillStatus (Finished / Not Finished)
+
+TABLE: LogBook
+-----------------
+LogID (PK)
+UserID (FK → Users.UserID)
+CarID (FK → Car.CarID)
+Action (Booked / Returned / Payment Done)
+DateTime
