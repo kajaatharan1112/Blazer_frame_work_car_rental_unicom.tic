@@ -1,7 +1,10 @@
-﻿namespace car_rental_Unicom.tic.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace car_rental_Unicom.tic.Models
 {
     public class Car_modal
     {
+        [Key]
         public Guid CarId { get; set; } 
         public string Car_modalName { get; set; }
         public int year {  get; set; }
