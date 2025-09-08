@@ -25,7 +25,7 @@
             <!-- Modal Body (Form) -->
             <div class="modal-body">
                 <!-- enctype="multipart/form-data" -> image upload handle பண்ண -->
-                <form asp-action="AddCar" method="post" enctype="multipart/form-data">
+                <form asp-action="Add" method="post" enctype="multipart/form-data">
 
                     <!-- Car Model Name -->
                     <div class="mb-3">
@@ -64,7 +64,7 @@
                     </div>
 
                     <!-- Status (Hidden default = available) -->
-                    <input type="hidden" asp-for="car_status" value="available" />
+                    @* <input type="hidden" asp-for="car_status" value="available" /> *@
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-success">Save</button>
