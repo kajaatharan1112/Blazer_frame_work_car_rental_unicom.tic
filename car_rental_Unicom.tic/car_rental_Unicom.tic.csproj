@@ -19,6 +19,7 @@
     <Folder Include="Interface\" />
     <Folder Include="Repository\" />
     <Folder Include="service\" />
+    <Folder Include="Views\Car\CarImage\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

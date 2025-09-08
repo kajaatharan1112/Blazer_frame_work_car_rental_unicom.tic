@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\car_rental_Unicom.tic.props" />
+</Project>
