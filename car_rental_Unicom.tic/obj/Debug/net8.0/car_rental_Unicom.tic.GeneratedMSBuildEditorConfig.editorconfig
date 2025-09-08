@@ -17,41 +17,45 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = car_rental_Unicom.tic
 build_property.RootNamespace = car_rental_Unicom.tic
-build_property.ProjectDir = C:\Users\kajaa\OneDrive\Desktop\clone car rental\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\
+build_property.ProjectDir = C:\Users\kajaa\OneDrive\Desktop\New folder (3)\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kajaa\OneDrive\Desktop\clone car rental\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic
+build_property.MSBuildProjectDirectory = C:\Users\kajaa\OneDrive\Desktop\New folder (3)\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/kajaa/OneDrive/Desktop/clone car rental/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Home/Index.cshtml]
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kajaa/OneDrive/Desktop/clone car rental/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Home/Privacy.cshtml]
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kajaa/OneDrive/Desktop/clone car rental/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Shared/Error.cshtml]
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/LoginController1/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5Db250cm9sbGVyMVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kajaa/OneDrive/Desktop/clone car rental/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kajaa/OneDrive/Desktop/clone car rental/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/_ViewImports.cshtml]
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kajaa/OneDrive/Desktop/clone car rental/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/_ViewStart.cshtml]
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kajaa/OneDrive/Desktop/clone car rental/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Shared/_Layout.cshtml]
+[C:/Users/kajaa/OneDrive/Desktop/New folder (3)/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tyg3bcyu3i
