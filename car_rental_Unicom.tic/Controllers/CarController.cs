@@ -1,5 +1,6 @@
-﻿using car_rental_Unicom.tic.DTO;
-using car_rental_Unicom.tic.service.car;
+﻿using car_rental_Unicom.tic.Data;
+using car_rental_Unicom.tic.Data.YourNamespace;
+using car_rental_Unicom.tic.Models;
 using car_rental_Unicom.tic.View_modal;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,11 +8,10 @@ namespace car_rental_Unicom.tic.Controllers
 {
     public class CarController : Controller
     {
-        private readonly object _car_service_Interface;
-
-        public CarController(car_service_Interface icar)
+        private readonly ApplicationDbContext dbContext;
+        public CarController(ApplicationDbContext dbContext)
         {
-            _car_service_Interface= icar;
+            this.dbContext = dbContext;
         }
         public IActionResult Car()
         {
@@ -21,17 +21,17 @@ namespace car_rental_Unicom.tic.Controllers
         [HttpPost]
         public IActionResult Add(car_add_view_modal car)
         {
-            var car_modal = new Car_DTO
+            var CAR = new Car_modal
             {
-                Car_modalName = car.Car_modalName,     // modal name map
-                year = car.year,                       // year map
-                image_path = car.image_path,           // image path map
-                number_plact = car.number_plact,       // number plate map
-                ac = car.ac,                           // AC details map
-                top_speed = car.top_speed,             // top speed map
-                Gear_System = car.Gear_System,         // gear system map
-                milage = car.milage,                   // mileage map
-                car_status = "available"
+                Car_modalName = car.Car_modalName,
+                car_status = "Available",
+                year = car.year,
+                image_path = car.image_path,
+                number_plact = car.number_plact,
+                ac = car.ac,
+                top_speed = car.top_speed,
+                Gear_System = car.Gear_System,
+                milage = car.milage,
 
             };
 

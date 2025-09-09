@@ -1,4 +1,5 @@
 using car_rental_Unicom.tic.Data;
+using car_rental_Unicom.tic.Data.YourNamespace;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -349,9 +349,6 @@ C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\ca
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.RazorAssemblyInfo.cache
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.RazorAssemblyInfo.cs
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.sourcelink.json
-C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.dll
-C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\refint\car_rental_Unicom.tic.dll
-C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.pdb
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\appsettings.json
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\car_rental_Unicom.tic.staticwebassets.runtime.json
@@ -509,5 +506,8 @@ C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\ca
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rent.1A896C67.Up2Date
+C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.dll
+C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\refint\car_rental_Unicom.tic.dll
+C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.pdb
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.genruntimeconfig.cache
 C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\ref\car_rental_Unicom.tic.dll
