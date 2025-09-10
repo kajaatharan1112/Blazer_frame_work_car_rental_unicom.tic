@@ -1,17 +1,17 @@
 ﻿@model car_rental_Unicom.tic.View_modal.car_add_view_modal
 
 @{
-    ViewData["Title"] = "Car"; // Page-க்கு title set பண்ணுது
+    ViewData["Title"] = "Car";
 }
 
 <h2>Car Page</h2>
 
-<!-- Add Car Button - கிளிக் பண்ணும்போது modal open ஆகும் -->
+<!-- Add Car Button -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCarModal">
     Add Car
 </button>
 
-<!-- Bootstrap Modal (Popup Form) -->
+<!-- Modal for Adding Car -->
 <div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -22,49 +22,67 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-            <!-- Modal Body (Form) -->
+            <!-- Modal Body -->
             <div class="modal-body">
-                <!-- enctype="multipart/form-data" -> image upload handle பண்ண -->
+                <!-- Use asp-for + enctype for file upload -->
                 <form asp-action="Add" method="post" enctype="multipart/form-data">
 
                     <!-- Car Model Name -->
                     <div class="mb-3">
-                        <label class="form-label">Car Model</label>
-                        <input type="text" class="form-control" asp-for="Car_modalName" required />
+                        <label asp-for="Car_modalName" class="form-label">Car Model</label>
+                        <input asp-for="Car_modalName" class="form-control" required />
+                        <span asp-validation-for="Car_modalName" class="text-danger"></span>
                     </div>
 
                     <!-- Year -->
                     <div class="mb-3">
-                        <label class="form-label">Year</label>
-                        <input type="number" class="form-control" asp-for="year" required />
+                        <label asp-for="year" class="form-label">Year</label>
+                        <input asp-for="year" class="form-control" required />
+                        <span asp-validation-for="year" class="text-danger"></span>
                     </div>
 
                     <!-- Number Plate -->
                     <div class="mb-3">
-                        <label class="form-label">Number Plate</label>
-                        <input type="text" class="form-control" asp-for="number_plact" required />
+                        <label asp-for="number_plact" class="form-label">Number Plate</label>
+                        <input asp-for="number_plact" class="form-control" required />
+                        <span asp-validation-for="number_plact" class="text-danger"></span>
                     </div>
 
                     <!-- Gear System -->
                     <div class="mb-3">
-                        <label class="form-label">Gear System</label>
-                        <input type="text" class="form-control" asp-for="Gear_System" />
+                        <label asp-for="Gear_System" class="form-label">Gear System</label>
+                        <input asp-for="Gear_System" class="form-control" />
+                        <span asp-validation-for="Gear_System" class="text-danger"></span>
                     </div>
 
                     <!-- Milage -->
                     <div class="mb-3">
-                        <label class="form-label">Milage</label>
-                        <input type="text" class="form-control" asp-for="milage" />
+                        <label asp-for="milage" class="form-label">Milage</label>
+                        <input asp-for="milage" class="form-control" />
+                        <span asp-validation-for="milage" class="text-danger"></span>
+                    </div>
+
+                    <!-- AC as Switch -->
+                    <div class="form-check form-switch mb-3">
+                        <!-- Hidden input to always send 'not available' if switch is off -->
+                        <input type="hidden" name="ac" value="not available" />
+                        <input type="checkbox" class="form-check-input" id="acSwitch" name="ac" value="available" />
+                        <label class="form-check-label" for="acSwitch">AC Available</label>
+                    </div>
+
+                    <!-- Top Speed -->
+                    <div class="mb-3">
+                        <label asp-for="top_speed" class="form-label">Top Speed</label>
+                        <input asp-for="top_speed" class="form-control" />
+                        <span asp-validation-for="top_speed" class="text-danger"></span>
                     </div>
 
                     <!-- Car Image Upload -->
                     <div class="mb-3">
-                        <label class="form-label">Upload Car Image</label>
-                        <input type="file" class="form-control" name="CarImage" accept="image/*" required />
+                        <label asp-for="ImageFile" class="form-label">Upload Car Image</label>
+                        <input asp-for="ImageFile" type="file" class="form-control" accept="image/*" required />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
                     </div>
-
-                    <!-- Status (Hidden default = available) -->
-                    @* <input type="hidden" asp-for="car_status" value="available" /> *@
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-success">Save</button>
@@ -75,7 +93,10 @@
     </div>
 </div>
 
-<!-- Optional: Bootstrap JS & dependencies (modal work பண்ண) -->
 @section Scripts {
+    <!-- Bootstrap JS (for modal) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Validation scripts -->
+    <partial name="_ValidationScriptsPartial" />
 }

@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Car\CarImage\" />
+    <Folder Include="wwwroot\uplodes\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
