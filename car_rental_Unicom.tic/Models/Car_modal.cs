@@ -15,5 +15,7 @@ namespace car_rental_Unicom.tic.Models
         public string Gear_System {  get; set; }
         public string milage {  get; set; }
         public string car_status {  get; set; }
+        public string MaintenanceCharge { get; set; }
+        public string RentPerDay { get; set; }
     }
 }

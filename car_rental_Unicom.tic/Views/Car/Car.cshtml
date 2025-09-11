@@ -4,8 +4,7 @@
     ViewData["Title"] = "Car";
 }
 
-<h2>Car Page</h2>
-
+@* zz --------------------------------------------------------------------------------------------------------*@
 <!-- Add Car Button -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCarModal">
     Add Car
@@ -24,7 +23,6 @@
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <!-- Use asp-for + enctype for file upload -->
                 <form asp-action="Add" method="post" enctype="multipart/form-data">
 
                     <!-- Car Model Name -->
@@ -62,10 +60,9 @@
                         <span asp-validation-for="milage" class="text-danger"></span>
                     </div>
 
-                    <!-- AC as Switch -->
+                    <!-- AC Switch -->
                     <div class="form-check form-switch mb-3">
-                        <!-- Hidden input to always send 'not available' if switch is off -->
-                        <input type="hidden" name="ac" value="not available" />
+                        <input type="hidden" name="ac" value="not_available" />
                         <input type="checkbox" class="form-check-input" id="acSwitch" name="ac" value="available" />
                         <label class="form-check-label" for="acSwitch">AC Available</label>
                     </div>
@@ -77,11 +74,25 @@
                         <span asp-validation-for="top_speed" class="text-danger"></span>
                     </div>
 
-                    <!-- Car Image Upload -->
+                    <!-- Maintenance Charge -->
                     <div class="mb-3">
-                        <label asp-for="ImageFile" class="form-label">Upload Car Image</label>
-                        <input asp-for="ImageFile" type="file" class="form-control" accept="image/*" required />
-                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                        <label asp-for="MaintenanceCharge" class="form-label">Maintenance Charge</label>
+                        <input asp-for="MaintenanceCharge" class="form-control" />
+                        <span asp-validation-for="MaintenanceCharge" class="text-danger"></span>
+                    </div>
+
+                    <!-- Rent Per Day -->
+                    <div class="mb-3">
+                        <label asp-for="RentPerDay" class="form-label">Rent Per Day</label>
+                        <input asp-for="RentPerDay" class="form-control" />
+                        <span asp-validation-for="RentPerDay" class="text-danger"></span>
+                    </div>
+
+                    <!-- Car Images Upload -->
+                    <div class="mb-3">
+                        <label asp-for="ImageFiles" class="form-label">Upload Car Images</label>
+                        <input asp-for="ImageFiles" type="file" class="form-control" accept="image/*" multiple />
+                        <span asp-validation-for="ImageFiles" class="text-danger"></span>
                     </div>
 
                     <!-- Submit Button -->
@@ -94,7 +105,7 @@
 </div>
 
 @section Scripts {
-    <!-- Bootstrap JS (for modal) -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Validation scripts -->
