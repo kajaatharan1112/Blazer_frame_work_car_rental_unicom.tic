@@ -1,113 +1,103 @@
-﻿@model car_rental_Unicom.tic.View_modal.car_add_view_modal
+﻿@model List<car_rental_Unicom.tic.View_modal.car_add_view_modal>
 
 @{
-    ViewData["Title"] = "Car";
+    ViewData["Title"] = "Car Page"; // Page title
 }
 
-@* zz --------------------------------------------------------------------------------------------------------*@
-<!-- Add Car Button -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCarModal">
-    Add Car
-</button>
+<h2 class="mb-4">Car Page</h2>
 
-<!-- Modal for Adding Car -->
-<div class="modal fade" id="addCarModal" tabindex="-1" aria-labelledby="addCarModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+<!-- 🔹 Add Car Button -->
+<button type="button" class="btn btn-primary mb-3" onclick="callAddCar()">Add Car</button>
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h5 class="modal-title" id="addCarModalLabel">Add New Car</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- 🔹 Main View Cars Button (ஒரே button, controller GET action call பண்ணும்) -->
+<button type="button" class="btn btn-success mb-3" onclick="viewAllCars()">View Cars</button>
+
+<!-- 🔹 Non Available Button -->
+<button type="button" class="btn btn-warning mb-3" onclick="filterNonAvailable()">Non Available</button>
+
+<!-- 🔹 Car cards container -->
+<div class="row" id="carContainer">
+    @* Page load-ல எந்த car card-ஐ display பண்ண வேண்டுமோ controller-ல் இருந்து வந்த data-ல பண்ணும் *@
+    @if (Model != null && Model.Count > 0)
+    {
+        @foreach (var car in Model)
+        {
+            <div class="col-md-4 mb-4 car-card" data-status="@car.ac">
+                <div class="card shadow-sm h-100">
+
+                    <!-- 🔹 Image Carousel / Show max 3 images -->
+                    <div id="carousel@car.CarId" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @{
+                                var images = car.ImagePaths != null ? car.ImagePaths.Take(3).ToList() : new List<string> { "/images/no-image.png" };
+                            }
+                            @for (int i = 0; i < images.Count; i++)
+                            {
+                                <div class="carousel-item @(i == 0 ? "active" : "")">
+                                    <img src="@images[i]" class="d-block w-100" style="height:200px;object-fit:cover;" />
+                                </div>
+                            }
+                        </div>
+
+                        @if (images.Count > 1)
+                        {
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel@car.CarId" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel@car.CarId" data-bs-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </button>
+                        }
+                    </div>
+
+                    <!-- 🔹 Card Body -->
+                    <div class="card-body">
+                        <h5 class="card-title">@car.Car_modalName</h5>
+                        <p class="card-text mb-1"><strong>Year:</strong> @car.year</p>
+                        <p class="card-text mb-1"><strong>Rent per Day:</strong> Rs. @car.RentPerDay</p>
+
+                        <!-- 🔹 AC switch -->
+                        <div class="form-check form-switch mt-2">
+                            <input class="form-check-input" type="checkbox" role="switch" id="acSwitch@car.CarId" @(car.ac == "Available" ? "checked" : "") onchange="toggleAC('@car.CarId')">
+                            <label class="form-check-label" for="acSwitch@car.CarId">AC</label>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <form asp-action="Add" method="post" enctype="multipart/form-data">
-
-                    <!-- Car Model Name -->
-                    <div class="mb-3">
-                        <label asp-for="Car_modalName" class="form-label">Car Model</label>
-                        <input asp-for="Car_modalName" class="form-control" required />
-                        <span asp-validation-for="Car_modalName" class="text-danger"></span>
-                    </div>
-
-                    <!-- Year -->
-                    <div class="mb-3">
-                        <label asp-for="year" class="form-label">Year</label>
-                        <input asp-for="year" class="form-control" required />
-                        <span asp-validation-for="year" class="text-danger"></span>
-                    </div>
-
-                    <!-- Number Plate -->
-                    <div class="mb-3">
-                        <label asp-for="number_plact" class="form-label">Number Plate</label>
-                        <input asp-for="number_plact" class="form-control" required />
-                        <span asp-validation-for="number_plact" class="text-danger"></span>
-                    </div>
-
-                    <!-- Gear System -->
-                    <div class="mb-3">
-                        <label asp-for="Gear_System" class="form-label">Gear System</label>
-                        <input asp-for="Gear_System" class="form-control" />
-                        <span asp-validation-for="Gear_System" class="text-danger"></span>
-                    </div>
-
-                    <!-- Milage -->
-                    <div class="mb-3">
-                        <label asp-for="milage" class="form-label">Milage</label>
-                        <input asp-for="milage" class="form-control" />
-                        <span asp-validation-for="milage" class="text-danger"></span>
-                    </div>
-
-                    <!-- AC Switch -->
-                    <div class="form-check form-switch mb-3">
-                        <input type="hidden" name="ac" value="not_available" />
-                        <input type="checkbox" class="form-check-input" id="acSwitch" name="ac" value="available" />
-                        <label class="form-check-label" for="acSwitch">AC Available</label>
-                    </div>
-
-                    <!-- Top Speed -->
-                    <div class="mb-3">
-                        <label asp-for="top_speed" class="form-label">Top Speed</label>
-                        <input asp-for="top_speed" class="form-control" />
-                        <span asp-validation-for="top_speed" class="text-danger"></span>
-                    </div>
-
-                    <!-- Maintenance Charge -->
-                    <div class="mb-3">
-                        <label asp-for="MaintenanceCharge" class="form-label">Maintenance Charge</label>
-                        <input asp-for="MaintenanceCharge" class="form-control" />
-                        <span asp-validation-for="MaintenanceCharge" class="text-danger"></span>
-                    </div>
-
-                    <!-- Rent Per Day -->
-                    <div class="mb-3">
-                        <label asp-for="RentPerDay" class="form-label">Rent Per Day</label>
-                        <input asp-for="RentPerDay" class="form-control" />
-                        <span asp-validation-for="RentPerDay" class="text-danger"></span>
-                    </div>
-
-                    <!-- Car Images Upload -->
-                    <div class="mb-3">
-                        <label asp-for="ImageFiles" class="form-label">Upload Car Images</label>
-                        <input asp-for="ImageFiles" type="file" class="form-control" accept="image/*" multiple />
-                        <span asp-validation-for="ImageFiles" class="text-danger"></span>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-success">Save</button>
-                </form>
-            </div>
-
-        </div>
-    </div>
+        }
+    }
+    else
+    {
+        <p>No cars available.</p>
+    }
 </div>
 
-@section Scripts {
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // 🔹 Add Car page-க்கு redirect பண்ணும் function
+    function callAddCar() {
+        window.location.href = '/Car/add_car';
+    }
 
-    <!-- Validation scripts -->
-    <partial name="_ValidationScriptsPartial" />
-}
+    // 🔹 Main button click ஆனதும் controller GET action call பண்ணும் function
+    function viewAllCars() {
+        // 🔹 MVC controller-ல GET request அனுப்பி page reload பண்ணும்
+        window.location.href = '/Car/ViewCars';
+    }
+
+    // 🔹 Non Available cars filter function
+    function filterNonAvailable() {
+        let cards = document.querySelectorAll('.car-card');
+        cards.forEach(card => {
+            card.style.display = card.getAttribute('data-status') === "Not_Available" ? "block" : "none";
+        });
+    }
+
+    // 🔹 AC switch toggle
+    function toggleAC(carId) {
+        let switchElem = document.getElementById('acSwitch' + carId);
+        let status = switchElem.checked ? "Available" : "Not_Available";
+        let card = switchElem.closest('.car-card');
+        card.setAttribute('data-status', status); // 🔹 card-ல data-status update
+        console.log("CarId: " + carId + ", AC Status: " + status);
+    }
+</script>

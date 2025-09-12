@@ -1,0 +1,168 @@
+﻿@model car_rental_Unicom.tic.View_modal.car_add_view_modal
+
+@{
+    ViewData["Title"] = "Add Car";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Add Car</h2>
+
+    <form asp-controller="Car" asp-action="Add" method="post" enctype="multipart/form-data" class="shadow p-4 rounded bg-light">
+        <div class="row">
+            <!-- Car Model Name -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Car Model Name</label>
+                <input asp-for="Car_modalName" class="form-control" />
+            </div>
+
+            <!-- Year -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Year</label>
+                <input asp-for="year" type="number" class="form-control" />
+            </div>
+
+            <!-- Number Plate -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Number Plate</label>
+                <input asp-for="number_plact" class="form-control" />
+            </div>
+
+            <!-- Top Speed -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Top Speed</label>
+                <input asp-for="top_speed" class="form-control" />
+            </div>
+
+            <!-- Gear System -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Gear System</label>
+                <input asp-for="Gear_System" class="form-control" />
+            </div>
+
+            <!-- Milage -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Milage</label>
+                <input asp-for="milage" class="form-control" />
+            </div>
+
+            <!-- AC Switch -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label d-block">AC</label>
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="acSwitch" onchange="setAcValue(this)" />
+                    <label class="form-check-label" for="acSwitch">Available / Not Available</label>
+                </div>
+                <input type="hidden" asp-for="ac" id="acHidden" />
+            </div>
+
+            <!-- Maintenance Charge -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Maintenance Charge</label>
+                <input asp-for="MaintenanceCharge" class="form-control" />
+            </div>
+
+            <!-- Rent Per Day -->
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Rent Per Day</label>
+                <input asp-for="RentPerDay" class="form-control" />
+            </div>
+
+            <!-- Car Images Upload & Preview -->
+            <div class="col-12 mb-3">
+                <label class="form-label">Car Images (Max 7)</label>
+                <input asp-for="ImageFiles" type="file" class="form-control d-none" id="imageInput" multiple accept="image/*" onchange="previewImages(this)" />
+                <div class="form-text text-muted">Upload up to 7 images. You can preview, remove, or add more.</div>
+
+                <!-- Preview Panel -->
+                <div id="previewPanel" class="d-flex flex-wrap mt-3 gap-3">
+                    <!-- Thumbnails and Add button will appear here -->
+                    <button type="button" class="btn btn-outline-primary d-flex align-items-center justify-content-center"
+                            style="width:100px;height:100px;" onclick="document.getElementById('imageInput').click()">
+                        + Add
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success mt-3">Add Car</button>
+    </form>
+</div>
+
+<script>
+    // ❗ Global array to store selected files
+    let selectedFiles = [];
+
+    // 🖼️ Image preview + max 7 restriction function
+    function previewImages(input) {
+        const previewPanel = document.getElementById("previewPanel");
+        previewPanel.innerHTML = ""; // Panel reset பண்ணும்
+
+        // New files-ஐ global array-ல சேர்க்கிறது
+        for (let i = 0; i < input.files.length; i++) {
+            selectedFiles.push(input.files[i]);
+        }
+
+        // Max 7 images validation
+        if (selectedFiles.length > 7) {
+            alert("⚠️ You can upload a maximum of 7 images.");
+            selectedFiles = selectedFiles.slice(0, 7); // 7 images மட்டும் வைத்துக்கொள்ளும்
+        }
+
+        // Render thumbnails
+        selectedFiles.forEach((file, index) => {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const div = document.createElement("div");
+                div.className = "position-relative";
+                div.style.width = "100px";
+                div.style.height = "100px";
+
+                // Thumbnail + remove button
+                div.innerHTML = `
+                    <img src="${e.target.result}" class="rounded border" style="width:100%;height:100%;object-fit:cover;" />
+                    <button type="button" class="btn-close position-absolute top-0 end-0 bg-light"
+                            onclick="removeImage(${index})"></button>
+                `;
+                previewPanel.appendChild(div);
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // + Add button
+        const addBtn = document.createElement("button");
+        addBtn.type = "button";
+        addBtn.className = "btn btn-outline-primary d-flex align-items-center justify-content-center";
+        addBtn.style.width = "100px";
+        addBtn.style.height = "100px";
+        addBtn.innerText = "+ Add";
+        addBtn.onclick = () => document.getElementById("imageInput").click();
+        previewPanel.appendChild(addBtn);
+
+        // Input file update
+        syncInputFiles();
+    }
+
+    // ❌ Remove image function
+    function removeImage(index) {
+        selectedFiles.splice(index, 1); // Array-ல இருந்து remove பண்ணும்
+        previewImages({ files: [] }); // Re-render
+    }
+
+    // 🔄 Sync selectedFiles with hidden input
+    function syncInputFiles() {
+        const dataTransfer = new DataTransfer();
+        selectedFiles.forEach(file => dataTransfer.items.add(file));
+        document.getElementById("imageInput").files = dataTransfer.files;
+    }
+
+    // AC switch value set function
+    function setAcValue(switchElement) {
+        // Switch ON = Available, OFF = Not_Available
+        document.getElementById("acHidden").value = switchElement.checked ? "Available" : "Not_Available";
+    }
+
+    // Page load default AC value
+    window.onload = function () {
+        document.getElementById("acHidden").value = "Not_Available";
+    };
+</script>

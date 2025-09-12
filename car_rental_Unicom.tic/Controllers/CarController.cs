@@ -25,6 +25,10 @@ namespace car_rental_Unicom.tic.Controllers
         {
             return View();
         }
+        public IActionResult add_car()
+        {
+            return View();
+        }
 
         // Add Car - POST
         [HttpPost]

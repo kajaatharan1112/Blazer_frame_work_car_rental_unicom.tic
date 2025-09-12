@@ -74,7 +74,9 @@ namespace car_rental_Unicom.tic.Migrations
                     top_speed = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gear_System = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     milage = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    car_status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    car_status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaintenanceCharge = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RentPerDay = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -95,20 +97,6 @@ namespace car_rental_Unicom.tic.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RentalPayments",
-                columns: table => new
-                {
-                    payment_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    car_id = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MaintenanceCharge = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RentPerDay = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RentalPayments", x => x.payment_id);
                 });
 
             migrationBuilder.CreateTable(
@@ -160,9 +148,6 @@ namespace car_rental_Unicom.tic.Migrations
 
             migrationBuilder.DropTable(
                 name: "Customers");
-
-            migrationBuilder.DropTable(
-                name: "RentalPayments");
 
             migrationBuilder.DropTable(
                 name: "Staffs");

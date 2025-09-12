@@ -12,7 +12,7 @@ using car_rental_Unicom.tic.Data.YourNamespace;
 namespace car_rental_Unicom.tic.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250909144327_InitialCreate")]
+    [Migration("20250912140453_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -137,6 +137,14 @@ namespace car_rental_Unicom.tic.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("MaintenanceCharge")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RentPerDay")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ac")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -252,29 +260,6 @@ namespace car_rental_Unicom.tic.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("car_rental_Unicom.tic.Models.rental_payment_modal", b =>
-                {
-                    b.Property<Guid>("payment_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("MaintenanceCharge")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RentPerDay")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("car_id")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("payment_id");
-
-                    b.ToTable("RentalPayments");
                 });
 #pragma warning restore 612, 618
         }

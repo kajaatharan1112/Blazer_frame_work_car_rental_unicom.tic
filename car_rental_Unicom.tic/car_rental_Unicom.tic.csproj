@@ -9,9 +9,13 @@
 
   <ItemGroup>
     <Compile Remove="Interface\**" />
+    <Compile Remove="Views\Car\CarImage\**" />
     <Content Remove="Interface\**" />
+    <Content Remove="Views\Car\CarImage\**" />
     <EmbeddedResource Remove="Interface\**" />
+    <EmbeddedResource Remove="Views\Car\CarImage\**" />
     <None Remove="Interface\**" />
+    <None Remove="Views\Car\CarImage\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Car\CarImage\" />
+    <Folder Include="wwwroot\uploads\" />
     <Folder Include="wwwroot\uplodes\" />
   </ItemGroup>
 
