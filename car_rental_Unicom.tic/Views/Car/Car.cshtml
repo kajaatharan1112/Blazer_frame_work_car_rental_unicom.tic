@@ -1,103 +1,151 @@
 ﻿@model List<car_rental_Unicom.tic.View_modal.car_add_view_modal>
 
 @{
-    ViewData["Title"] = "Car Page"; // Page title
+    ViewData["Title"] = "Car Page";
 }
 
-<h2 class="mb-4">Car Page</h2>
+<div class="container mt-4">
+    <h2 class="mb-4">Car Page</h2>
 
-<!-- 🔹 Add Car Button -->
-<button type="button" class="btn btn-primary mb-3" onclick="callAddCar()">Add Car</button>
+    <!-- Buttons -->
+    <div class="mb-3">
+        <a asp-action="add_car" class="btn btn-primary me-2">Add Car</a>
+        <button type="button" class="btn btn-warning" id="showNonAvailableBtn">Non Available</button>
+    </div>
 
-<!-- 🔹 Main View Cars Button (ஒரே button, controller GET action call பண்ணும்) -->
-<button type="button" class="btn btn-success mb-3" onclick="viewAllCars()">View Cars</button>
-
-<!-- 🔹 Non Available Button -->
-<button type="button" class="btn btn-warning mb-3" onclick="filterNonAvailable()">Non Available</button>
-
-<!-- 🔹 Car cards container -->
-<div class="row" id="carContainer">
-    @* Page load-ல எந்த car card-ஐ display பண்ண வேண்டுமோ controller-ல் இருந்து வந்த data-ல பண்ணும் *@
-    @if (Model != null && Model.Count > 0)
-    {
-        @foreach (var car in Model)
+    <!-- Available Cars -->
+    <div class="row g-4">
+        @if (Model != null && Model.Any())
         {
-            <div class="col-md-4 mb-4 car-card" data-status="@car.ac">
-                <div class="card shadow-sm h-100">
-
-                    <!-- 🔹 Image Carousel / Show max 3 images -->
-                    <div id="carousel@car.CarId" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            @{
-                                var images = car.ImagePaths != null ? car.ImagePaths.Take(3).ToList() : new List<string> { "/images/no-image.png" };
-                            }
-                            @for (int i = 0; i < images.Count; i++)
-                            {
-                                <div class="carousel-item @(i == 0 ? "active" : "")">
-                                    <img src="@images[i]" class="d-block w-100" style="height:200px;object-fit:cover;" />
-                                </div>
-                            }
-                        </div>
-
-                        @if (images.Count > 1)
-                        {
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel@car.CarId" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel@car.CarId" data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        }
-                    </div>
-
-                    <!-- 🔹 Card Body -->
-                    <div class="card-body">
-                        <h5 class="card-title">@car.Car_modalName</h5>
-                        <p class="card-text mb-1"><strong>Year:</strong> @car.year</p>
-                        <p class="card-text mb-1"><strong>Rent per Day:</strong> Rs. @car.RentPerDay</p>
-
-                        <!-- 🔹 AC switch -->
-                        <div class="form-check form-switch mt-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="acSwitch@car.CarId" @(car.ac == "Available" ? "checked" : "") onchange="toggleAC('@car.CarId')">
-                            <label class="form-check-label" for="acSwitch@car.CarId">AC</label>
+            var availableCars = Model.Where(c => c.car_status?.ToLower() == "available").ToList();
+            if (availableCars.Any())
+            {
+                foreach (var car in availableCars)
+                {
+                    var imageUrl = (car.ImagePaths != null && car.ImagePaths.Any())
+                    ? car.ImagePaths.First()
+                    : "https://placehold.co/600x400/808080/fff?text=No+Image";
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 shadow-sm">
+                            <img src="@imageUrl" class="card-img-top" alt="@car.Car_modalName">
+                            <div class="card-body">
+                                <h5 class="card-title">@car.Car_modalName</h5>
+                                <p class="mb-1"><strong>Year:</strong> @car.year</p>
+                                <span class="badge bg-success">@car.car_status</span>
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn btn-primary w-100 btn-sm" onclick="showCarDetails('@car.CarId')">
+                                    View
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                }
+            }
+            else
+            {
+                <p>No available cars.</p>
+            }
         }
-    }
-    else
-    {
-        <p>No cars available.</p>
-    }
+        else
+        {
+            <p>No cars found.</p>
+        }
+    </div>
 </div>
 
-<script>
-    // 🔹 Add Car page-க்கு redirect பண்ணும் function
-    function callAddCar() {
-        window.location.href = '/Car/add_car';
-    }
+<!-- Car Details Modal -->
+<div class="modal fade" id="carDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carDetailsModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <img id="carImage" class="img-fluid mb-3 rounded" alt="Car Image">
+                <ul class="list-group" id="carDetailsList"></ul>
+            </div>
+            <div class="modal-footer" id="carModalFooter">
+                <form asp-action="EditCar" asp-controller="Car" method="post" class="d-inline">
+                    <input type="hidden" name="CarId" id="editCarId" />
+                    <button type="submit" class="btn btn-warning btn-sm">Edit</button>
+                </form>
 
-    // 🔹 Main button click ஆனதும் controller GET action call பண்ணும் function
-    function viewAllCars() {
-        // 🔹 MVC controller-ல GET request அனுப்பி page reload பண்ணும்
-        window.location.href = '/Car/ViewCars';
-    }
+                <form asp-action="DeleteCar" asp-controller="Car" method="post" class="d-inline">
+                    <input type="hidden" name="CarId" id="deleteCarId" />
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-    // 🔹 Non Available cars filter function
-    function filterNonAvailable() {
-        let cards = document.querySelectorAll('.car-card');
-        cards.forEach(card => {
-            card.style.display = card.getAttribute('data-status') === "Not_Available" ? "block" : "none";
+<!-- Non Available Cars Modal -->
+<div class="modal fade" id="nonAvailableModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Non Available Cars</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body row g-3" id="nonAvailableCarsContainer"></div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const carsData = @Html.Raw(Json.Serialize(Model));
+
+        function showCarDetails(carId) {
+            const car = carsData.find(c => c.carId === carId);
+            if (!car) return;
+
+            document.getElementById("carDetailsModalLabel").innerText = car.car_modalName;
+            document.getElementById("carImage").src = (car.imagePaths?.[0]) || "https://placehold.co/600x400?text=No+Image";
+
+            const detailsList = document.getElementById("carDetailsList");
+            detailsList.innerHTML = `
+                        <li class="list-group-item"><strong>Year:</strong> ${car.year}</li>
+                        <li class="list-group-item"><strong>Number Plate:</strong> ${car.number_plact}</li>
+                        <li class="list-group-item"><strong>A/C:</strong> ${car.ac}</li>
+                        <li class="list-group-item"><strong>Gear System:</strong> ${car.gear_System}</li>
+                        <li class="list-group-item"><strong>Mileage:</strong> ${car.milage}</li>
+                        <li class="list-group-item"><strong>Top Speed:</strong> ${car.top_speed}</li>
+                        <li class="list-group-item"><strong>Maintenance Charge:</strong> ${car.maintenanceCharge}</li>
+                        <li class="list-group-item"><strong>Rent/Day:</strong> ${car.rentPerDay}</li>
+                        <li class="list-group-item"><strong>Status:</strong> ${car.car_status}</li>
+                    `;
+
+            // ✅ fill hidden inputs for forms
+            document.getElementById("editCarId").value = car.carId;
+            document.getElementById("deleteCarId").value = car.carId;
+
+            new bootstrap.Modal(document.getElementById("carDetailsModal")).show();
+        }
+
+        document.getElementById("showNonAvailableBtn").addEventListener("click", () => {
+            const nonAvailable = carsData.filter(c => c.car_status?.toLowerCase() !== "available");
+            const container = document.getElementById("nonAvailableCarsContainer");
+            container.innerHTML = nonAvailable.length
+                ? nonAvailable.map(car => `
+                            <div class="col-sm-6 col-md-4">
+                                <div class="card h-100">
+                                    <img src="${car.imagePaths?.[0] || 'https://placehold.co/600x400?text=No+Image'}" class="card-img-top">
+                                    <div class="card-body">
+                                        <h6 class="card-title">${car.car_modalName}</h6>
+                                        <span class="badge bg-danger">${car.car_status}</span>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button class="btn btn-primary btn-sm w-100" onclick="showCarDetails('${car.carId}')">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join("")
+                : "<p>No non-available cars.</p>";
+
+            new bootstrap.Modal(document.getElementById("nonAvailableModal")).show();
         });
-    }
-
-    // 🔹 AC switch toggle
-    function toggleAC(carId) {
-        let switchElem = document.getElementById('acSwitch' + carId);
-        let status = switchElem.checked ? "Available" : "Not_Available";
-        let card = switchElem.closest('.car-card');
-        card.setAttribute('data-status', status); // 🔹 card-ல data-status update
-        console.log("CarId: " + carId + ", AC Status: " + status);
-    }
-</script>
+    </script>
+}

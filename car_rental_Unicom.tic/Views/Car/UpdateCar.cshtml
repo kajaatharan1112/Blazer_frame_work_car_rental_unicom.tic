@@ -1,0 +1,83 @@
+﻿@model car_rental_Unicom.tic.View_modal.car_add_view_modal
+
+@{
+    ViewData["Title"] = "Edit Car";
+}
+
+<h2>Edit Car Details</h2>
+
+<form asp-action="UpdateCar" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="CarId" />
+
+    <div class="mb-3">
+        <label asp-for="Car_modalName" class="form-label">Model Name</label>
+        <input asp-for="Car_modalName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="year" class="form-label">Year</label>
+        <input asp-for="year" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="number_plact" class="form-label">Number Plate</label>
+        <input asp-for="number_plact" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ac" class="form-label">AC</label>
+        <input asp-for="ac" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="top_speed" class="form-label">Top Speed</label>
+        <input asp-for="top_speed" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Gear_System" class="form-label">Gear System</label>
+        <input asp-for="Gear_System" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="milage" class="form-label">Mileage</label>
+        <input asp-for="milage" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="car_status" class="form-label">Status</label>
+        <select asp-for="car_status" class="form-select">
+            <option value="available">Available</option>
+            <option value="unavailable">Unavailable</option>
+            <option value="maintenance">Maintenance</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MaintenanceCharge" class="form-label">Maintenance Charge</label>
+        <input asp-for="MaintenanceCharge" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="RentPerDay" class="form-label">Rent Per Day</label>
+        <input asp-for="RentPerDay" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Current Images</label>
+        <div class="d-flex flex-wrap gap-2">
+            @foreach (var path in Model.ImagePaths)
+            {
+                <img src="@path" alt="Car Image" style="height:100px; border:1px solid #ccc;" />
+            }
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ImageFiles" class="form-label">Upload New Images</label>
+        <input asp-for="ImageFiles" type="file" multiple class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Car</button>
+    <a asp-action="Car" asp-controller="Car" class="btn btn-secondary ms-2">Cancel</a>
+</form>

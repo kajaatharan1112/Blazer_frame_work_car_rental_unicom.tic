@@ -514,7 +514,6 @@ C:\Users\kajaa\OneDrive\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\ca
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\appsettings.json
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\car_rental_Unicom.tic.staticwebassets.runtime.json
-C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\car_rental_Unicom.tic.staticwebassets.endpoints.json
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\car_rental_Unicom.tic.exe
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\car_rental_Unicom.tic.deps.json
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\bin\Debug\net8.0\car_rental_Unicom.tic.runtimeconfig.json
@@ -670,14 +669,11 @@ C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rent
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\scopedcss\projectbundle\car_rental_Unicom.tic.bundle.scp.css
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets\msbuild.car_rental_Unicom.tic.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets\msbuild.car_rental_Unicom.tic.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets\msbuild.build.car_rental_Unicom.tic.props
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.car_rental_Unicom.tic.props
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.car_rental_Unicom.tic.props
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rent.1A896C67.Up2Date
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\car_rental_Unicom.tic.dll
 C:\Users\UT010025\Desktop\clone\Blazer_frame_work_car_rental_unicom.tic\car_rental_Unicom.tic\obj\Debug\net8.0\refint\car_rental_Unicom.tic.dll
