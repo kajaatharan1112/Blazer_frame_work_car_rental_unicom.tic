@@ -137,13 +137,7 @@ namespace car_rental_Unicom.tic.Controllers
         }
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-       [HttpPost]
-        public IActionResult delet_car(string carId)
-        {
-            // Delete logic here
-            return View("Car");
-        }
-        public IActionResult add_car(string id)
+        public IActionResult add_car()
         {
             return View();
         }
@@ -206,38 +200,12 @@ namespace car_rental_Unicom.tic.Controllers
         }
         //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        [HttpGet]
-        public IActionResult GetCar(Guid id)
-        {
-            var car = dbContext.Cars.FirstOrDefault(c => c.CarId == id);
 
-            if (car == null)
-            {
-                return NotFound();
-            }
-
-            var carViewModel = new car_add_view_modal
-            {
-                CarId = car.CarId,
-                Car_modalName = car.Car_modalName,
-                year = car.year,
-                number_plact = car.number_plact,
-                ac = car.ac,
-                Gear_System = car.Gear_System,
-                milage = car.milage,
-                top_speed = car.top_speed,
-                image_path = car.image_path,
-                MaintenanceCharge = car.MaintenanceCharge,
-                RentPerDay = car.RentPerDay,
-                car_status = car.car_status
-            };
-
-            return View(carViewModel);
         
 
 
 
-        }
+        
         [HttpPost]
         public async Task<IActionResult> DeleteCar(Guid id)
         {

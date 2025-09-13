@@ -1,107 +1,107 @@
-﻿@{
-    Layout = null; // 🚫 இந்த page-க்கு MVC Layout பயன்படுத்த வேண்டாம்
+﻿@model car_rental_Unicom.tic.View_modal.login_vew_modal
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Rental - Login</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <style>
-        /* 🌅 பின் பக்கம்: Random Sports Car wallpaper + gradient overlay */
         body {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?sports-car') no-repeat center center fixed;
-            background-size: cover;
-            height: 100vh;
-            /* 🎯 Login box-ஐ மையத்தில் வைத்து display */
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white; /* ✏️ எழுத்து நிறம் */
-            text-shadow: 1px 1px 4px #000; /* 🕶️ readability-க்கு shadow */
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
         }
 
-        /* 📦 Login box-ன் design */
         .login-box {
-            background-color: rgba(0,0,0,0.7); /* 🔒 semi-transparent background */
-            padding: 3rem;
-            border-radius: 15px;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            width: 300px;
             text-align: center;
-            width: 360px; /* 📐 fixed width for better layout */
-            box-shadow: 0 0 20px rgba(0,0,0,0.8); /* 🌟 subtle shadow */
         }
 
-            /* 🏷️ Headline-ன் design */
             .login-box h1 {
-                margin-bottom: 2rem;
-                font-size: 3rem;
-            }
-
-            /* 📝 Form input spacing */
-            .login-box .form-control {
                 margin-bottom: 1rem;
             }
 
-            /* 🔘 Buttons spacing */
-            .login-box .btn {
-                width: 120px;
-                margin: 0.5rem;
+            .login-box input {
+                width: 100%;
+                padding: 0.5rem;
+                margin: 0.5rem 0;
+                border-radius: 5px;
+                border: 1px solid #ccc;
             }
 
-        /* ✅ Show password checkbox styling */
-        .show-pass {
+            .login-box button {
+                padding: 0.5rem 1rem;
+                margin: 0.5rem 0.2rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+        .btn-login {
+            background-color: #007bff;
             color: #fff;
-            text-align: left;
+        }
+
+        .btn-signup {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .show-pass {
+            display: flex;
+            align-items: center;
             margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .text-danger {
+            color: red;
+            margin-bottom: 1rem;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- 📦 Login Box -->
     <div class="login-box">
-        <!-- 🏷️ Headline -->
         <h1>Car Rental</h1>
-        <p>Welcome! Please login or sign up to continue.</p>
 
-        <!-- 📝 Login Form -->
-        <form method="post" action="/Account/Login">
-            @* 👤 Username input field *@
-            <input type="text" name="Username" class="form-control" placeholder="Username" required />
+        @if (ViewBag.Error != null)
+        {
+            <span class="text-danger">@ViewBag.Error</span>
+        }
 
-            @* 🔑 Password input field *@
-            <input type="password" name="Password" id="password" class="form-control" placeholder="Password" required />
+        <form method="post" asp-controller="LoginController1" asp-action="Login">
+            <input asp-for="username" placeholder="Username" required />
+            <input asp-for="password" id="password" placeholder="Password" required />
 
-            @* 👁️ Show/Hide password checkbox *@
-            <div class="form-check show-pass">
-                <input type="checkbox" class="form-check-input" id="showPassword" onclick="togglePassword()" />
-                <label class="form-check-label" for="showPassword">Show Password</label>
+            <div class="show-pass">
+                <input type="checkbox" id="showPassword" onclick="togglePassword()" />
+                <label for="showPassword" style="margin-left:5px;">Show Password</label>
             </div>
 
-            <!-- 🔵 Login Button -->
-            @* <button type="submit" class="btn btn-primary btn-lg">Login</button> *@
-            <!-- 🔵 Login Button -->
-            <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-lg">Login</a>
-
-
-            <!-- 🟢 Sign Up Button -->
-            <a href="/Account/Register" class="btn btn-success btn-lg">Sign Up</a>
+            <div>
+                <button type="submit" class="btn btn-login">Login</button>
+                <a href="/Account/Register" class="btn btn-signup">Sign Up</a>
+            </div>
         </form>
     </div>
 
-    @* 📦 Bootstrap JS *@
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-    @* 👁️ Show/Hide password function *@
     <script>
         function togglePassword() {
-            var pwd = document.getElementById("password"); // 🔑 Get the password input box
-            if (pwd.type === "password") {
-                pwd.type = "text"; // 👁️ Show password
-            } else {
-                pwd.type = "password"; // 🙈 Hide password
-            }
+            var pwd = document.getElementById("password");
+            pwd.type = (pwd.type === "password") ? "text" : "password";
         }
     </script>
 </body>

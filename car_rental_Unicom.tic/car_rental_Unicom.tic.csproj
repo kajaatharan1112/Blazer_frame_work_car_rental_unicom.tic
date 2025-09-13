@@ -10,12 +10,16 @@
   <ItemGroup>
     <Compile Remove="Interface\**" />
     <Compile Remove="Views\Car\CarImage\**" />
+    <Compile Remove="wwwroot\uplodes\**" />
     <Content Remove="Interface\**" />
     <Content Remove="Views\Car\CarImage\**" />
+    <Content Remove="wwwroot\uplodes\**" />
     <EmbeddedResource Remove="Interface\**" />
     <EmbeddedResource Remove="Views\Car\CarImage\**" />
+    <EmbeddedResource Remove="wwwroot\uplodes\**" />
     <None Remove="Interface\**" />
     <None Remove="Views\Car\CarImage\**" />
+    <None Remove="wwwroot\uplodes\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,7 +32,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\uploads\" />
-    <Folder Include="wwwroot\uplodes\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
