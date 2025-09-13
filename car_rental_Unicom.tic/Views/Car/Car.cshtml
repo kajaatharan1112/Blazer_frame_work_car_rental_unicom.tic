@@ -4,16 +4,16 @@
     ViewData["Title"] = "Car Page";
 }
 
-<div class="container mt-4">
-    <h2 class="mb-4">Car Page</h2>
+<div class="container mt-4 fade-in">
+    <h2 class="mb-4 text-white">🚘 Car Page</h2>
 
-    <!-- Buttons -->
+    <!-- 🟦 Add Car + Non Available button -->
     <div class="mb-3">
         <a asp-action="add_car" class="btn btn-primary me-2">Add Car</a>
         <button type="button" class="btn btn-warning" id="showNonAvailableBtn">Non Available</button>
     </div>
 
-    <!-- Available Cars -->
+    <!-- 🟩 Available Cars Section -->
     <div class="row g-4">
         @if (Model != null && Model.Any())
         {
@@ -25,16 +25,22 @@
                     var imageUrl = (car.ImagePaths != null && car.ImagePaths.Any())
                     ? car.ImagePaths.First()
                     : "https://placehold.co/600x400/808080/fff?text=No+Image";
-                    <div class="col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100 shadow-sm">
-                            <img src="@imageUrl" class="card-img-top" alt="@car.Car_modalName">
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 fade-in">
+                        <div class="card car-card h-100">
+                            <!-- 🖼️ Car Image -->
+                            <img src="@imageUrl" class="card-img-top car-image" alt="@car.Car_modalName">
+
                             <div class="card-body">
                                 <h5 class="card-title">@car.Car_modalName</h5>
                                 <p class="mb-1"><strong>Year:</strong> @car.year</p>
                                 <span class="badge bg-success">@car.car_status</span>
                             </div>
+
+                            <!-- 👁️ View button -->
                             <div class="card-footer">
-                                <button type="button" class="btn btn-primary w-100 btn-sm" onclick="showCarDetails('@car.CarId')">
+                                <button type="button" class="btn btn-primary w-100 btn-sm"
+                                        onclick="showCarDetails('@car.CarId')">
                                     View
                                 </button>
                             </div>
@@ -44,34 +50,41 @@
             }
             else
             {
-                <p>No available cars.</p>
+                <p class="text-white">No available cars.</p>
             }
         }
         else
         {
-            <p>No cars found.</p>
+            <p class="text-white">No cars found.</p>
         }
     </div>
 </div>
 
-<!-- Car Details Modal -->
+<!-- 🟦 Car Details Modal -->
 <div class="modal fade" id="carDetailsModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
+            <!-- Header -->
             <div class="modal-header">
                 <h5 class="modal-title" id="carDetailsModalLabel"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
+
+            <!-- Body -->
             <div class="modal-body">
-                <img id="carImage" class="img-fluid mb-3 rounded" alt="Car Image">
+                <img id="carImage" class="img-fluid mb-3 rounded car-image" alt="Car Image">
                 <ul class="list-group" id="carDetailsList"></ul>
             </div>
+
+            <!-- Footer - Edit / Delete -->
             <div class="modal-footer" id="carModalFooter">
-                <form asp-action="EditCar" asp-controller="Car" method="post" class="d-inline">
+                <!-- ✏️ Edit -->
+                <form asp-action="UpdateCar" asp-controller="Car" method="get" class="d-inline">
                     <input type="hidden" name="CarId" id="editCarId" />
                     <button type="submit" class="btn btn-warning btn-sm">Edit</button>
                 </form>
 
+                <!-- ❌ Delete -->
                 <form asp-action="DeleteCar" asp-controller="Car" method="post" class="d-inline">
                     <input type="hidden" name="CarId" id="deleteCarId" />
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
@@ -81,7 +94,7 @@
     </div>
 </div>
 
-<!-- Non Available Cars Modal -->
+<!-- 🟥 Non Available Cars Modal -->
 <div class="modal fade" id="nonAvailableModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -96,8 +109,10 @@
 
 @section Scripts {
     <script>
+        // 🔹 All cars data serialize
         const carsData = @Html.Raw(Json.Serialize(Model));
 
+        // 🔹 Show details modal
         function showCarDetails(carId) {
             const car = carsData.find(c => c.carId === carId);
             if (!car) return;
@@ -118,34 +133,116 @@
                         <li class="list-group-item"><strong>Status:</strong> ${car.car_status}</li>
                     `;
 
-            // ✅ fill hidden inputs for forms
             document.getElementById("editCarId").value = car.carId;
             document.getElementById("deleteCarId").value = car.carId;
 
             new bootstrap.Modal(document.getElementById("carDetailsModal")).show();
         }
 
+        // 🔹 Show non available cars
         document.getElementById("showNonAvailableBtn").addEventListener("click", () => {
             const nonAvailable = carsData.filter(c => c.car_status?.toLowerCase() !== "available");
             const container = document.getElementById("nonAvailableCarsContainer");
+
             container.innerHTML = nonAvailable.length
                 ? nonAvailable.map(car => `
-                            <div class="col-sm-6 col-md-4">
-                                <div class="card h-100">
-                                    <img src="${car.imagePaths?.[0] || 'https://placehold.co/600x400?text=No+Image'}" class="card-img-top">
+                            <div class="col-sm-6 col-md-4 fade-in">
+                                <div class="card car-card h-100">
+                                    <img src="${car.imagePaths?.[0] || 'https://placehold.co/600x400?text=No+Image'}"
+                                         class="card-img-top car-image">
                                     <div class="card-body">
                                         <h6 class="card-title">${car.car_modalName}</h6>
                                         <span class="badge bg-danger">${car.car_status}</span>
                                     </div>
                                     <div class="card-footer">
-                                        <button class="btn btn-primary btn-sm w-100" onclick="showCarDetails('${car.carId}')">View</button>
+                                        <button class="btn btn-primary btn-sm w-100"
+                                                onclick="showCarDetails('${car.carId}')">View</button>
                                     </div>
                                 </div>
                             </div>
                         `).join("")
-                : "<p>No non-available cars.</p>";
+                : "<p class='text-white'>No non-available cars.</p>";
 
             new bootstrap.Modal(document.getElementById("nonAvailableModal")).show();
         });
     </script>
 }
+
+<style>
+    /* 🟦 Background */
+    body {
+        background: linear-gradient(135deg, #1e293b, #3b82f6); /* gray-blue gradient */
+        min-height: 100vh;
+        font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        padding: 20px;
+    }
+
+    /* 🟦 Glassmorphism card + modal */
+    .car-card, .modal-content {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px) saturate(180%);
+        -webkit-backdrop-filter: blur(15px) saturate(180%);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        color: white;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+        /* 🟩 Card hover - full zoom */
+        .car-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 28px rgba(59, 130, 246, 0.4);
+        }
+
+    /* 🖼️ Car Image */
+    .car-image {
+        border-radius: 20px;
+        object-fit: cover;
+    }
+
+    /* 🟩 Buttons */
+    .btn {
+        border-radius: 12px;
+        padding: 8px 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: rgba(59, 130, 246, 0.8);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: rgba(59, 130, 246, 1);
+            transform: translateY(-2px);
+        }
+
+    .btn-warning {
+        background: rgba(234, 179, 8, 0.8);
+        border: none;
+    }
+
+    .btn-danger {
+        background: rgba(239, 68, 68, 0.8);
+        border: none;
+    }
+
+    /* ✨ Fade-in animation */
+    .fade-in {
+        animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

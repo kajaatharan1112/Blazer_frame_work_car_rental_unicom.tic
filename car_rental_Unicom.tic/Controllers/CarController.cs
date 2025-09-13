@@ -19,7 +19,7 @@ namespace car_rental_Unicom.tic.Controllers
         {
             this.dbContext = dbContext;
         }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         // Car Page
         public IActionResult Car()
         {
@@ -51,6 +51,36 @@ namespace car_rental_Unicom.tic.Controllers
             return View(carListViewModel);
         }
 
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        [HttpGet]
+        public IActionResult UpdateCar(Guid carId)
+        {
+            var car = dbContext.Cars.FirstOrDefault(c => c.CarId == carId);
+
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            var carViewModel = new car_add_view_modal
+            {
+                CarId = car.CarId,
+                Car_modalName = car.Car_modalName,
+                year = car.year,
+                number_plact = car.number_plact,
+                ac = car.ac,
+                top_speed = car.top_speed,
+                Gear_System = car.Gear_System,
+                milage = car.milage,
+                car_status = car.car_status,
+                MaintenanceCharge = car.MaintenanceCharge,
+                RentPerDay = car.RentPerDay,
+                image_path = car.image_path
+            };
+
+            return View(carViewModel);
+        }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         [HttpPost]
         public async Task<IActionResult> UpdateCar(car_add_view_modal car)
         {
@@ -105,21 +135,19 @@ namespace car_rental_Unicom.tic.Controllers
 
             return RedirectToAction("Car", "Car");
         }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-        [HttpPost]
+       [HttpPost]
         public IActionResult delet_car(string carId)
         {
             // Delete logic here
             return View("Car");
         }
-
-
         public IActionResult add_car(string id)
         {
             return View();
         }
+ //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         // Add Car - POST
         [HttpPost]
@@ -176,6 +204,8 @@ namespace car_rental_Unicom.tic.Controllers
 
             return RedirectToAction("Car", "Car");
         }
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         [HttpGet]
         public IActionResult GetCar(Guid id)
         {
@@ -203,6 +233,27 @@ namespace car_rental_Unicom.tic.Controllers
             };
 
             return View(carViewModel);
+        
+
+
+
         }
+        [HttpPost]
+        public async Task<IActionResult> DeleteCar(Guid id)
+        {
+            var car = dbContext.Cars.FirstOrDefault(c => c.CarId == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+
+            dbContext.Cars.Remove(car);
+            await dbContext.SaveChangesAsync();
+
+            // Delete பண்ணிட்டு car list page-க்கு redirect
+            return RedirectToAction("Car");
+        }
+
+        //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 }
