@@ -26,7 +26,9 @@ namespace car_rental_Unicom.tic.Vew_modal
         // Extra field for UI (optional)
         public string Role { get; set; } = "Admin";
 
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string UserName { get; set; }
+        public string CurrentPassword { get; set; }
+        public string NewPassword { get; set; }
+        public string ConfirmPassword { get; set; }
     }
 }

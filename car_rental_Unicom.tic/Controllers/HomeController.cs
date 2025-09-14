@@ -11,7 +11,19 @@ namespace car_rental_Unicom.tic.Controllers
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            TestSacation();
         }
+        public IActionResult TestSacation()
+        {
+            // Console log
+            Console.WriteLine("=== Sacation Values ===");
+            Console.WriteLine("Id: " + Sacation.id);
+            Console.WriteLine("Name: " + Sacation.Name);
+            Console.WriteLine("Role: " + Sacation.Role);
+
+            return Content("Check Output Window in Visual Studio for Sacation values");
+        }
+
 
         public IActionResult Index()
         {

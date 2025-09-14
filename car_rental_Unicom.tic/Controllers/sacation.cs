@@ -1,8 +1,9 @@
 ﻿namespace car_rental_Unicom.tic.Controllers
 {
-    public static class sacation
+    public static class Sacation
     {
-        public static string name { get; set; } 
-        public static string roll { get; set; }
+        public static Guid id { get; set; }
+        public static string Name { get; set; }
+        public static string Role { get; set; }
     }
 }

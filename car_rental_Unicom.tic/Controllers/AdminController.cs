@@ -2,18 +2,17 @@
 using car_rental_Unicom.tic.Data.YourNamespace;
 using car_rental_Unicom.tic.Models;
 using car_rental_Unicom.tic.Vew_modal;
-using car_rental_Unicom.tic.View_modal;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
 
 namespace car_rental_Unicom.tic.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController1 : Controller
     {
         private readonly ApplicationDbContext dbContext;
 
-        public AdminController(ApplicationDbContext dbContext)
+        public AdminController1(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
@@ -21,29 +20,25 @@ namespace car_rental_Unicom.tic.Controllers
         // ✅ View all admins
         public IActionResult Index()
         {
-            // check admin table
             if (!dbContext.Admins.Any())
             {
-                // create dummy admin
                 var dummyAdmin = new Admin_modalcs
                 {
                     Name = "Default Admin",
-                    ContactNo = 0771234567,
+                    ContactNo = 771234567,
                     Age = 30,
                     Gender = "Male",
                     Email = "admin@demo.com"
                 };
 
                 dbContext.Admins.Add(dummyAdmin);
-                dbContext.SaveChanges(); // ✅ save first to get Id
+                dbContext.SaveChanges();
 
-                // get the generated Id
                 var adminId = dummyAdmin.Id;
 
-                // add user with same Id
                 var adminUser = new Users_Modalcs
                 {
-                    Id = (adminId),           // use generated Admin Id
+                    Id = adminId,
                     Name = dummyAdmin.Name,
                     Role = "admin",
                     UserName = "admin",
@@ -69,8 +64,8 @@ namespace car_rental_Unicom.tic.Controllers
             return View(admins);
         }
 
-
         // ✅ Edit (GET)
+        [HttpGet]
         public IActionResult Edit(Guid id)
         {
             var admin = dbContext.Admins.Find(id);
@@ -95,14 +90,20 @@ namespace car_rental_Unicom.tic.Controllers
         [HttpPost]
         public IActionResult Edit(admin_view_modal vm)
         {
-          
+            if (!ModelState.IsValid)
+                return View(vm);
 
             var admin = dbContext.Admins.Find(vm.Id);
             if (admin == null)
                 return NotFound();
 
             admin.Name = vm.Name;
-            admin.ContactNo = int.Parse(vm.ContactNo);
+            if (!int.TryParse(vm.ContactNo, out int contactNo))
+            {
+                ModelState.AddModelError("ContactNo", "Contact number must be numeric.");
+                return View(vm);
+            }
+            admin.ContactNo = contactNo;
             admin.Age = vm.Age;
             admin.Gender = vm.Gender;
             admin.Email = vm.Email;
@@ -112,10 +113,20 @@ namespace car_rental_Unicom.tic.Controllers
             return RedirectToAction("Index");
         }
 
+        // Change Password (GET)
+        [HttpGet]
+        public IActionResult ChangePassword(Guid id)
+        {
+            var vm = new admin_view_modal { Id = id };
+            return View(vm);
+        }
+
+        // Change Password (POST)
         [HttpPost]
         public IActionResult ChangePassword(admin_view_modal vm)
         {
-            
+            if (!ModelState.IsValid)
+                return View(vm);
 
             if (vm.NewPassword != vm.ConfirmPassword)
             {
@@ -136,16 +147,11 @@ namespace car_rental_Unicom.tic.Controllers
                 return View(vm);
             }
 
-            // Update username
-            user.UserName = vm.UserName;
-
-            // Update password
             user.password = vm.NewPassword;
             dbContext.SaveChanges();
 
-            TempData["Success"] = "Password and username changed successfully!";
+            TempData["Success"] = "Password changed successfully!";
             return RedirectToAction("Index");
         }
-
     }
 }

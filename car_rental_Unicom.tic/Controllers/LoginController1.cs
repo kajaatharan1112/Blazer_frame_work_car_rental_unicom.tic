@@ -1,6 +1,6 @@
 ﻿using car_rental_Unicom.tic.Data.YourNamespace;
 using car_rental_Unicom.tic.Models;
-using car_rental_Unicom.tic.Vew_modal;
+using car_rental_Unicom.tic.View_modal; // ✅ spelling correct
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,9 +14,9 @@ namespace car_rental_Unicom.tic.Controllers
         {
             this.dbContext = dbContext;
         }
+
         public IActionResult Login()
         {
-            // Users table empty ahh check pannum
             if (!dbContext.Users.Any())
             {
                 var adminUser = new Users_Modalcs
@@ -25,7 +25,7 @@ namespace car_rental_Unicom.tic.Controllers
                     Name = "kajaa",
                     Role = "Admin",
                     UserName = "Admin",
-                    password = "1234" // ⚠ plain text password ahh save panna koodathu, hashing better
+                    password = "1234"
                 };
 
                 dbContext.Users.Add(adminUser);
@@ -45,13 +45,10 @@ namespace car_rental_Unicom.tic.Controllers
 
                 if (user != null)
                 {
-                    // ✅ Static class பயன்படுத்தி login info save பண்ணும்
-                    sacation.name = user.UserName;
-                    sacation.roll = user.Role;
-
-                   /* // அல்லது session-ல் save பண்ணனும் (recommended)
-                    HttpContext.Session.SetString("UserName", user.UserName);
-                    HttpContext.Session.SetString("Role", user.Role);*/
+                    // ✅ Static class
+                    Sacation.Name = user.UserName;
+                    Sacation.Role = user.Role;
+                    Sacation.id=user.Id;
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -64,6 +61,5 @@ namespace car_rental_Unicom.tic.Controllers
 
             return View(model);
         }
-
     }
 }

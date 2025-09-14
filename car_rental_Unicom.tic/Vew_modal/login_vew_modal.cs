@@ -1,4 +1,4 @@
-﻿namespace car_rental_Unicom.tic.Vew_modal
+﻿namespace car_rental_Unicom.tic.View_modal
 {
     public class login_vew_modal
     {

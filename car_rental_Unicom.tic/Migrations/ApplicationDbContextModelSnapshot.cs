@@ -235,7 +235,6 @@ namespace car_rental_Unicom.tic.Migrations
             modelBuilder.Entity("car_rental_Unicom.tic.Models.Users_Modalcs", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")

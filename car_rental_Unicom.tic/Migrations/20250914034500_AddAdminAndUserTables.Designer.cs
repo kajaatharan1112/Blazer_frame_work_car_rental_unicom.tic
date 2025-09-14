@@ -12,8 +12,8 @@ using car_rental_Unicom.tic.Data.YourNamespace;
 namespace car_rental_Unicom.tic.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250912140453_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250914034500_AddAdminAndUserTables")]
+    partial class AddAdminAndUserTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -238,7 +238,6 @@ namespace car_rental_Unicom.tic.Migrations
             modelBuilder.Entity("car_rental_Unicom.tic.Models.Users_Modalcs", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
