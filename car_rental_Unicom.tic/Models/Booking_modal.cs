@@ -12,6 +12,6 @@ namespace car_rental_Unicom.tic.Models
         public string name { get; set; }    
         public string start_date {  get; set; }
         public string dayes { get; set; }
-        public string boking_status {  get; set; }//booking process status [active] or [booking fnnisheg] or [chack in]
+        public string boking_status {  get; set; }//booking process status [active] or [booking_chackout] or [chack in]
     }
 }

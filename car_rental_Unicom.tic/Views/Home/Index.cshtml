@@ -1,8 +1,104 @@
-﻿@{
+﻿@model List<car_rental_Unicom.tic.Vew_modal.home_view_modal>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Available Cars</h2>
+        <!-- View My Bookings Button -->
+        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#myBookingsModal">View My Bookings</button>
+    </div>
+
+    <div class="row">
+        @foreach (var car in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@car.image_path" class="card-img-top" alt="@car.Car_modalName" style="height:200px;object-fit:cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@car.Car_modalName (@car.year)</h5>
+                        <p class="card-text">Number Plate: @car.number_plact<br />AC: @car.ac<br />Top Speed: @car.top_speed</p>
+                        <!-- View Car Profile Button -->
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carModal-@car.CarId">View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Car Profile Modal -->
+            <div class="modal fade" id="carModal-@car.CarId" tabindex="-1" aria-labelledby="carModalLabel-@car.CarId" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="carModalLabel-@car.CarId">@car.Car_modalName - Profile</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="@car.image_path" class="img-fluid mb-2" alt="@car.Car_modalName" />
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Year: @car.year</li>
+                                <li class="list-group-item">Number Plate: @car.number_plact</li>
+                                <li class="list-group-item">AC: @car.ac</li>
+                                <li class="list-group-item">Top Speed: @car.top_speed</li>
+                                <li class="list-group-item">Gear System: @car.Gear_System</li>
+                                <li class="list-group-item">Milage: @car.milage</li>
+                                <li class="list-group-item">Status: @car.car_status</li>
+                                <li class="list-group-item">Maintenance Charge: @car.MaintenanceCharge</li>
+                                <li class="list-group-item">Rent Per Day: @car.RentPerDay</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- Book Button: returns car id to controller -->
+                            <form asp-action="AddBooking" method="get">
+                                <input type="hidden" name="carId" value="@car.CarId" />
+                                <button type="submit" class="btn btn-success">Book</button>
+                            </form>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
+
+<!-- My Bookings Modal -->
+<div class="modal fade" id="myBookingsModal" tabindex="-1" aria-labelledby="myBookingsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myBookingsModalLabel">My Bookings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="bookingsContent">
+                    <!-- Bookings will be loaded here via AJAX -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Load bookings when modal is opened
+    document.getElementById('myBookingsModal').addEventListener('show.bs.modal', function () {
+        fetch('@Url.Action("ViewBooking", "Home")')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('bookingsContent').innerHTML = html;
+            });
+    });
+    // Delete booking function (AJAX)
+    function deleteBooking(bookingId) {
+        if (confirm('Are you sure you want to delete this booking?')) {
+            fetch('@Url.Action("DeleteBooking", "Home")?bookingId=' + bookingId, { method: 'POST' })
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('bookingsContent').innerHTML = html;
+                });
+        }
+    }
+</script>
