@@ -4,6 +4,7 @@ using car_rental_Unicom.tic.Vew_modal;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
+using System.Globalization;
 
 namespace car_rental_Unicom.tic.Controllers
 {
@@ -72,6 +73,15 @@ namespace car_rental_Unicom.tic.Controllers
         [HttpPost]
         public IActionResult AddBooking(home_view_modal vm)
         {
+            // Parse start_date and dayes safely
+            DateTime startDate;
+            int days;
+            if (!DateTime.TryParse(vm.start_date, out startDate) || !int.TryParse(vm.dayes, out days))
+            {
+                ModelState.AddModelError("", "Invalid date or days.");
+                return View(vm);
+            }
+
             var booking = new Booking_modal
             {
                 booking_id = Guid.NewGuid(),
@@ -79,8 +89,8 @@ namespace car_rental_Unicom.tic.Controllers
                 car_id = vm.CarId.ToString(),
                 user_id = Sacation.id.ToString(),
                 name = Sacation.Name,
-                start_date = vm.start_date,
-                dayes = vm.dayes,
+                start_date = startDate.ToString("yyyy-MM-dd"),
+                dayes = days.ToString(),
                 boking_status = "active"
             };
             dbContext.Bookings.Add(booking);
@@ -90,7 +100,7 @@ namespace car_rental_Unicom.tic.Controllers
             return RedirectToAction("Index");
         }
 
-        // View bookings for session user (active, booking_chackout)
+        // View bookings for session user
         public IActionResult ViewBooking()
         {
             var userId = Sacation.id.ToString();
@@ -110,7 +120,7 @@ namespace car_rental_Unicom.tic.Controllers
                 })
                 .ToList();
 
-            return View("ViewBookingPage", bookings); // Calls the new Razor page
+            return View("ViewBookingPage", bookings);
         }
 
         // View bookings for session user (AJAX partial)
@@ -151,6 +161,7 @@ namespace car_rental_Unicom.tic.Controllers
                 })
                 .ToList();
 
+            ViewData["CarId"] = carId;
             return View(bookings);
         }
 
@@ -184,11 +195,33 @@ namespace car_rental_Unicom.tic.Controllers
                 dbContext.Bookings.Remove(booking);
                 dbContext.SaveChanges();
             }
-            // If called via AJAX, return partial, else redirect
-            if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                return ViewBookingPartial();
-            else
-                return RedirectToAction("ViewBooking");
+            return RedirectToAction("ViewBooking"); 
+        }
+
+        // Get booked dates for a car (AJAX)
+        [HttpGet]
+        public JsonResult GetBookedDates(Guid carId)
+        {
+            var bookings = dbContext.Bookings
+                .Where(b => b.car_id == carId.ToString())
+                .Select(b => new { b.start_date, b.dayes })
+                .ToList();
+
+            var bookedDates = new List<string>();
+            foreach (var booking in bookings)
+            {
+                DateTime startDate;
+                int days;
+                if (DateTime.TryParse(booking.start_date, out startDate) && int.TryParse(booking.dayes, out days))
+                {
+                    for (int i = 0; i < days; i++)
+                    {
+                        var date = startDate.AddDays(i).ToString("yyyy-MM-dd");
+                        bookedDates.Add(date);
+                    }
+                }
+            }
+            return Json(bookedDates);
         }
     }
 }

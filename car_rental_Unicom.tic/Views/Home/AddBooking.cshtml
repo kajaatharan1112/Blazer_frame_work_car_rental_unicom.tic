@@ -4,97 +4,106 @@
     ViewData["Title"] = "Book Car";
 }
 
-<!-- Bootstrap மேலும் JQuery இணைப்பு (UI மற்றும் date picker க்கு) -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/css/bootstrap-datepicker.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/js/bootstrap-datepicker.min.js"></script>
 
-<div class="container mt-4">
-    <h2>Book Car <!-- கார் முன்பதிவு செய்யவும் --></h2>
-
-    <!-- கார் விவரங்கள் காட்டும் பகுதி -->
-    <div class="card mb-4">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <!-- கார் படம் -->
-                <img src="@Model.image_path" class="img-fluid rounded-start" alt="@Model.Car_modalName" />
-            </div>
-            <div class="col-md-8">
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Book Car</h3>
+                </div>
                 <div class="card-body">
-                    <!-- கார் பெயர் மற்றும் ஆண்டு -->
-                    <h5 class="card-title">@Model.Car_modalName (@Model.year)</h5>
-                    <p class="card-text">
-                        <!-- கார் விவரங்கள் -->
-                        Number Plate: @Model.number_plact<br />
-                        AC: @Model.ac<br />
-                        Top Speed: @Model.top_speed<br />
-                        Gear System: @Model.Gear_System<br />
-                        Milage: @Model.milage<br />
-                        Status: @Model.car_status<br />
-                        Maintenance Charge: @Model.MaintenanceCharge<br />
-                        Rent Per Day: @Model.RentPerDay
-                    </p>
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            <img src="@Model.image_path" class="img-fluid rounded" alt="@Model.Car_modalName" />
+                        </div>
+                        <div class="col-md-8">
+                            <h5>@Model.Car_modalName (@Model.year)</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Number Plate: <strong>@Model.number_plact</strong></li>
+                                <li class="list-group-item">AC: <strong>@Model.ac</strong></li>
+                                <li class="list-group-item">Top Speed: <strong>@Model.top_speed</strong></li>
+                                <li class="list-group-item">Gear System: <strong>@Model.Gear_System</strong></li>
+                                <li class="list-group-item">Milage: <strong>@Model.milage</strong></li>
+                                <li class="list-group-item">Status: <strong>@Model.car_status</strong></li>
+                                <li class="list-group-item">Maintenance Charge: <strong>@Model.MaintenanceCharge</strong></li>
+                                <li class="list-group-item">Rent Per Day: <strong>@Model.RentPerDay</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <form asp-action="AddBooking" method="post">
+                        <input type="hidden" asp-for="CarId" />
+                        <div class="mb-3">
+                            <label asp-for="licence_number" class="form-label">License Number</label>
+                            <input asp-for="licence_number" class="form-control" required />
+                            <span asp-validation-for="licence_number" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="start_date" class="form-label">Start Date</label>
+                            <div class="input-group">
+                                <input asp-for="start_date" type="text" class="form-control" id="startDate"
+                                    autocomplete="off" required readonly />
+                                <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                            </div>
+                            <span asp-validation-for="start_date" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="dayes" class="form-label">Number of Days</label>
+                            <input asp-for="dayes" class="form-control" required />
+                            <span asp-validation-for="dayes" class="text-danger"></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success">Book Now</button>
+                            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- முன்பதிவு form ஆரம்பம் -->
-    <form asp-action="AddBooking" method="post" class="mb-4">
-        <!-- கார் Id (மறைபுரிய) -->
-        <input type="hidden" asp-for="CarId" />
-        <div class="mb-3">
-            <!-- உரிமம் எண் (License Number) -->
-            <label asp-for="licence_number" class="form-label">License Number <!-- உரிமம் எண் --></label>
-            <input asp-for="licence_number" class="form-control" required />
-            <span asp-validation-for="licence_number" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <!-- தொடக்க தேதி (Start Date) -->
-            <label asp-for="start_date" class="form-label">Start Date <!-- தொடக்க தேதி --></label>
-            <input asp-for="start_date" type="date" class="form-control" id="startDate" required />
-            <span asp-validation-for="start_date" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
-            <!-- நாட்கள் எண்ணிக்கை (Number of Days) -->
-            <label asp-for="dayes" class="form-label">Number of Days <!-- நாட்கள் --></label>
-            <input asp-for="dayes" class="form-control" required />
-            <span asp-validation-for="dayes" class="text-danger"></span>
-        </div>
-        <!-- முன்பதிவு செய்யும் பொத்தான் -->
-        <button type="submit" class="btn btn-success">Book Now <!-- முன்பதிவு செய்யவும் --></button>
-        <!-- ரத்து செய்யும் பொத்தான் -->
-        <a asp-action="Index" class="btn btn-secondary">Cancel <!-- ரத்து செய்யவும் --></a>
-    </form>
-    <!-- முன்பதிவு form முடிவு -->
 </div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
         $(document).ready(function () {
-            // Server-இல் இருந்து முன்பதிவு செய்யப்பட்ட தேதிகளை பெறும் JS
-            $.get('@Url.Action("GetBookedDates", "Home", new { carId = Model.CarId })', function (data) {
-                var bookedDates = data; // "yyyy-MM-dd" string array
-                $("#startDate").on("input", function () {
-                    var selected = $(this).val();
-                    // முன்பதிவு செய்யப்பட்ட தேதி தேர்வு செய்தால், எச்சரிக்கை காட்டும்
-                    if (bookedDates.includes(selected)) {
-                        alert("இந்த தேதி முன்பதிவு செய்யப்பட்டுள்ளது. மற்றொரு தேதியை தேர்வு செய்யவும்.");
-                        $(this).val("");
+            $.get('@Url.Action("GetBookedDates", "Home", new { carId = Model.CarId })', function (bookedDates) {
+                // Only allow current and next month
+                var today = new Date();
+                var firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+                var lastDayNextMonth = new Date(today.getFullYear(), today.getMonth() + 2, 0);
+
+                // Convert bookedDates to a Set for fast lookup
+                var bookedSet = new Set(bookedDates);
+
+                $('#startDate').datepicker({
+                    format: 'yyyy-mm-dd',
+                    startDate: firstDay,
+                    endDate: lastDayNextMonth,
+                    autoclose: true,
+                    todayHighlight: true,
+                    beforeShowDay: function (date) {
+                        var y = date.getFullYear();
+                        var m = (date.getMonth() + 1).toString().padStart(2, '0');
+                        var d = date.getDate().toString().padStart(2, '0');
+                        var dateStr = y + '-' + m + '-' + d;
+                        // Disable if in bookedSet
+                        if (bookedSet.has(dateStr)) {
+                            return { enabled: false, classes: 'booked-date', tooltip: 'Booked' };
+                        }
+                        return { enabled: true };
                     }
                 });
-                // date picker-ல் இன்று முதல் மட்டும் தேர்வு செய்ய அனுமதி
-                $("#startDate").attr("min", new Date().toISOString().split('T')[0]);
-                $("#startDate").on("focus", function () {
-                    var input = this;
-                    input.addEventListener('keydown', function (e) {
-                        var val = input.value;
-                        // Manual entry-யில் முன்பதிவு செய்யப்பட்ட தேதியை தடுக்கும்
-                        if (bookedDates.includes(val)) {
-                            e.preventDefault();
-                        }
-                    });
+
+                // Prevent manual typing
+                $('#startDate').on('keydown paste', function (e) {
+                    e.preventDefault();
                 });
             });
         });

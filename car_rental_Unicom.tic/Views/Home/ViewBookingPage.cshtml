@@ -1,27 +1,58 @@
 @model List<car_rental_Unicom.tic.Vew_modal.home_view_modal>
 
-<h1>Your Bookings</h1>
+@{
+    ViewData["Title"] = "Your Bookings";
+}
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Booking ID</th>
-            <th>Car ID</th>
-            <th>Start Date</th>
-            <th>Days</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var booking in Model)
-        {
-            <tr>
-                <td>@booking.booking_id</td>
-                <td>@booking.car_id</td>
-                <td>@booking.start_date</td>
-                <td>@booking.dayes</td>
-                <td>@booking.boking_status</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Your Bookings</h3>
+                </div>
+                <div class="card-body">
+                    @if (Model == null || !Model.Any())
+                    {
+                        <div class="alert alert-info text-center">
+                            You have no bookings.
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Car ID</th>
+                                        <th>Start Date</th>
+                                        <th>Days</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var booking in Model)
+                                    {
+                                        <tr>
+                                            <td>@booking.booking_id</td>
+                                            <td>@booking.car_id</td>
+                                            <td>@booking.start_date.("yyyy-MM-dd")</td>
+                                            <td>@booking.dayes</td>
+                                            <td>
+                                                <form asp-action="DeleteBooking" method="post" style="display:inline;">
+                                                    <input type="hidden" name="bookingId" value="@booking.booking_id" />
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this booking?');">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

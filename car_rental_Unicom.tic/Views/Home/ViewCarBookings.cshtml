@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Car Bookings";
+    var carId = Model.FirstOrDefault()?.car_id; // Get carId from the first booking
 }
 
 <h2>Car Bookings</h2>
@@ -22,6 +23,7 @@ else
                 <th>Start Date</th>
                 <th>Days</th>
                 <th>Status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +37,13 @@ else
                 <td>@booking.start_date</td>
                 <td>@booking.dayes</td>
                 <td>@booking.boking_status</td>
+                <td>
+                    <form asp-action="DeleteBooking" method="post" style="display:inline;">
+                        <input type="hidden" name="bookingId" value="@booking.booking_id" />
+                        <input type="hidden" name="carId" value="@carId" />
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Delete this booking?');">Delete</button>
+                    </form>
+                </td>
             </tr>
         }
         </tbody>
