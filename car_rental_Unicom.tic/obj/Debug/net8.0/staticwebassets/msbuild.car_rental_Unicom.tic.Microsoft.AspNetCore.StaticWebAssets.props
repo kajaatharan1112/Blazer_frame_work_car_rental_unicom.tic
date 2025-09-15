@@ -976,12 +976,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\2aa2280c-325d-459e-b3fc-81d463621b98.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\100a4a24-f6f3-4d77-9735-6bcf63c38c64.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/2aa2280c-325d-459e-b3fc-81d463621b98.jpeg</RelativePath>
+      <RelativePath>uploads/100a4a24-f6f3-4d77-9735-6bcf63c38c64.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -990,14 +990,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\2aa2280c-325d-459e-b3fc-81d463621b98.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\100a4a24-f6f3-4d77-9735-6bcf63c38c64.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\2df70b7d-fe20-4a1b-a1cf-85107c9dad63.avif))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1ab63b1d-008f-4047-800e-23ae3071dc81.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/2df70b7d-fe20-4a1b-a1cf-85107c9dad63.avif</RelativePath>
+      <RelativePath>uploads/1ab63b1d-008f-4047-800e-23ae3071dc81.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1006,14 +1006,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\2df70b7d-fe20-4a1b-a1cf-85107c9dad63.avif))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1ab63b1d-008f-4047-800e-23ae3071dc81.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3287a129-7f10-4735-8137-6541a92c442c.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\2cbd6c22-2e90-4255-aa63-4e9509c63064.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/3287a129-7f10-4735-8137-6541a92c442c.jpg</RelativePath>
+      <RelativePath>uploads/2cbd6c22-2e90-4255-aa63-4e9509c63064.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1022,14 +1022,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3287a129-7f10-4735-8137-6541a92c442c.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\2cbd6c22-2e90-4255-aa63-4e9509c63064.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3520311e-1b76-4505-aa73-7f29616c0d8b.avif))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\349a3854-3f53-47c8-a394-6c2ecee0c075.webp))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/3520311e-1b76-4505-aa73-7f29616c0d8b.avif</RelativePath>
+      <RelativePath>uploads/349a3854-3f53-47c8-a394-6c2ecee0c075.webp</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1038,14 +1038,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3520311e-1b76-4505-aa73-7f29616c0d8b.avif))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\349a3854-3f53-47c8-a394-6c2ecee0c075.webp))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\43932ee4-ef77-4824-b79d-cafb4299d01e.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5c99b551-ff1f-4b15-9ee6-7361e19225a8.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/43932ee4-ef77-4824-b79d-cafb4299d01e.jpg</RelativePath>
+      <RelativePath>uploads/5c99b551-ff1f-4b15-9ee6-7361e19225a8.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1054,14 +1054,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\43932ee4-ef77-4824-b79d-cafb4299d01e.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5c99b551-ff1f-4b15-9ee6-7361e19225a8.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\44f7f29c-3aeb-4917-9d9e-425dc5dabf4a.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\661d9c0b-e60c-4b5b-9c4a-d3937d54ad92.webp))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/44f7f29c-3aeb-4917-9d9e-425dc5dabf4a.jpg</RelativePath>
+      <RelativePath>uploads/661d9c0b-e60c-4b5b-9c4a-d3937d54ad92.webp</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1070,14 +1070,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\44f7f29c-3aeb-4917-9d9e-425dc5dabf4a.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\661d9c0b-e60c-4b5b-9c4a-d3937d54ad92.webp))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\52bce636-45fa-433a-b53d-ea11d379a50b.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\85082fd5-048f-454e-b0fe-0fb41c942e85.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/52bce636-45fa-433a-b53d-ea11d379a50b.jpg</RelativePath>
+      <RelativePath>uploads/85082fd5-048f-454e-b0fe-0fb41c942e85.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1086,14 +1086,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\52bce636-45fa-433a-b53d-ea11d379a50b.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\85082fd5-048f-454e-b0fe-0fb41c942e85.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\679059fb-51ef-4872-9b3a-043a2f8fe7b6.avif))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a4ebf0f7-8784-4a3b-a26c-1a3bf8f4f729.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/679059fb-51ef-4872-9b3a-043a2f8fe7b6.avif</RelativePath>
+      <RelativePath>uploads/a4ebf0f7-8784-4a3b-a26c-1a3bf8f4f729.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1102,14 +1102,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\679059fb-51ef-4872-9b3a-043a2f8fe7b6.avif))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a4ebf0f7-8784-4a3b-a26c-1a3bf8f4f729.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\74ad9f7f-c758-4c40-869d-f1701c9baad1.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b055af4a-398f-4948-968b-db6a52f9f80c.webp))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/74ad9f7f-c758-4c40-869d-f1701c9baad1.jpeg</RelativePath>
+      <RelativePath>uploads/b055af4a-398f-4948-968b-db6a52f9f80c.webp</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1118,14 +1118,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\74ad9f7f-c758-4c40-869d-f1701c9baad1.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b055af4a-398f-4948-968b-db6a52f9f80c.webp))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\767e4852-eb55-4e65-a01c-4e68ab4bc0e3.jpeg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b6378f44-1946-4cb5-8c8b-44e166a9e9f8.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/767e4852-eb55-4e65-a01c-4e68ab4bc0e3.jpeg</RelativePath>
+      <RelativePath>uploads/b6378f44-1946-4cb5-8c8b-44e166a9e9f8.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1134,14 +1134,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\767e4852-eb55-4e65-a01c-4e68ab4bc0e3.jpeg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b6378f44-1946-4cb5-8c8b-44e166a9e9f8.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9b849174-14d9-463a-94ba-237d36b05925.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c69e41c3-934f-4156-b4e5-8343bc72667f.webp))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/9b849174-14d9-463a-94ba-237d36b05925.jpg</RelativePath>
+      <RelativePath>uploads/c69e41c3-934f-4156-b4e5-8343bc72667f.webp</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1150,14 +1150,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9b849174-14d9-463a-94ba-237d36b05925.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c69e41c3-934f-4156-b4e5-8343bc72667f.webp))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b25986c1-e14d-4271-99bb-d06a45e6d92a.webp))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d4a830d3-3329-4db5-93a5-bfa5a0e58752.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/b25986c1-e14d-4271-99bb-d06a45e6d92a.webp</RelativePath>
+      <RelativePath>uploads/d4a830d3-3329-4db5-93a5-bfa5a0e58752.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1166,14 +1166,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b25986c1-e14d-4271-99bb-d06a45e6d92a.webp))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d4a830d3-3329-4db5-93a5-bfa5a0e58752.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c3656c32-3dad-4b70-8cad-3e191b79af1d.webp))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e9393844-507e-4ac7-8fb2-2b151a6cdb85.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/c3656c32-3dad-4b70-8cad-3e191b79af1d.webp</RelativePath>
+      <RelativePath>uploads/e9393844-507e-4ac7-8fb2-2b151a6cdb85.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1182,14 +1182,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c3656c32-3dad-4b70-8cad-3e191b79af1d.webp))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e9393844-507e-4ac7-8fb2-2b151a6cdb85.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e31681a1-dea6-4e80-bcb0-93c8843f5f0b.webp))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea95bb85-e444-4e51-b49d-26e535766ead.jpeg))">
       <SourceType>Package</SourceType>
       <SourceId>car_rental_Unicom.tic</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/e31681a1-dea6-4e80-bcb0-93c8843f5f0b.webp</RelativePath>
+      <RelativePath>uploads/ea95bb85-e444-4e51-b49d-26e535766ead.jpeg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1198,71 +1198,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e31681a1-dea6-4e80-bcb0-93c8843f5f0b.webp))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e6513525-6915-480c-9d57-73dba416ea34.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>car_rental_Unicom.tic</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/e6513525-6915-480c-9d57-73dba416ea34.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e6513525-6915-480c-9d57-73dba416ea34.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ee564e5d-524f-42ac-8e4d-9a5f5220def7.jpeg))">
-      <SourceType>Package</SourceType>
-      <SourceId>car_rental_Unicom.tic</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/ee564e5d-524f-42ac-8e4d-9a5f5220def7.jpeg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ee564e5d-524f-42ac-8e4d-9a5f5220def7.jpeg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\fc49d76e-aba7-4d99-8251-43e05cf75bdc.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>car_rental_Unicom.tic</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/fc49d76e-aba7-4d99-8251-43e05cf75bdc.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\fc49d76e-aba7-4d99-8251-43e05cf75bdc.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\fead73c8-e128-4c63-8a98-cbb33052e311.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>car_rental_Unicom.tic</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/car_rental_Unicom.tic</BasePath>
-      <RelativePath>uploads/fead73c8-e128-4c63-8a98-cbb33052e311.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\fead73c8-e128-4c63-8a98-cbb33052e311.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ea95bb85-e444-4e51-b49d-26e535766ead.jpeg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

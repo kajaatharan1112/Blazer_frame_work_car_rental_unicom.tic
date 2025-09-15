@@ -4,11 +4,32 @@
     ViewData["Title"] = "Book Car";
 }
 
+<!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<!-- Flatpickr CSS -->
+<link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
+
+<!-- jQuery -->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/css/bootstrap-datepicker.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.10.0/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<style>
+    /* Optional: z-index fix if Flatpickr calendar goes behind modal or other elements */
+    .flatpickr-calendar {
+        z-index: 1050 !important;
+    }
+    /* Style booked dates */
+    .flatpickr-day.booked-date {
+        background: #ff6b6b !important;
+        color: white !important;
+        cursor: not-allowed;
+    }
+</style>
 
 <div class="container mt-5">
     <div class="row justify-content-center">
@@ -37,27 +58,35 @@
                         </div>
                     </div>
 
+                    <!-- Booking Form -->
                     <form asp-action="AddBooking" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
                         <input type="hidden" asp-for="CarId" />
+
                         <div class="mb-3">
                             <label asp-for="licence_number" class="form-label">License Number</label>
                             <input asp-for="licence_number" class="form-control" required />
                             <span asp-validation-for="licence_number" class="text-danger"></span>
                         </div>
+
                         <div class="mb-3">
                             <label asp-for="start_date" class="form-label">Start Date</label>
                             <div class="input-group">
-                                <input asp-for="start_date" type="text" class="form-control" id="startDate"
-                                    autocomplete="off" required readonly />
-                                <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+                                <input asp-for="start_date" type="text" class="form-control" id="startDate" autocomplete="off" placeholder="Select start date" required />
+                                <span class="input-group-text" style="cursor: pointer;" tabindex="0" id="calendarIcon">
+                                    <i class="bi bi-calendar-date"></i>
+                                </span>
                             </div>
                             <span asp-validation-for="start_date" class="text-danger"></span>
                         </div>
+
                         <div class="mb-3">
                             <label asp-for="dayes" class="form-label">Number of Days</label>
-                            <input asp-for="dayes" class="form-control" required />
+                            <input asp-for="dayes" type="number" class="form-control" min="1" required />
                             <span asp-validation-for="dayes" class="text-danger"></span>
                         </div>
+
                         <div class="d-flex justify-content-between">
                             <button type="submit" class="btn btn-success">Book Now</button>
                             <a asp-action="Index" class="btn btn-secondary">Cancel</a>
@@ -73,37 +102,42 @@
     <partial name="_ValidationScriptsPartial" />
     <script>
         $(document).ready(function () {
+            // Fetch booked dates from server
             $.get('@Url.Action("GetBookedDates", "Home", new { carId = Model.CarId })', function (bookedDates) {
-                // Only allow current and next month
-                var today = new Date();
-                var firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-                var lastDayNextMonth = new Date(today.getFullYear(), today.getMonth() + 2, 0);
+                // Convert booked dates array to a Set for fast lookup
+                const bookedSet = new Set(bookedDates);
 
-                // Convert bookedDates to a Set for fast lookup
-                var bookedSet = new Set(bookedDates);
-
-                $('#startDate').datepicker({
-                    format: 'yyyy-mm-dd',
-                    startDate: firstDay,
-                    endDate: lastDayNextMonth,
-                    autoclose: true,
-                    todayHighlight: true,
-                    beforeShowDay: function (date) {
-                        var y = date.getFullYear();
-                        var m = (date.getMonth() + 1).toString().padStart(2, '0');
-                        var d = date.getDate().toString().padStart(2, '0');
-                        var dateStr = y + '-' + m + '-' + d;
-                        // Disable if in bookedSet
-                        if (bookedSet.has(dateStr)) {
-                            return { enabled: false, classes: 'booked-date', tooltip: 'Booked' };
+                // Initialize flatpickr on startDate input
+                const fp = flatpickr("#startDate", {
+                    dateFormat: "Y-m-d",
+                    minDate: "today",
+                    maxDate: new Date(new Date().setMonth(new Date().getMonth() + 2)), // 2 months from today
+                    disable: [
+                        function (date) {
+                            // Disable dates that are booked
+                            const y = date.getFullYear();
+                            const m = (date.getMonth() + 1).toString().padStart(2, '0');
+                            const d = date.getDate().toString().padStart(2, '0');
+                            const dateStr = `${y}-${m}-${d}`;
+                            return bookedSet.has(dateStr);
                         }
-                        return { enabled: true };
-                    }
+                    ],
+                    onReady: function (selectedDates, dateStr, instance) {
+                        // Add custom class to disabled booked dates for styling
+                        instance.days.forEach(dayElem => {
+                            if (dayElem.dateObj && bookedSet.has(instance.formatDate(dayElem.dateObj, "Y-m-d"))) {
+                                dayElem.classList.add('booked-date');
+                                dayElem.title = "Booked";
+                            }
+                        });
+                    },
                 });
 
-                // Prevent manual typing
-                $('#startDate').on('keydown paste', function (e) {
-                    e.preventDefault();
+                // Open datepicker when calendar icon is clicked or keyboard key pressed
+                $('#calendarIcon').on('click keypress', function (e) {
+                    if (e.type === 'click' || e.which === 13 || e.which === 32) {
+                        fp.open();
+                    }
                 });
             });
         });

@@ -1,0 +1,62 @@
+﻿@model car_rental_Unicom.tic.Vew_modal.home_view_modal
+
+@{
+    ViewData["Title"] = "Car Details";
+}
+
+<div class="container my-4">
+    <h2 class="mb-4">@Model.Car_modalName - Details</h2>
+
+    <div class="row">
+        <!-- Left: Images -->
+        <div class="col-md-6">
+            @if (!string.IsNullOrEmpty(Model.image_path))
+            {
+                var images = Model.image_path.Split(',');
+                <div id="carImagesCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < images.Length; i++)
+                        {
+                            var img = images[i].Trim();
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                <img src="@img" class="d-block w-100 rounded" alt="@Model.Car_modalName Image @(i + 1)" style="max-height:400px; object-fit:cover;" />
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carImagesCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carImagesCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            }
+            else
+            {
+                <img src="https://via.placeholder.com/600x400?text=No+Image" class="img-fluid rounded" alt="No Image Available" />
+            }
+        </div>
+
+        <!-- Right: Details -->
+        <div class="col-md-6">
+            <ul class="list-group shadow-sm">
+                <li class="list-group-item"><strong>Model Name:</strong> @Model.Car_modalName</li>
+                <li class="list-group-item"><strong>Year:</strong> @Model.year</li>
+                <li class="list-group-item"><strong>Number Plate:</strong> @Model.number_plact</li>
+                <li class="list-group-item"><strong>AC:</strong> @Model.ac</li>
+                <li class="list-group-item"><strong>Top Speed:</strong> @Model.top_speed</li>
+                <li class="list-group-item"><strong>Gear System:</strong> @Model.Gear_System</li>
+                <li class="list-group-item"><strong>Milage:</strong> @Model.milage</li>
+                <li class="list-group-item"><strong>Status:</strong> @Model.car_status</li>
+                <li class="list-group-item"><strong>Maintenance Charge:</strong> @Model.MaintenanceCharge</li>
+                <li class="list-group-item"><strong>Rent Per Day:</strong> @Model.RentPerDay</li>
+            </ul>
+
+            <a href="javascript:history.back()" class="btn btn-outline-secondary mt-4">Back</a>
+        </div>
+    </div>
+</div>
+
+<!-- Make sure you have Bootstrap JS & CSS loaded in your layout for carousel and styling to work -->

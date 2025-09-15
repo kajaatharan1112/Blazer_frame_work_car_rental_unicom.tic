@@ -195,7 +195,7 @@ namespace car_rental_Unicom.tic.Controllers
                 dbContext.Bookings.Remove(booking);
                 dbContext.SaveChanges();
             }
-            return RedirectToAction("ViewBooking"); 
+            return RedirectToAction("Index"); 
         }
 
         // Get booked dates for a car (AJAX)

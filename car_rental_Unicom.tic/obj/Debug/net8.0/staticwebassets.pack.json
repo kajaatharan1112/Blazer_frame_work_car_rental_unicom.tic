@@ -1,320 +1,304 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\car_rental_Unicom.tic.bundle.scp.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\car_rental_Unicom.tic.bundle.scp.css",
       "PackagePath": "staticwebassets\\car_rental_Unicom.tic.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\2aa2280c-325d-459e-b3fc-81d463621b98.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\2aa2280c-325d-459e-b3fc-81d463621b98.jpeg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\100a4a24-f6f3-4d77-9735-6bcf63c38c64.jpg",
+      "PackagePath": "staticwebassets\\uploads\\100a4a24-f6f3-4d77-9735-6bcf63c38c64.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\2df70b7d-fe20-4a1b-a1cf-85107c9dad63.avif",
-      "PackagePath": "staticwebassets\\uploads\\2df70b7d-fe20-4a1b-a1cf-85107c9dad63.avif"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\1ab63b1d-008f-4047-800e-23ae3071dc81.jpg",
+      "PackagePath": "staticwebassets\\uploads\\1ab63b1d-008f-4047-800e-23ae3071dc81.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\3287a129-7f10-4735-8137-6541a92c442c.jpg",
-      "PackagePath": "staticwebassets\\uploads\\3287a129-7f10-4735-8137-6541a92c442c.jpg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\2cbd6c22-2e90-4255-aa63-4e9509c63064.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2cbd6c22-2e90-4255-aa63-4e9509c63064.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\3520311e-1b76-4505-aa73-7f29616c0d8b.avif",
-      "PackagePath": "staticwebassets\\uploads\\3520311e-1b76-4505-aa73-7f29616c0d8b.avif"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\349a3854-3f53-47c8-a394-6c2ecee0c075.webp",
+      "PackagePath": "staticwebassets\\uploads\\349a3854-3f53-47c8-a394-6c2ecee0c075.webp"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\43932ee4-ef77-4824-b79d-cafb4299d01e.jpg",
-      "PackagePath": "staticwebassets\\uploads\\43932ee4-ef77-4824-b79d-cafb4299d01e.jpg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\5c99b551-ff1f-4b15-9ee6-7361e19225a8.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\5c99b551-ff1f-4b15-9ee6-7361e19225a8.jpeg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\44f7f29c-3aeb-4917-9d9e-425dc5dabf4a.jpg",
-      "PackagePath": "staticwebassets\\uploads\\44f7f29c-3aeb-4917-9d9e-425dc5dabf4a.jpg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\661d9c0b-e60c-4b5b-9c4a-d3937d54ad92.webp",
+      "PackagePath": "staticwebassets\\uploads\\661d9c0b-e60c-4b5b-9c4a-d3937d54ad92.webp"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\52bce636-45fa-433a-b53d-ea11d379a50b.jpg",
-      "PackagePath": "staticwebassets\\uploads\\52bce636-45fa-433a-b53d-ea11d379a50b.jpg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\85082fd5-048f-454e-b0fe-0fb41c942e85.jpg",
+      "PackagePath": "staticwebassets\\uploads\\85082fd5-048f-454e-b0fe-0fb41c942e85.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\679059fb-51ef-4872-9b3a-043a2f8fe7b6.avif",
-      "PackagePath": "staticwebassets\\uploads\\679059fb-51ef-4872-9b3a-043a2f8fe7b6.avif"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\a4ebf0f7-8784-4a3b-a26c-1a3bf8f4f729.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a4ebf0f7-8784-4a3b-a26c-1a3bf8f4f729.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\74ad9f7f-c758-4c40-869d-f1701c9baad1.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\74ad9f7f-c758-4c40-869d-f1701c9baad1.jpeg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\b055af4a-398f-4948-968b-db6a52f9f80c.webp",
+      "PackagePath": "staticwebassets\\uploads\\b055af4a-398f-4948-968b-db6a52f9f80c.webp"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\767e4852-eb55-4e65-a01c-4e68ab4bc0e3.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\767e4852-eb55-4e65-a01c-4e68ab4bc0e3.jpeg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\b6378f44-1946-4cb5-8c8b-44e166a9e9f8.jpg",
+      "PackagePath": "staticwebassets\\uploads\\b6378f44-1946-4cb5-8c8b-44e166a9e9f8.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\9b849174-14d9-463a-94ba-237d36b05925.jpg",
-      "PackagePath": "staticwebassets\\uploads\\9b849174-14d9-463a-94ba-237d36b05925.jpg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\c69e41c3-934f-4156-b4e5-8343bc72667f.webp",
+      "PackagePath": "staticwebassets\\uploads\\c69e41c3-934f-4156-b4e5-8343bc72667f.webp"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\b25986c1-e14d-4271-99bb-d06a45e6d92a.webp",
-      "PackagePath": "staticwebassets\\uploads\\b25986c1-e14d-4271-99bb-d06a45e6d92a.webp"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\d4a830d3-3329-4db5-93a5-bfa5a0e58752.jpg",
+      "PackagePath": "staticwebassets\\uploads\\d4a830d3-3329-4db5-93a5-bfa5a0e58752.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\c3656c32-3dad-4b70-8cad-3e191b79af1d.webp",
-      "PackagePath": "staticwebassets\\uploads\\c3656c32-3dad-4b70-8cad-3e191b79af1d.webp"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\e9393844-507e-4ac7-8fb2-2b151a6cdb85.jpg",
+      "PackagePath": "staticwebassets\\uploads\\e9393844-507e-4ac7-8fb2-2b151a6cdb85.jpg"
     },
     {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\e31681a1-dea6-4e80-bcb0-93c8843f5f0b.webp",
-      "PackagePath": "staticwebassets\\uploads\\e31681a1-dea6-4e80-bcb0-93c8843f5f0b.webp"
-    },
-    {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\e6513525-6915-480c-9d57-73dba416ea34.jpg",
-      "PackagePath": "staticwebassets\\uploads\\e6513525-6915-480c-9d57-73dba416ea34.jpg"
-    },
-    {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\ee564e5d-524f-42ac-8e4d-9a5f5220def7.jpeg",
-      "PackagePath": "staticwebassets\\uploads\\ee564e5d-524f-42ac-8e4d-9a5f5220def7.jpeg"
-    },
-    {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\fc49d76e-aba7-4d99-8251-43e05cf75bdc.jpg",
-      "PackagePath": "staticwebassets\\uploads\\fc49d76e-aba7-4d99-8251-43e05cf75bdc.jpg"
-    },
-    {
-      "Id": "C:\\Users\\UT010025\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\fead73c8-e128-4c63-8a98-cbb33052e311.jpg",
-      "PackagePath": "staticwebassets\\uploads\\fead73c8-e128-4c63-8a98-cbb33052e311.jpg"
+      "Id": "C:\\Users\\UT010025\\Desktop\\New folder\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\wwwroot\\uploads\\ea95bb85-e444-4e51-b49d-26e535766ead.jpeg",
+      "PackagePath": "staticwebassets\\uploads\\ea95bb85-e444-4e51-b49d-26e535766ead.jpeg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.car_rental_Unicom.tic.props",

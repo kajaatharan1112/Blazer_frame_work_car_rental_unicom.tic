@@ -1,0 +1,76 @@
+﻿@model List<car_rental_Unicom.tic.Vew_modal.home_view_modal>
+
+@{
+    ViewData["Title"] = "Bookings List";
+}
+
+<h2>Bookings List</h2>
+
+<!-- Booking Status Filter -->
+<div class="mb-3">
+    <label for="statusFilter" class="form-label">Filter by Booking Status:</label>
+    <select id="statusFilter" class="form-select" onchange="filterBookings()">
+        <option value="">-- All --</option>
+        <option value="active">Active</option>
+        <option value="booking_checkout">Booking Checkout</option>
+        <option value="check_in">Check In</option>
+    </select>
+</div>
+
+<table class="table table-bordered table-striped" id="bookingTable">
+    <thead class="table-primary">
+        <tr>
+            <th>License Number</th>
+            <th>Name</th>
+            <th>Start Date</th>
+            <th>Days</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr data-status="@booking.boking_status.ToLower()">
+                <td>@booking.licence_number</td>
+                <td>@booking.name</td>
+                <td>@booking.start_date</td>
+                <td>@booking.dayes</td>
+                <td>@booking.boking_status</td>
+                <td>
+                    <!-- Form for Submit button -->
+                    <form asp-action="YourSubmitAction" method="post" style="display:inline;">
+                        <input type="hidden" name="bookingId" value="@booking.booking_id" />
+                        <input type="hidden" name="carId" value="@booking.car_id" />
+                        <input type="hidden" name="userId" value="@booking.user_id" />
+                        <button type="submit" class="btn btn-sm btn-primary me-1">Submit</button>
+                    </form>
+
+                    <!-- View button as a link or form -->
+                    <form asp-action="ViewCar" method="get" style="display:inline;">
+                        <input type="hidden" name="carId" value="@booking.car_id" />
+                        <button type="submit" class="btn btn-sm btn-info">View</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        function filterBookings() {
+            var selectedStatus = document.getElementById('statusFilter').value.toLowerCase();
+            var rows = document.querySelectorAll('#bookingTable tbody tr');
+
+            rows.forEach(function (row) {
+                var status = row.getAttribute('data-status');
+                if (!selectedStatus || status === selectedStatus) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+}
