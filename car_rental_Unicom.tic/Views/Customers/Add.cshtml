@@ -1,0 +1,99 @@
+﻿@model car_rental_Unicom.tic.Vew_modal.Customers_vew_modal
+
+@{
+    ViewData["Title"] = "Add Customer";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Add New Customer</h2>   
+    <!-- 🟢 Customer Creation Form -->
+    <form asp-action="Add" method="post" class="card p-4 shadow">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">பெயர் (Name)</label>
+                <input asp-for="Name" class="form-control" required />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">தொடர்பு எண் (Contact No)</label>
+                <input asp-for="contactNo" class="form-control" required />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">வயது (Age)</label>
+                <input asp-for="Age" class="form-control" required />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">பாலினம் (Gender)</label>
+                <input asp-for="Gender" class="form-control" required />
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">மின்னஞ்சல் (Email)</label>
+                <input asp-for="Email" class="form-control" required />
+            </div>
+        </div>
+        <!-- Username/Password popup trigger -->
+        <div class="mb-3">
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#userModal">
+                Create Username & Password
+            </button>
+        </div>
+        <!-- Hidden fields for username/password/role -->
+        <input type="hidden" asp-for="UserName" id="hiddenUserName" />
+        <input type="hidden" asp-for="password" id="hiddenPassword" />
+        <input type="hidden" asp-for="Role" id="hiddenRole" />
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success">(Add)</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<!-- 🟢 Username/Password Modal -->
+<div class="modal fade" id="userModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="userForm" onsubmit="setUserFields(); return false;">
+                <div class="modal-header">
+                    <h5 class="modal-title">பயனர் பெயர் மற்றும் கடவுச்சொல் (Username & Password)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label class="form-label">பயனர் பெயர் (Username)</label>
+                        <input type="text" id="modalUserName" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">கடவுச்சொல் (Password)</label>
+                        <input type="text" id="modalPassword" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">பங்கு (Role)</label>
+                        <input type="text" id="modalRole" class="form-control" value="Customer" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">சேர் (Add)</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Username/Password-ஐ main form-க்கு set செய்யும் function
+        function setUserFields() {
+            $('#hiddenUserName').val($('#modalUserName').val());
+            $('#hiddenPassword').val($('#modalPassword').val());
+            $('#hiddenRole').val($('#modalRole').val());
+            var modal = bootstrap.Modal.getInstance(document.getElementById('userModal'));
+            modal.hide();
+        }
+    </script>
+}

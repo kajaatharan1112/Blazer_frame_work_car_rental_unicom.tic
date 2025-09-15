@@ -1,0 +1,213 @@
+﻿@model List<car_rental_Unicom.tic.Vew_modal.Customers_vew_modal>
+
+@{
+    ViewData["Title"] = "Customer List";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+<div class="container mt-5">
+    <h2 class="mb-4">👤 வாடிக்கையாளர் பட்டியல் (Customer List)</h2>
+
+    <!-- 🟢 வாடிக்கையாளர் சேர்க்கும் பொத்தான் -->
+    <div class="mb-3">
+        <a asp-action="Add" class="btn btn-success">வாடிக்கையாளர் சேர்க்கவும் (Add Customer)</a>
+    </div>
+
+    <!-- 🟢 வாடிக்கையாளர் பட்டியல் அட்டவணை -->
+    <table class="table table-bordered table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th>பெயர் (Name)</th>
+                <th>தொடர்பு எண் (Contact No)</th>
+                <th>வயது (Age)</th>
+                <th>பாலினம் (Gender)</th>
+                <th>மின்னஞ்சல் (Email)</th>
+                <th>பயனர் பெயர் (Username)</th>
+                <th>செயல்கள் (Actions)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.Name</td>
+                    <td>@c.contactNo</td>
+                    <td>@c.Age</td>
+                    <td>@c.Gender</td>
+                    <td>@c.Email</td>
+                    <td>
+                        @if (string.IsNullOrEmpty(c.UserName))
+                        {
+                            <!-- 🟢 Username சேர்க்கும் பொத்தான் -->
+                            <button class="btn btn-sm btn-info" onclick="showAddUsername('@c.Id')">பயனர் பெயர் சேர்க்கவும் (Add Username)</button>
+                        }
+                        else
+                        {
+                            @c.UserName
+                        }
+                    </td>
+                    <td>
+                        <!-- 🟡 திருத்தும் பொத்தான் -->
+                        <button class="btn btn-warning btn-sm me-1" onclick="showEditModal(@Html.Raw(System.Text.Json.JsonSerializer.Serialize(c)))">திருத்து (Edit)</button>
+                        <!-- 🔴 நீக்கும் பொத்தான் -->
+                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal('@c.Id', '@c.Name')">நீக்கு (Delete)</button>
+                    </td>
+                </tr>
+            }
+            }
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- 🟡 திருத்தும் Modal (Edit Customer Modal) -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- 🟡 திருத்தும் Form -->
+            <form id="editForm" method="post" asp-action="Edit">
+                <div class="modal-header">
+                    <h5 class="modal-title">வாடிக்கையாளர் திருத்து (Edit Customer)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 🟡 திருத்தும் புலங்கள் -->
+                    <input type="hidden" name="Id" id="editId" />
+                    <div class="mb-2">
+                        <label class="form-label">பெயர் (Name)</label>
+                        <input type="text" name="Name" id="editName" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">தொடர்பு எண் (Contact No)</label>
+                        <input type="number" name="contactNo" id="editContactNo" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">வயது (Age)</label>
+                        <input type="number" name="Age" id="editAge" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">பாலினம் (Gender)</label>
+                        <input type="text" name="Gender" id="editGender" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">மின்னஞ்சல் (Email)</label>
+                        <input type="email" name="Email" id="editEmail" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">பயனர் பெயர் (Username)</label>
+                        <input type="text" name="UserName" id="editUserName" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Password</label>
+                        <input type="text" name="password" id="editPassword" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Role</label>
+                        <input type="text" name="Role" id="editRole" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">சேமி (Save)</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ரத்து (Cancel)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 🔴 Delete Customer Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- 🔴 Delete Form -->
+            <form id="deleteForm" method="post" asp-action="Delete">
+                <div class="modal-header">
+                    <h5 class="modal-title">வாடிக்கையாளர் நீக்கு (Delete Customer)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="deleteId" />
+                    <p>நீக்க விரும்புகிறீர்களா <span id="deleteName"></span>?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">நீக்கு (Delete)</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ரத்து (Cancel)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- 🟢 Username சேர்க்கும் Modal (Add Username Modal) -->
+<div class="modal fade" id="addUsernameModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- 🟢 Username Form -->
+            <form id="addUsernameForm" method="post" asp-action="Edit">
+                <div class="modal-header">
+                    <h5 class="modal-title">பயனர் பெயர் சேர்க்கவும் (Add Username)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="Id" id="addUserId" />
+                    <div class="mb-2">
+                        <label class="form-label">பயனர் பெயர் (Username)</label>
+                        <input type="text" name="UserName" id="addUserName" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Password</label>
+                        <input type="text" name="password" id="addPassword" class="form-control" required />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Role</label>
+                        <input type="text" name="Role" id="addRole" class="form-control" value="Customer" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">சேர் (Add)</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ரத்து (Cancel)</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // 🟡 திருத்தும் Modal-ஐ data-வுடன் காட்டும் function
+        function showEditModal(data) {
+            $('#editId').val(data.Id);
+            $('#editName').val(data.Name);
+            $('#editContactNo').val(data.contactNo);
+            $('#editAge').val(data.Age);
+            $('#editGender').val(data.Gender);
+            $('#editEmail').val(data.Email);
+            $('#editUserName').val(data.UserName);
+            $('#editPassword').val(data.password);
+            $('#editRole').val(data.Role);
+            var modal = new bootstrap.Modal(document.getElementById('editModal'));
+            modal.show();
+        }
+
+        // 🔴 Delete Modal-ஐ data-வுடன் காட்டும் function
+        function showDeleteModal(id, name) {
+            $('#deleteId').val(id);
+            $('#deleteName').text(name);
+            var modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+            modal.show();
+        }
+
+        // 🟢 Username Modal-ஐ data-வுடன் காட்டும் function
+        function showAddUsername(id) {
+            $('#addUserId').val(id);
+            $('#addUserName').val('');
+            $('#addPassword').val('');
+            $('#addRole').val('Customer');
+            var modal = new bootstrap.Modal(document.getElementById('addUsernameModal'));
+            modal.show();
+        }
+    </script>
+}
