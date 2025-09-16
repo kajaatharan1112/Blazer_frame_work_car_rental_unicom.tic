@@ -19,6 +19,104 @@ namespace car_rental_Unicom.tic.Controllers
             this.dbContext = dbContext;
         }
 
+
+        // 🟢 View Staff Details by Session ID
+        public async Task<IActionResult> profil()
+        {
+            var id = Sacation.id; // Get the staff ID from the static session class
+
+            var staff = await dbContext.Staffs.FindAsync(id);
+            if (staff == null)
+                return NotFound();
+
+            var user = await dbContext.Users.FindAsync(id);
+
+            var vm = new Staff_vew_modal
+            {
+                Id = staff.id,
+                Name = staff.name,
+                ContactNo = staff.ContactNo,
+                Age = staff.Age,
+                Gender = staff.Gender,
+                Email = staff.Email,
+                UserName = user?.UserName,
+                Password = user?.password
+            };
+
+            return View(vm);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit_profil(Guid id)
+        {
+            var staff = await dbContext.Staffs.FindAsync(id);
+            if (staff == null)
+                return NotFound();
+
+            var user = await dbContext.Users.FindAsync(id);
+
+            var vm = new Staff_vew_modal
+            {
+                Id = staff.id,
+                Name = staff.name,
+                ContactNo = staff.ContactNo,
+                Age = staff.Age,
+                Gender = staff.Gender,
+                Email = staff.Email,
+                UserName = user?.UserName,
+                Password = user?.password
+            };
+
+            return View(vm);
+        }
+
+        // 🟡 Edit Staff (POST)
+        [HttpPost]
+        public async Task<IActionResult> Edit_profil(Staff_vew_modal vm, string NewPassword, string ConfirmPassword)
+        {
+            var staff = await dbContext.Staffs.FindAsync(vm.Id);
+            if (staff == null)
+                return NotFound();
+
+            var user = await dbContext.Users.FindAsync(vm.Id);
+            if (user == null)
+                return NotFound();
+
+            if (!string.IsNullOrEmpty(NewPassword) && NewPassword == ConfirmPassword)
+            {
+                user.password = NewPassword;
+            }
+
+            staff.name = vm.Name;
+            staff.ContactNo = vm.ContactNo;
+            staff.Age = vm.Age;
+            staff.Gender = vm.Gender;
+            staff.Email = vm.Email;
+
+            user.Name = vm.Name;
+            user.UserName = vm.UserName;
+
+            await dbContext.SaveChangesAsync();
+
+            return RedirectToAction("profil");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete_profil(Guid id)
+        {
+            var staff = await dbContext.Staffs.FindAsync(id);
+            var user = await dbContext.Users.FindAsync(id);
+
+            if (staff != null)
+                dbContext.Staffs.Remove(staff);
+
+            if (user != null)
+                dbContext.Users.Remove(user);
+
+            await dbContext.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         // 🟢 View All Staff
         public async Task<IActionResult> Index()
         {
@@ -44,29 +142,7 @@ namespace car_rental_Unicom.tic.Controllers
             return View(viewModels);
         }
 
-        // 🟢 View Staff Details by ID
-        public async Task<IActionResult> Details(Guid id)
-        {
-            var staff = await dbContext.Staffs.FindAsync(id);
-            if (staff == null)
-                return NotFound();
-
-            var user = await dbContext.Users.FindAsync(id);
-
-            var vm = new Staff_vew_modal
-            {
-                Id = staff.id,
-                Name = staff.name,
-                ContactNo = staff.ContactNo,
-                Age = staff.Age,
-                Gender = staff.Gender,
-                Email = staff.Email,
-                UserName = user?.UserName,
-                Password = user?.password
-            };
-
-            return View(vm);
-        }
+       
 
         // 🟢 Add Staff (GET)
         [HttpGet]

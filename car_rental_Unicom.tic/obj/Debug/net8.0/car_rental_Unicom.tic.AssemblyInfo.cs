@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("car_rental_Unicom.tic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3378a0b5b2adb91c20372cd5092b6deec3d34e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c854a9944a1b3eccb7fe4a0ffe913ce08ecd9e7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("car_rental_Unicom.tic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("car_rental_Unicom.tic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,56 +4,308 @@
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+        :root {
+                --primary-color: #0056b3;
+                --secondary-color: #1f2a40;
+                --light-gray: #f8f9fa;
+                --text-dark: #343a40;
+                --text-light: #6c757d;
+                --success-color: #198754;
+                --danger-color: #dc3545;
+
+    }
+
+        body {
+                font-family: 'Poppins', sans-serif;
+                background-color: #ffffff;
+                color: var(--text-dark);
+
+    }
+
+        .hero-banner {
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop');
+                background-size: cover;
+                background-position: center;
+                padding: 30px 30px; /* Reduced top/bottom padding */
+                border-radius: 20px;
+                margin-bottom: 20px; /* Reduced bottom margin */
+                text-align: center;
+                color: white;
+
+    }
+
+            .hero-banner h1 {
+                    font-weight: 700;
+                    font-size: 3rem;
+
+    }
+
+            .hero-banner p {
+                    font-size: 1.25rem;
+                    max-width: 600px;
+                    margin: 15px auto 0;
+
+    }
+
+        .section-title {
+                font-weight: 600;
+                color: var(--secondary-color);
+                margin-bottom: 25px;
+
+    }
+
+        .card {
+                border: 1px solid #e9ecef;
+                border-radius: 15px;
+                overflow: hidden;
+                transition: transform 0.3s, box-shadow 0.3s;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    }
+
+            .card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.1);
+
+    }
+
+        .card-img-container {
+                position: relative;
+
+    }
+
+        .card-img-top {
+                height: 220px;
+                object-fit: cover;
+
+    }
+
+
+    /* Status Badge for Available/Unavailable */
+        .status-badge {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                padding: 5px 12px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                border-radius: 50px;
+                color: white;
+
+    }
+
+                .status-badge.available {
+                        background-color: var(--success-color);
+
+        }
+
+                .status-badge.unavailable {
+                        background-color: var(--danger-color);
+
+        }
+
+        .card-body {
+                padding: 25px;
+
+    }
+
+        .card-title {
+                font-weight: 600;
+                font-size: 1.3rem;
+                color: var(--secondary-color);
+
+    }
+
+        .card-text-specs {
+                color: var(--text-light);
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+
+    }
+
+        .btn-primary {
+                background-color: var(--primary-color);
+                border-color: var(--primary-color);
+                border-radius: 50px;
+                padding: 10px 25px;
+                font-weight: 500;
+                transition: background-color 0.3s;
+
+    }
+
+            .btn-primary:hover {
+                    background-color: #004494;
+
+    }
+
+            .btn-primary:disabled {
+                    background-color: #6c757d;
+                    border-color: #6c757d;
+                    cursor: not-allowed;
+
+    }
+
+
+    /* Modal Styling */
+        .modal-dialog {
+                max-width: 750px; /* Reduced fixed size */
+
+    }
+
+        .modal-content {
+                border-radius: 15px;
+
+    }
+
+        .modal-header {
+                border-bottom: 1px solid #dee2e6;
+
+    }
+
+        .modal-title {
+                color: var(--secondary-color);
+                font-weight: 700;
+
+    }
+
+        .carousel-inner img {
+                height: 350px;
+                object-fit: cover;
+                border-radius: 10px;
+
+    }
+
+        .details-list .list-group-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 12px 0;
+                border-color: #e9ecef;
+
+    }
+
+        .details-list .label {
+                color: var(--text-light);
+
+    }
+
+        .details-list .value {
+                font-weight: 500;
+                color: var(--text-dark);
+
+    }
+</style>
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Available Cars</h2>
-        <!-- View My Bookings Button -->
-        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#myBookingsModal">View My Bookings</button>
+
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="section-title"><i class="fas fa-list-ul me-2"></i> Our Fleet</h2>
+        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myBookingsModal">
+            <i class="fas fa-receipt me-2"></i> My Bookings
+        </button>
+    </div>
+
+    <div class="hero-banner">
+        <h1 id="greeting-title"><i class="fas fa-car-on me-2"></i> Find Your Perfect Ride!</h1>
+        <p id="greeting-message">Your next adventure awaits. Explore our premium range of available cars.</p>
     </div>
 
     <div class="row">
-        @foreach (var car in Model)
+        @foreach (var car in Model.OrderBy(c => c.car_status != "Available"))
         {
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="@car.image_path" class="card-img-top" alt="@car.Car_modalName" style="height:200px;object-fit:cover;" />
-                    <div class="card-body">
+            var isAvailable = car.car_status.Equals("Available", StringComparison.OrdinalIgnoreCase);
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-img-container">
+                        <img src="@car.image_path.Split(',').FirstOrDefault()" class="card-img-top" alt="@car.Car_modalName" />
+                        @if (isAvailable)
+                        {
+                            <div class="status-badge available">
+                                <i class="fas fa-check-circle me-1"></i> Available
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="status-badge unavailable">
+                                <i class="fas fa-times-circle me-1"></i> Unavailable
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@car.Car_modalName (@car.year)</h5>
-                        <p class="card-text">Number Plate: @car.number_plact<br />AC: @car.ac<br />Top Speed: @car.top_speed</p>
-                        <!-- View Car Profile Button -->
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#carModal-@car.CarId">View</button>
+                        <p class="card-text-specs">
+                            <i class="fas fa-hashtag fa-fw"></i> @car.number_plact
+                        </p>
+                        <div class="mt-auto">
+                            <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#carModal-@car.CarId" @(isAvailable ? "" : "disabled")>
+                                <i class="fas fa-eye me-1"></i> @(isAvailable ? "View Details" : "Currently Booked")
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Car Profile Modal -->
-            <div class="modal fade" id="carModal-@car.CarId" tabindex="-1" aria-labelledby="carModalLabel-@car.CarId" aria-hidden="true">
-                <div class="modal-dialog">
+            <div class="modal fade" id="carModal-@car.CarId" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="carModalLabel-@car.CarId">@car.Car_modalName - Profile</h5>
+                            <h5 class="modal-title">
+                                <i class="fas fa-car-side me-2"></i> @car.Car_modalName
+                            </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <img src="@car.image_path" class="img-fluid mb-2" alt="@car.Car_modalName" />
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Year: @car.year</li>
-                                <li class="list-group-item">Number Plate: @car.number_plact</li>
-                                <li class="list-group-item">AC: @car.ac</li>
-                                <li class="list-group-item">Top Speed: @car.top_speed</li>
-                                <li class="list-group-item">Gear System: @car.Gear_System</li>
-                                <li class="list-group-item">Milage: @car.milage</li>
-                                <li class="list-group-item">Status: @car.car_status</li>
-                                <li class="list-group-item">Maintenance Charge: @car.MaintenanceCharge</li>
-                                <li class="list-group-item">Rent Per Day: @car.RentPerDay</li>
-                            </ul>
+                            @{
+                                var images = car.image_path.Split(',');
+                            }
+                            @if (images.Length > 0)
+                            {
+                                <div id="carousel-@car.CarId" class="carousel slide mb-4" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        @for (int i = 0; i < images.Length; i++)
+                                        {
+                                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                                <img src="@images[i]" class="d-block w-100" alt="Image @(i + 1)">
+                                            </div>
+                                        }
+                                    </div>
+                                    @if (images.Length > 1)
+                                    {
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-@car.CarId" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-@car.CarId" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        </button>
+                                    }
+                                </div>
+                            }
+
+                            <div class="details-list">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><span class="label"><i class="fas fa-calendar-alt fa-fw me-2"></i>Year</span> <span class="value">@car.year</span></li>
+                                    <li class="list-group-item"><span class="label"><i class="fas fa-id-card fa-fw me-2"></i>Number Plate</span> <span class="value">@car.number_plact</span></li>
+                                    <li class="list-group-item"><span class="label"><i class="fas fa-wind fa-fw me-2"></i>Air Conditioning</span> <span class="value">@car.ac</span></li>
+                                    <li class="list-group-item"><span class="label"><i class="fas fa-tachometer-alt fa-fw me-2"></i>Top Speed</span> <span class="value">@car.top_speed</span></li>
+                                    <li class="list-group-item"><span class="label"><i class="fas fa-cogs fa-fw me-2"></i>Gear System</span> <span class="value">@car.Gear_System</span></li>
+                                    <li class="list-group-item"><span class="label"><i class="fas fa-road fa-fw me-2"></i>Mileage</span> <span class="value">@car.milage</span></li>
+                                    <li class="list-group-item"><span class="label"><i class="fas fa-dollar-sign fa-fw me-2"></i>Rent Per Day</span> <span class="value font-weight-bold">@car.RentPerDay</span></li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <!-- Book Button: returns car id to controller -->
                             <form asp-action="AddBooking" method="get">
                                 <input type="hidden" name="carId" value="@car.CarId" />
-                                <button type="submit" class="btn btn-success">Book</button>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-check-circle me-2"></i> Book This Car
+                                </button>
                             </form>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
@@ -64,17 +316,15 @@
     </div>
 </div>
 
-<!-- My Bookings Modal -->
-<div class="modal fade" id="myBookingsModal" tabindex="-1" aria-labelledby="myBookingsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="myBookingsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="myBookingsModalLabel">My Bookings</h5>
+                <h5 class="modal-title"><i class="fas fa-receipt me-2"></i> My Bookings</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div id="bookingsContent">
-                    <!-- Bookings will be loaded here via AJAX -->
+                <div id="bookingsContent" class="text-center">
                 </div>
             </div>
         </div>
@@ -83,21 +333,49 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Load bookings when modal is opened
-    document.getElementById('myBookingsModal').addEventListener('show.bs.modal', function () {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Random Greeting Messages
+        const greetings = [
+            { title: 'Your Journey Starts Here!', message: 'Find the perfect car for your next road trip.' },
+            { title: 'Drive in Style!', message: 'Explore our fleet and book your favorite model today.' },
+            { title: 'Welcome to Premium Rentals!', message: 'Quality cars for unforgettable adventures.' }
+        ];
+        const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
+        document.getElementById('greeting-title').innerHTML = `<i class="fas fa-car-on me-2"></i> ${randomGreeting.title}`;
+        document.getElementById('greeting-message').textContent = randomGreeting.message;
+    });
+
+    // Load bookings via AJAX
+    document.getElementById('myBookingsModal').addEventListener('show.bs.modal', function() {
+        const bookingsContent = document.getElementById('bookingsContent');
+        bookingsContent.innerHTML = `<div class="text-center p-4"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Loading your bookings...</p></div>`;
+
         fetch('@Url.Action("ViewBooking", "Home")')
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.text();
+            })
             .then(html => {
-                document.getElementById('bookingsContent').innerHTML = html;
+                bookingsContent.innerHTML = html;
+            })
+            .catch(error => {
+                bookingsContent.innerHTML = `<div class="alert alert-danger"><i class="fas fa-exclamation-triangle me-2"></i> Failed to load bookings. Please try again later.</div>`;
             });
     });
+
     // Delete booking function (AJAX)
     function deleteBooking(bookingId) {
         if (confirm('Are you sure you want to delete this booking?')) {
+            const bookingsContent = document.getElementById('bookingsContent');
+
             fetch('@Url.Action("DeleteBooking", "Home")?bookingId=' + bookingId, { method: 'POST' })
                 .then(response => response.text())
                 .then(html => {
-                    document.getElementById('bookingsContent').innerHTML = html;
+                    // Refresh the list after deletion
+                    bookingsContent.innerHTML = html;
+                })
+                .catch(error => {
+                    alert('An error occurred. Could not delete booking.');
                 });
         }
     }

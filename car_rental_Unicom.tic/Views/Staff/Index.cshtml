@@ -1,0 +1,76 @@
+﻿@model IEnumerable<car_rental_Unicom.tic.Vew_modal.Staff_vew_modal>
+
+@{
+    ViewData["Title"] = "Staff Management";
+}
+
+<h1>Staff Management</h1>
+
+<!-- Add Staff Button -->
+<a asp-action="Add" class="btn btn-primary mb-3">Add Staff</a>
+
+<!-- Staff Table -->
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact No</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var staff in Model)
+        {
+            <tr>
+                <td>@staff.Name</td>
+                <td>@staff.ContactNo</td>
+                <td>@staff.Age</td>
+                <td>@staff.Gender</td>
+                <td>@staff.Email</td>
+                <td>@staff.UserName</td>
+                <td>
+                    <!-- Edit Button -->
+                    <a asp-action="Edit" asp-route-id="@staff.Id" class="btn btn-warning btn-sm">Edit</a>
+
+                    <!-- Delete Button -->
+                    <form asp-action="Delete" asp-route-id="@staff.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        // Real-time Username Check
+        function checkUsername() {
+            const usernameInput = document.getElementById("username");
+            const feedback = document.getElementById("usernameFeedback");
+
+            usernameInput.addEventListener("input", function () {
+                const username = usernameInput.value;
+
+                fetch(`/Staff/IsUserNameUnique?username=${username}`)
+                    .then(response => response.json())
+                    .then(isUnique => {
+                        if (isUnique) {
+                            feedback.textContent = "Username is available.";
+                            feedback.style.color = "green";
+                        } else {
+                            feedback.textContent = "Username is already taken.";
+                            feedback.style.color = "red";
+                        }
+                    });
+            });
+        }
+
+        // Initialize the username check when the page loads
+        document.addEventListener("DOMContentLoaded", checkUsername);
+    </script>
+}
