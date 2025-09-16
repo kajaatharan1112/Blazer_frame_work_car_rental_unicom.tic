@@ -1,5 +1,6 @@
 ﻿using car_rental_Unicom.tic.Data.YourNamespace;
 using car_rental_Unicom.tic.Models;
+using car_rental_Unicom.tic.Vew_modal;
 using car_rental_Unicom.tic.View_modal; // ✅ spelling correct
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -60,6 +61,52 @@ namespace car_rental_Unicom.tic.Controllers
             }
 
             return View(model);
+        }
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        // 🟢 Customer-ஐ Add செய்யும் POST function
+        [HttpPost]
+        public async Task<IActionResult> Add(Customers_vew_modal vm)
+        {
+            // Check if the username is unique
+            if (dbContext.Users.Any(u => u.UserName == vm.UserName))
+            {
+                ModelState.AddModelError("UserName", "This username is already taken.");
+                return View(vm);
+            }
+
+            // Create a new customer and save it to the database
+            var customer = new Customers_modal
+            {
+                Id = Guid.NewGuid(), // Generate a new unique ID for the customer
+                Name = vm.Name,
+                contactNo = vm.contactNo,
+                Age = vm.Age,
+                Gender = vm.Gender,
+                Email = vm.Email
+            };
+
+            dbContext.Customers.Add(customer);
+            await dbContext.SaveChangesAsync(); // Save the customer to generate the ID
+
+            // Use the generated customer ID to create a user
+            var user = new Users_Modalcs
+            {
+                Id = customer.Id, // Use the same ID as the customer
+                Name = vm.Name,
+                Role = "Customer",
+                UserName = vm.UserName,
+                password = vm.password
+            };
+
+            dbContext.Users.Add(user);
+            await dbContext.SaveChangesAsync(); // Save the user
+
+            return RedirectToAction("Login");
         }
     }
 }

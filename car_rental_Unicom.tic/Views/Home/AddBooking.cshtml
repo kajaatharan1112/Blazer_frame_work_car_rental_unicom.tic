@@ -59,7 +59,7 @@
                     </div>
 
                     <!-- Booking Form -->
-                    <form asp-action="AddBooking" method="post">
+                    <form asp-action="AddBooking" method="post" id="bookingForm">
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                         <input type="hidden" asp-for="CarId" />
@@ -88,12 +88,86 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-success">Book Now</button>
+                            <button type="submit" class="btn btn-success" id="bookNowBtn">Book Now</button>
                             <a asp-action="Index" class="btn btn-secondary">Cancel</a>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dummy Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="paymentForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="paymentModalLabel">Payment & Booking Summary</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Booking Summary -->
+                    <div class="mb-3">
+                        <h6>Booking Details</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Car:</strong> <span id="summaryCar"></span></li>
+                            <li class="list-group-item"><strong>License Number:</strong> <span id="summaryLicense"></span></li>
+                            <li class="list-group-item"><strong>Start Date:</strong> <span id="summaryStart"></span></li>
+                            <li class="list-group-item"><strong>Days:</strong> <span id="summaryDays"></span></li>
+                            <li class="list-group-item"><strong>Rent Per Day:</strong> <span id="summaryRent"></span></li>
+                        </ul>
+                    </div>
+                    <hr />
+                    <!-- Dummy Payment Fields -->
+                    <div class="mb-3">
+                        <label class="form-label">Payment Method</label>
+                        <select class="form-select" id="paymentMethod" required>
+                            <option value="">Select</option>
+                            <option value="card">Credit/Debit Card</option>
+                            <option value="upi">UPI</option>
+                            <option value="netbanking">Net Banking</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a payment method.</div>
+                    </div>
+                    <div id="cardFields" style="display:none;">
+                        <div class="mb-2">
+                            <label class="form-label">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" maxlength="16" pattern="\d{16}" />
+                            <div class="invalid-feedback">Enter a valid 16-digit card number.</div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Expiry (MM/YY)</label>
+                            <input type="text" class="form-control" id="cardExpiry" maxlength="5" placeholder="MM/YY" pattern="\d{2}/\d{2}" />
+                            <div class="invalid-feedback">Enter expiry as MM/YY.</div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">CVV</label>
+                            <input type="password" class="form-control" id="cardCVV" maxlength="3" pattern="\d{3}" />
+                            <div class="invalid-feedback">Enter a valid 3-digit CVV.</div>
+                        </div>
+                    </div>
+                    <div id="upiFields" style="display:none;">
+                        <div class="mb-2">
+                            <label class="form-label">UPI ID</label>
+                            <input type="text" class="form-control" id="upiId" placeholder="example@upi" />
+                            <div class="invalid-feedback">Enter a valid UPI ID.</div>
+                        </div>
+                    </div>
+                    <div id="netbankingFields" style="display:none;">
+                        <div class="mb-2">
+                            <label class="form-label">Bank Name</label>
+                            <input type="text" class="form-control" id="bankName" />
+                            <div class="invalid-feedback">Enter your bank name.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Confirm Booking</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

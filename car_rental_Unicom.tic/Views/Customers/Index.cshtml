@@ -13,7 +13,7 @@
 
     <!-- 🟢 வாடிக்கையாளர் சேர்க்கும் பொத்தான் -->
     <div class="mb-3">
-        <a asp-action="Add" class="btn btn-success">வாடிக்கையாளர் சேர்க்கவும் (Add Customer)</a>
+        <a asp-action="Add" class="btn btn-success"> (Add Customer)</a>
     </div>
 
     <!-- 🟢 வாடிக்கையாளர் பட்டியல் அட்டவணை -->
@@ -50,9 +50,7 @@
                         }
                     </td>
                     <td>
-                        <!-- 🟡 திருத்தும் பொத்தான் -->
-                        <button class="btn btn-warning btn-sm me-1" onclick="showEditModal(@Html.Raw(System.Text.Json.JsonSerializer.Serialize(c)))">திருத்து (Edit)</button>
-                        <!-- 🔴 நீக்கும் பொத்தான் -->
+                        <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-warning btn-sm me-1">Edit</a>
                         <button class="btn btn-danger btn-sm" onclick="showDeleteModal('@c.Id', '@c.Name')">நீக்கு (Delete)</button>
                     </td>
                 </tr>

@@ -39,7 +39,7 @@ namespace car_rental_Unicom.tic.Controllers
                     Email = c.Email,
                     UserName = user?.UserName,
                     password = user?.password,
-                    Role = user?.Role
+
                 };
             }).ToList();
 
@@ -65,7 +65,6 @@ namespace car_rental_Unicom.tic.Controllers
                 Email = customer.Email,
                 UserName = user?.UserName,
                 password = user?.password,
-                Role = user?.Role
             };
 
             return View(vm);
@@ -82,16 +81,17 @@ namespace car_rental_Unicom.tic.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(Customers_vew_modal vm)
         {
-            // Username unique-ஆ இருக்க check செய்கிறது
+            // Check if the username is unique
             if (dbContext.Users.Any(u => u.UserName == vm.UserName))
             {
-                ModelState.AddModelError("UserName", "இந்த UserName ஏற்கனவே உள்ளது.");
+                ModelState.AddModelError("UserName", "This username is already taken.");
                 return View(vm);
             }
 
+            // Create a new customer and save it to the database
             var customer = new Customers_modal
             {
-                Id = Guid.NewGuid(),
+                Id = Guid.NewGuid(), // Generate a new unique ID for the customer
                 Name = vm.Name,
                 contactNo = vm.contactNo,
                 Age = vm.Age,
@@ -99,18 +99,21 @@ namespace car_rental_Unicom.tic.Controllers
                 Email = vm.Email
             };
 
+            dbContext.Customers.Add(customer);
+            await dbContext.SaveChangesAsync(); // Save the customer to generate the ID
+
+            // Use the generated customer ID to create a user
             var user = new Users_Modalcs
             {
-                Id = customer.Id,
+                Id = customer.Id, // Use the same ID as the customer
                 Name = vm.Name,
-                Role ="Customer",
+                Role = "Customer",
                 UserName = vm.UserName,
                 password = vm.password
             };
 
-            dbContext.Customers.Add(customer);
             dbContext.Users.Add(user);
-            await dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync(); // Save the user
 
             return RedirectToAction("Index");
         }
@@ -135,7 +138,7 @@ namespace car_rental_Unicom.tic.Controllers
                 Email = customer.Email,
                 UserName = user?.UserName,
                 password = user?.password,
-                Role = user?.Role
+          
             };
 
             return View(vm);
@@ -143,7 +146,7 @@ namespace car_rental_Unicom.tic.Controllers
 
         // 🟡 Customer-ஐ Edit செய்யும் POST function
         [HttpPost]
-        public async Task<IActionResult> Edit(Customers_vew_modal vm)
+        public async Task<IActionResult> Edit(Customers_vew_modal vm, string NewPassword, string ConfirmPassword)
         {
             var customer = await dbContext.Customers.FindAsync(vm.Id);
             if (customer == null)
@@ -153,25 +156,22 @@ namespace car_rental_Unicom.tic.Controllers
             if (user == null)
                 return NotFound();
 
-            // Username unique-ஆ இருக்க check செய்கிறது (except current user)
-            if (dbContext.Users.Any(u => u.UserName == vm.UserName && u.Id != vm.Id))
+            // Check if the new password matches the confirm password
+            if (!string.IsNullOrEmpty(NewPassword) && NewPassword == ConfirmPassword)
             {
-                ModelState.AddModelError("UserName", "இந்த UserName ஏற்கனவே உள்ளது.");
-                return View(vm);
+                user.password = NewPassword; // Update the password
             }
 
-            // Update customer
+            // Update customer details
             customer.Name = vm.Name;
             customer.contactNo = vm.contactNo;
             customer.Age = vm.Age;
             customer.Gender = vm.Gender;
             customer.Email = vm.Email;
 
-            // Update user
+            // Update user details
             user.Name = vm.Name;
-            user.Role = vm.Role ?? "Customer";
             user.UserName = vm.UserName;
-            user.password = vm.password;
 
             await dbContext.SaveChangesAsync();
 
