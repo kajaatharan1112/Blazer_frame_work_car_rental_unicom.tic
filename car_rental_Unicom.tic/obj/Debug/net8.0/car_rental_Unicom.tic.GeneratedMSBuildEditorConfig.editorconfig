@@ -36,6 +36,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYm9va2luZ1xib29raW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kajaa/OneDrive/Desktop/clone/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/booking/chack_out.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYm9va2luZ1xjaGFja19vdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kajaa/OneDrive/Desktop/clone/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/booking/ViewCar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYm9va2luZ1xWaWV3Q2FyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,8 +64,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/kajaa/OneDrive/Desktop/clone/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Customers/Edit_profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEVkaXRfcHJvZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/kajaa/OneDrive/Desktop/clone/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Customers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/kajaa/OneDrive/Desktop/clone/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Customers/profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VzdG9tZXJzXHByb2ZpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/kajaa/OneDrive/Desktop/clone/Blazer_frame_work_car_rental_unicom.tic/car_rental_Unicom.tic/Views/Home/AddBooking.cshtml]

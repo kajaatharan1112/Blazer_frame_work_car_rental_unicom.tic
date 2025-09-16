@@ -9,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 
 <div class="container mt-5">
-    <h2 class="mb-4">👤 வாடிக்கையாளர் பட்டியல் (Customer List)</h2>
+    <h2 class="mb-4">👤 (Customer List)</h2>
 
     <!-- 🟢 வாடிக்கையாளர் சேர்க்கும் பொத்தான் -->
     <div class="mb-3">
@@ -20,13 +20,13 @@
     <table class="table table-bordered table-hover">
         <thead class="table-primary">
             <tr>
-                <th>பெயர் (Name)</th>
-                <th>தொடர்பு எண் (Contact No)</th>
-                <th>வயது (Age)</th>
-                <th>பாலினம் (Gender)</th>
-                <th>மின்னஞ்சல் (Email)</th>
-                <th>பயனர் பெயர் (Username)</th>
-                <th>செயல்கள் (Actions)</th>
+                <th>(Name)</th>
+                <th> (Contact No)</th>
+                <th>(Age)</th>
+                <th>(Gender)</th>
+                <th>(Email)</th>
+                <th>(Username)</th>
+                <th>(Actions)</th>
             </tr>
         </thead>
         <tbody>
@@ -42,7 +42,7 @@
                         @if (string.IsNullOrEmpty(c.UserName))
                         {
                             <!-- 🟢 Username சேர்க்கும் பொத்தான் -->
-                            <button class="btn btn-sm btn-info" onclick="showAddUsername('@c.Id')">பயனர் பெயர் சேர்க்கவும் (Add Username)</button>
+                            <button class="btn btn-sm btn-info" onclick="showAddUsername('@c.Id')">(Add Username)</button>
                         }
                         else
                         {
@@ -51,7 +51,7 @@
                     </td>
                     <td>
                         <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-warning btn-sm me-1">Edit</a>
-                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal('@c.Id', '@c.Name')">நீக்கு (Delete)</button>
+                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal('@c.Id', '@c.Name')"> (Delete)</button>
                     </td>
                 </tr>
             }
@@ -68,34 +68,34 @@
             <!-- 🟡 திருத்தும் Form -->
             <form id="editForm" method="post" asp-action="Edit">
                 <div class="modal-header">
-                    <h5 class="modal-title">வாடிக்கையாளர் திருத்து (Edit Customer)</h5>
+                    <h5 class="modal-title">(Edit Customer)</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <!-- 🟡 திருத்தும் புலங்கள் -->
                     <input type="hidden" name="Id" id="editId" />
                     <div class="mb-2">
-                        <label class="form-label">பெயர் (Name)</label>
+                        <label class="form-label">(Name)</label>
                         <input type="text" name="Name" id="editName" class="form-control" required />
                     </div>
                     <div class="mb-2">
-                        <label class="form-label">தொடர்பு எண் (Contact No)</label>
+                        <label class="form-label"> (Contact No)</label>
                         <input type="number" name="contactNo" id="editContactNo" class="form-control" required />
                     </div>
                     <div class="mb-2">
-                        <label class="form-label">வயது (Age)</label>
+                        <label class="form-label"> (Age)</label>
                         <input type="number" name="Age" id="editAge" class="form-control" required />
                     </div>
                     <div class="mb-2">
-                        <label class="form-label">பாலினம் (Gender)</label>
+                        <label class="form-label">(Gender)</label>
                         <input type="text" name="Gender" id="editGender" class="form-control" required />
                     </div>
                     <div class="mb-2">
-                        <label class="form-label">மின்னஞ்சல் (Email)</label>
+                        <label class="form-label">(Email)</label>
                         <input type="email" name="Email" id="editEmail" class="form-control" required />
                     </div>
                     <div class="mb-2">
-                        <label class="form-label">பயனர் பெயர் (Username)</label>
+                        <label class="form-label">(Username)</label>
                         <input type="text" name="UserName" id="editUserName" class="form-control" required />
                     </div>
                     <div class="mb-2">
@@ -128,11 +128,11 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="id" id="deleteId" />
-                    <p>நீக்க விரும்புகிறீர்களா <span id="deleteName"></span>?</p>
+                    <p>if you wat to delet <span id="deleteName"></span>?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger">நீக்கு (Delete)</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ரத்து (Cancel)</button>
+                    <button type="submit" class="btn btn-danger"> (Delete)</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> (Cancel)</button>
                 </div>
             </form>
         </div>
@@ -146,13 +146,13 @@
             <!-- 🟢 Username Form -->
             <form id="addUsernameForm" method="post" asp-action="Edit">
                 <div class="modal-header">
-                    <h5 class="modal-title">பயனர் பெயர் சேர்க்கவும் (Add Username)</h5>
+                    <h5 class="modal-title">(Add Username)</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="Id" id="addUserId" />
                     <div class="mb-2">
-                        <label class="form-label">பயனர் பெயர் (Username)</label>
+                        <label class="form-label"> (Username)</label>
                         <input type="text" name="UserName" id="addUserName" class="form-control" required />
                     </div>
                     <div class="mb-2">

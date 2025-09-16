@@ -12,6 +12,25 @@ namespace car_rental_Unicom.tic.Controllers
         {
             this.dbContext = dbContext;
         }
+
+        public IActionResult chack_out()
+        {
+            var bookings = dbContext.Bookings
+                .Select(b => new home_view_modal
+                {
+                    booking_id = b.booking_id,
+                    licence_number = b.licence_number,
+                    car_id = b.car_id,
+                    user_id = b.user_id,
+                    name = b.name,
+                    start_date = b.start_date,
+                    dayes = b.dayes,
+                    boking_status = b.boking_status
+                })
+                .ToList();
+
+            return View(bookings);
+        }   
         public IActionResult booking()
         {
             var bookings = dbContext.Bookings
