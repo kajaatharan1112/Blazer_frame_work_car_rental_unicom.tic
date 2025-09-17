@@ -1,0 +1,57 @@
+﻿@model car_rental_Unicom.tic.Vew_modal.chackin_vew_modal
+
+@{
+    ViewData["Title"] = "Add Bill";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Check In & Add Bill</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="AddBill" method="post" autocomplete="off">
+                        <input type="hidden" asp-for="booking_id" />
+                        <input type="hidden" asp-for="CarId" />
+
+                        <div class="mb-3">
+                            <label class="form-label">Customer Name</label>
+                            <input class="form-control" asp-for="name" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Car Model</label>
+                            <input class="form-control" asp-for="Car_modalName" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Rent Per Day</label>
+                            <input class="form-control" asp-for="RentPerDay" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Rental Duration (days)</label>
+                            <input class="form-control" asp-for="RentalDuration" type="number" min="1" required />
+                            <span asp-validation-for="RentalDuration" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Total Amount</label>
+                            <input class="form-control" asp-for="total_amount" required />
+                            <span asp-validation-for="total_amount" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Staff ID</label>
+                            <input class="form-control" asp-for="staff_id" required />
+                            <span asp-validation-for="staff_id" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Submit & Check In</button>
+                        <a asp-action="Bookings" class="btn btn-link w-100 mt-2">Back to Bookings</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

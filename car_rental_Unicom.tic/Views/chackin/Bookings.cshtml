@@ -1,0 +1,56 @@
+﻿@model IEnumerable<car_rental_Unicom.tic.Vew_modal.chackin_vew_modal>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h2>Bookings</h2>
+
+<!-- Button to view bill history -->
+<div class="mb-3">
+    <a asp-action="Bills" class="btn btn-primary">View Bill History</a>
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Name</th>
+                <th>Car Model</th>
+                <th>Car ID</th>
+                <th>User ID</th>
+                <th>Start Date</th>
+                <th>Days</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Where(b => b.boking_status == "booking_fnnisheg"))
+            {
+                <tr>
+                    <td>@booking.booking_id</td>
+                    <td>@booking.name</td>
+                    <td>@booking.Car_modalName</td>
+                    <td>@booking.car_id</td>
+                    <td>@booking.user_id</td>
+                    <td>@booking.start_date</td>
+                    <td>@booking.dayes</td>
+                    <td>@booking.boking_status</td>
+                    <td>
+                        <!-- Check In button -->
+                        <a asp-action="AddBill" asp-route-bookingId="@booking.booking_id" class="btn btn-success btn-sm">
+                            Check In
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">No bookings found.</div>
+}

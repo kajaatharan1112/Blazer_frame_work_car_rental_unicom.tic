@@ -1,0 +1,89 @@
+﻿@model IEnumerable<car_rental_Unicom.tic.Vew_modal.chackin_vew_modal>
+
+@{
+    ViewData["Title"] = "Bills";
+}
+
+<h2 class="mb-4">Bill History</h2>
+
+<div class="row">
+    @foreach (var bill in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Bill #: @bill.bill_id</h5>
+                    <p class="card-text">
+                        <strong>Customer:</strong> @bill.name <br />
+                        <strong>Car:</strong> @bill.Car_modalName <br />
+                        <strong>Staff ID:</strong> @bill.staff_id <br />
+                        <strong>Total Amount:</strong> @bill.total_amount <br />
+                        <strong>Rental Duration:</strong> @bill.RentalDuration <br />
+                        <strong>Status:</strong> @bill.boking_status
+                    </p>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#viewModal-@bill.bill_id">View</button>
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal-@bill.bill_id">Edit</button>
+                        <form asp-action="DeleteBill" asp-route-id="@bill.bill_id" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this bill?');">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View Modal -->
+        <div class="modal fade" id="viewModal-@bill.bill_id" tabindex="-1" aria-labelledby="viewModalLabel-@bill.bill_id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-info text-white">
+                        <h5 class="modal-title" id="viewModalLabel-@bill.bill_id">Bill Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Bill ID:</strong> @bill.bill_id</p>
+                        <p><strong>Customer:</strong> @bill.name</p>
+                        <p><strong>Car:</strong> @bill.Car_modalName</p>
+                        <p><strong>Staff ID:</strong> @bill.staff_id</p>
+                        <p><strong>Total Amount:</strong> @bill.total_amount</p>
+                        <p><strong>Rental Duration:</strong> @bill.RentalDuration</p>
+                        <p><strong>Status:</strong> @bill.boking_status</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal fade" id="editModal-@bill.bill_id" tabindex="-1" aria-labelledby="editModalLabel-@bill.bill_id" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <h5 class="modal-title" id="editModalLabel-@bill.bill_id">Edit Bill</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form asp-action="EditBill" method="post">
+                        <div class="modal-body">
+                            <input type="hidden" name="bill_id" value="@bill.bill_id" />
+                            <div class="mb-2">
+                                <label class="form-label">Staff ID</label>
+                                <input class="form-control" name="staff_id" value="@bill.staff_id" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Total Amount</label>
+                                <input class="form-control" name="total_amount" value="@bill.total_amount" required />
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label">Rental Duration</label>
+                                <input class="form-control" name="RentalDuration" value="@bill.RentalDuration" required />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Save Changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

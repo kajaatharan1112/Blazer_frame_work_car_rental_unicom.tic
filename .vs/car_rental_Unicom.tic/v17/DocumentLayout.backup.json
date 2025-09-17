@@ -3,40 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\chack_out\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\chack_out\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\chackin\\bookings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\chackin\\bookings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\controllers\\chackincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\controllers\\chackincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\controllers\\chack_outcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\controllers\\chack_outcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\booking\\chack_out.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\booking\\chack_out.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\booking\\booking.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\booking\\booking.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\vew_modal\\chackin_vew_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\vew_modal\\chackin_vew_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\vew_modal\\home_view_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\vew_modal\\home_view_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\chackin\\bills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\chackin\\bills.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\vew_modal\\car_add_vew_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\vew_modal\\car_add_vew_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\models\\car_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\models\\car_modal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|c:\\users\\kajaa\\onedrive\\desktop\\clone\\blazer_frame_work_car_rental_unicom.tic\\car_rental_unicom.tic\\views\\chackin\\addbill.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{001F7199-D92D-4D34-9971-D02BB1343CC9}|car_rental_Unicom.tic\\car_rental_Unicom.tic.csproj|solutionrelative:car_rental_unicom.tic\\views\\chackin\\addbill.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -60,112 +56,100 @@
               "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Controllers\\bookingController.cs",
               "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Controllers\\bookingController.cs",
               "RelativeToolTip": "car_rental_Unicom.tic\\Controllers\\bookingController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T06:44:22.241Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "booking.cshtml",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\booking\\booking.cshtml",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\booking\\booking.cshtml",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\booking\\booking.cshtml",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\booking\\booking.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-17T06:59:34.515Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-17T06:39:09.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\Chack_out\\Details.cshtml",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\Chack_out\\Details.cshtml",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\Chack_out\\Details.cshtml*",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\Chack_out\\Details.cshtml*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-17T06:29:18.036Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "home_view_modal.cs",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Vew_modal\\home_view_modal.cs",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Vew_modal\\home_view_modal.cs",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Vew_modal\\home_view_modal.cs",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Vew_modal\\home_view_modal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T05:12:26.013Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "car_add_vew_modal.cs",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Vew_modal\\car_add_vew_modal.cs",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Vew_modal\\car_add_vew_modal.cs",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Vew_modal\\car_add_vew_modal.cs",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Vew_modal\\car_add_vew_modal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T05:11:59.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Car_modal.cs",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Models\\Car_modal.cs",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Models\\Car_modal.cs",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Models\\Car_modal.cs",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Models\\Car_modal.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T05:11:10.349Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Chack_outController.cs",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwEEAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-17T05:06:36.557Z",
+              "WhenOpened": "2025-09-17T17:53:45.513Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "chack_out.cshtml",
-              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\booking\\chack_out.cshtml",
-              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\booking\\chack_out.cshtml",
-              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\booking\\chack_out.cshtml",
-              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\booking\\chack_out.cshtml",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAHgAAAAKAAAAAAAAAA==",
+              "Title": "Chack_outController.cs",
+              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
+              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
+              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
+              "RelativeToolTip": "car_rental_Unicom.tic\\Controllers\\Chack_outController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAewEEAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:53:45.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAAALQAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-17T04:35:39.845Z",
+              "WhenOpened": "2025-09-17T17:51:11.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Bills.cshtml",
+              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\chackin\\Bills.cshtml",
+              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\chackin\\Bills.cshtml",
+              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\chackin\\Bills.cshtml",
+              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\chackin\\Bills.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T17:35:49.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddBill.cshtml",
+              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\chackin\\AddBill.cshtml",
+              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\chackin\\AddBill.cshtml",
+              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\chackin\\AddBill.cshtml",
+              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\chackin\\AddBill.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T17:31:56.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "chackin_vew_modal.cs",
+              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Vew_modal\\chackin_vew_modal.cs",
+              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Vew_modal\\chackin_vew_modal.cs",
+              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Vew_modal\\chackin_vew_modal.cs",
+              "RelativeToolTip": "car_rental_Unicom.tic\\Vew_modal\\chackin_vew_modal.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA/wCYAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:28:34.308Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Bookings.cshtml",
+              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\chackin\\Bookings.cshtml",
+              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Views\\chackin\\Bookings.cshtml",
+              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Views\\chackin\\Bookings.cshtml*",
+              "RelativeToolTip": "car_rental_Unicom.tic\\Views\\chackin\\Bookings.cshtml*",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T17:24:16.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "chackinController.cs",
+              "DocumentMoniker": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Controllers\\chackinController.cs",
+              "RelativeDocumentMoniker": "car_rental_Unicom.tic\\Controllers\\chackinController.cs",
+              "ToolTip": "C:\\Users\\kajaa\\OneDrive\\Desktop\\clone\\Blazer_frame_work_car_rental_unicom.tic\\car_rental_Unicom.tic\\Controllers\\chackinController.cs",
+              "RelativeToolTip": "car_rental_Unicom.tic\\Controllers\\chackinController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAjwD8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:23:54.948Z",
               "EditorCaption": ""
             }
           ]

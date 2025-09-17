@@ -1,0 +1,51 @@
+﻿namespace car_rental_Unicom.tic.Vew_modal
+{
+    public class chackin_vew_modal
+    {
+        public Guid CarId { get; set; }          // ✅ Car ID சேர்க்கப்பட்டது
+        public string Car_modalName { get; set; }
+        public int year { get; set; }
+        public string number_plact { get; set; }
+        public string ac { get; set; }
+        public string top_speed { get; set; }
+        public string Gear_System { get; set; }
+        public string milage { get; set; }
+        public string car_status { get; set; }
+
+        public List<IFormFile> ImageFiles { get; set; } // ✅ Multiple images
+
+        public string image_path { get; set; }          // Database-ல் சேமிக்கப்பட்ட path
+        public List<string> ImagePaths                  // Razor View-ல் gallery க்கு
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(image_path))
+                    return new List<string>(image_path.Split('#'));
+                return new List<string>();
+            }
+        }
+        public string MaintenanceCharge { get; set; }
+        public string RentPerDay { get; set; }
+
+
+
+        public Guid booking_id { get; set; }
+        public int licence_number { get; set; }//for the verification process
+        public string car_id { get; set; }
+        public string user_id { get; set; }
+        public string name { get; set; }
+        public string start_date { get; set; }
+        public string dayes { get; set; }
+        public string boking_status { get; set; }//booking process status [active] or [booking fnnisheg] or [chack in]
+
+
+
+
+        public Guid bill_id { get; set; }
+        public string staff_id { get; set; }
+        public string CarID { get; set; }
+        public string Booking_id { get; set; }
+        public string total_amount { get; set; }
+        public string RentalDuration { get; set; }
+    }
+}
