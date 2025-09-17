@@ -1,5 +1,4 @@
-﻿using car_rental_Unicom.tic.Data;
-using car_rental_Unicom.tic.Data.YourNamespace;
+﻿using car_rental_Unicom.tic.Data.YourNamespace;
 using car_rental_Unicom.tic.Models;
 using car_rental_Unicom.tic.Vew_modal;
 using Microsoft.AspNetCore.Mvc;

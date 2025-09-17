@@ -1,0 +1,110 @@
+﻿@model car_rental_Unicom.tic.Vew_modal.home_view_modal
+
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white rounded-top-4">
+                    <h3 class="mb-0 text-center">Car & Booking Details</h3>
+                </div>
+                <div class="card-body p-4">
+                    <!-- Car Images Gallery -->
+                    <div class="mb-4">
+                        <div class="row g-2">
+                            @if (Model.ImagePaths != null && Model.ImagePaths.Any())
+                            {
+                                foreach (var img in Model.ImagePaths)
+                                {
+                                    if (!string.IsNullOrWhiteSpace(img))
+                                    {
+                                        <div class="col-6 col-md-4 col-lg-3">
+                                            <img src="@img" class="img-fluid rounded shadow-sm border" style="object-fit:cover; width:100%; height:120px;" alt="Car Image" />
+                                        </div>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <div class="col text-center text-muted">No images available</div>
+                            }
+                        </div>
+                    </div>
+                    <form id="checkoutForm" asp-action="Checkout" asp-controller="Chack_out" method="post" class="needs-validation" novalidate>
+                        <input type="hidden" name="id" value="@Model.booking_id" />
+                        <input type="hidden" name="car_id" value="@Model.car_id" />
+                        <input type="hidden" name="user_id" value="@Model.user_id" />
+
+                        <table class="table table-borderless align-middle mb-4">
+                            <tbody>
+                                <tr>
+                                    <th class="text-end w-50">Car Name</th>
+                                    <td>@Model.Car_modalName</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Year</th>
+                                    <td>@Model.year</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Number Plate</th>
+                                    <td>@Model.number_plact</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">AC</th>
+                                    <td>@Model.ac</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Top Speed</th>
+                                    <td>@Model.top_speed</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Gear System</th>
+                                    <td>@Model.Gear_System</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Mileage</th>
+                                    <td>@Model.milage</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Car Status</th>
+                                    <td>@Model.car_status</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Booking Name</th>
+                                    <td>@Model.name</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Start Date</th>
+                                    <td>@Model.start_date</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Days</th>
+                                    <td>@Model.dayes</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Status</th>
+                                    <td>@Model.boking_status</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-end">Enter License Number</th>
+                                    <td>
+                                        <input type="number" class="form-control" name="licence_number" id="licence_number" required autocomplete="off" />
+                                        <div class="invalid-feedback">License number is required.</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg shadow-sm">Checkout</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
