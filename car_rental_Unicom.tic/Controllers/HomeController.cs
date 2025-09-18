@@ -23,7 +23,6 @@ namespace car_rental_Unicom.tic.Controllers
         public IActionResult Index()
         {
             var cars = dbContext.Cars
-                .Where(c => c.car_status == "Available")
                 .Select(c => new home_view_modal
                 {
                     CarId = c.CarId,

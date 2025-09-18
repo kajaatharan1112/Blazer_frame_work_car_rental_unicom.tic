@@ -130,13 +130,15 @@ namespace car_rental_Unicom.tic.Controllers
         [HttpPost]
         public IActionResult AddBill(chackin_vew_modal model)
         {
-            if (ModelState.IsValid)
-            {
+           
+                // Use Sacation.id as the staff_id (do not get from form input)
+                var staffId = car_rental_Unicom.tic.Controllers.Sacation.id.ToString();
+
                 // Add the bill
                 var bill = new Bills_modal
                 {
                     bill_id = Guid.NewGuid(),
-                    staff_id = model.staff_id,
+                    staff_id = staffId,
                     CarID = model.CarId.ToString(),
                     Booking_id = model.booking_id.ToString(),
                     total_amount = model.total_amount,
@@ -160,8 +162,7 @@ namespace car_rental_Unicom.tic.Controllers
 
                 _context.SaveChanges();
                 return RedirectToAction("Bills");
-            }
-            return View(model);
+           
         }
 
         /// <summary>
@@ -191,8 +192,7 @@ namespace car_rental_Unicom.tic.Controllers
         [HttpPost]
         public IActionResult EditBill(chackin_vew_modal model)
         {
-            if (ModelState.IsValid)
-            {
+            
                 var bill = _context.Bills.FirstOrDefault(b => b.bill_id == model.bill_id);
                 if (bill == null) return NotFound();
 
@@ -204,8 +204,7 @@ namespace car_rental_Unicom.tic.Controllers
 
                 _context.SaveChanges();
                 return RedirectToAction("Bills");
-            }
-            return View(model);
+           
         }
 
         /// <summary>
@@ -309,6 +308,44 @@ namespace car_rental_Unicom.tic.Controllers
                 RentPerDay = car?.RentPerDay
             };
             return View(viewModel);
+        }
+        public IActionResult GetProfile(Guid id)
+        {
+            // Try to find in Staffs table
+            var staff = _context.Staffs.FirstOrDefault(s => s.id == id);
+            if (staff != null)
+            {
+                var staffProfile = new chackin_vew_modal
+                {
+                    // Map staff properties to view model
+                    staff_id = staff.id.ToString(),
+                    name = staff.name,
+                    user_id = staff.id.ToString(),
+                    // Optional: add more fields as needed
+                    // Example:
+                    // Email = staff.Email,
+                    // Gender = staff.Gender,
+                    // etc.
+                };
+                return View(staffProfile);
+            }
+
+            // Try to find in Admins table
+            var admin = _context.Admins.FirstOrDefault(a => a.Id == id);
+            if (admin != null)
+            {
+                var adminProfile = new chackin_vew_modal
+                {
+                    staff_id = admin.Id.ToString(),
+                    name = admin.Name,
+                    user_id = admin.Id.ToString(),
+                    // Optional: add more fields as needed
+                };
+                return View(adminProfile);
+            }
+
+            // Not found in either table
+            return NotFound();
         }
     }
 }

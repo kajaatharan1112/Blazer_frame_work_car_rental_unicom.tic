@@ -16,6 +16,7 @@
                         <input type="hidden" asp-for="booking_id" />
                         <input type="hidden" asp-for="CarId" />
 
+                        <!-- Customer Info -->
                         <div class="mb-3">
                             <label class="form-label">Customer Name</label>
                             <input class="form-control" asp-for="name" readonly />
@@ -26,23 +27,29 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Rent Per Day</label>
-                            <input class="form-control" asp-for="RentPerDay" readonly />
+                            <input class="form-control" asp-for="RentPerDay" readonly id="rentPerDay" />
                         </div>
+
+                        <!-- Rental Duration -->
                         <div class="mb-3">
                             <label class="form-label">Rental Duration (days)</label>
-                            <input class="form-control" asp-for="RentalDuration" type="number" min="1" required />
+                            <input class="form-control" asp-for="RentalDuration" type="number" min="1" id="rentalDays" />
                             <span asp-validation-for="RentalDuration" class="text-danger"></span>
                         </div>
+
+                        <!-- Maintenance Charge -->
+                        <div class="mb-3">
+                            <label class="form-label">Maintenance Charge</label>
+                            <input class="form-control" asp-for="MaintenanceCharge" type="number" min="0" id="maintenanceCharge" />
+                            <span asp-validation-for="MaintenanceCharge" class="text-danger"></span>
+                        </div>
+
+                        <!-- Total -->
                         <div class="mb-3">
                             <label class="form-label">Total Amount</label>
-                            <input class="form-control" asp-for="total_amount" required />
-                            <span asp-validation-for="total_amount" class="text-danger"></span>
+                            <input class="form-control" asp-for="total_amount" id="totalAmount" readonly />
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Staff ID</label>
-                            <input class="form-control" asp-for="staff_id" required />
-                            <span asp-validation-for="staff_id" class="text-danger"></span>
-                        </div>
+
                         <button type="submit" class="btn btn-success w-100">Submit & Check In</button>
                         <a asp-action="Bookings" class="btn btn-link w-100 mt-2">Back to Bookings</a>
                     </form>
@@ -54,4 +61,18 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function calculateTotal() {
+            let rentPerDay = parseFloat(document.getElementById("rentPerDay").value) || 0;
+            let days = parseInt(document.getElementById("rentalDays").value) || 0;
+            let maintenance = parseFloat(document.getElementById("maintenanceCharge").value) || 0;
+
+            let total = (rentPerDay * days) + maintenance;
+            document.getElementById("totalAmount").value = total.toFixed(2);
+        }
+
+        document.getElementById("rentalDays").addEventListener("input", calculateTotal);
+        document.getElementById("maintenanceCharge").addEventListener("input", calculateTotal);
+    </script>
 }
