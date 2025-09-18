@@ -1,6 +1,7 @@
 ﻿@model List<car_rental_Unicom.tic.Vew_modal.home_view_modal>
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Car Page";
 }
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -13,171 +14,186 @@
     :root {
         --primary-color: #0056b3;
         --secondary-color: #1f2a40;
-        --light-gray: #f8f9fa;
-        --text-dark: #343a40;
-        --text-light: #6c757d;
-        --success-color: #198754;
+        --success-color: #28a745;
         --danger-color: #dc3545;
     }
 
     body {
         font-family: 'Poppins', sans-serif;
-        background-color: #ffffff;
-        color: var(--text-dark);
+        background: linear-gradient(135deg, #f9f9f9, #e9f0f9);
+        color: var(--secondary-color);
     }
 
     .hero-banner {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop');
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop');
         background-size: cover;
         background-position: center;
-        padding: 30px 30px;
+        padding: 50px 20px;
         border-radius: 20px;
-        margin-bottom: 20px;
         text-align: center;
         color: white;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
 
         .hero-banner h1 {
             font-weight: 700;
             font-size: 3rem;
+            animation: fadeInDown 1s ease;
         }
 
         .hero-banner p {
-            font-size: 1.25rem;
-            max-width: 600px;
-            margin: 15px auto 0;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeInUp 1.2s ease;
         }
 
-    .section-title {
-        font-weight: 600;
-        color: var(--secondary-color);
-        margin-bottom: 25px;
+    @@keyframes fadeInDown {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(-30px);
     }
 
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    /* Card Styling */
     .card {
-        border: 1px solid #e9ecef;
-        border-radius: 15px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.85);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        transition: transform 0.3s, box-shadow 0.3s;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transform: translateY(50px);
+        opacity: 0;
+        animation: slideUp 0.8s forwards;
     }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.1);
+            transform: translateY(-10px) scale(1.02);
+            transition: all 0.4s ease-in-out;
+            box-shadow: 0 12px 40px rgba(0, 86, 179, 0.25);
         }
 
-    .card-img-container {
-        position: relative;
+    @@keyframes slideUp {
+        to
+
+    {
+        opacity: 1;
+        transform: translateY(0);
     }
 
+    }
+
+    /* Card Image */
     .card-img-top {
         height: 220px;
         object-fit: cover;
+        border-bottom: 3px solid #eee;
     }
 
+    /* Status Badge */
     .status-badge {
         position: absolute;
         top: 15px;
         right: 15px;
-        padding: 5px 12px;
+        padding: 6px 15px;
         font-size: 0.8rem;
-        font-weight: 600;
-        border-radius: 50px;
-        color: white;
+        font-weight: 700;
+        border-radius: 30px;
+        color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        animation: pulse 1.5s infinite;
     }
 
         .status-badge.available {
-            background-color: var(--success-color);
+            background: linear-gradient(45deg, #28a745, #34d058);
         }
 
         .status-badge.unavailable {
-            background-color: var(--danger-color);
+            background: linear-gradient(45deg, #dc3545, #ff5f6d);
         }
 
+    @@keyframes pulse {
+        0%
+
+    {
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+
+    100% {
+        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    }
+
+    }
+
+    /* Card Body */
     .card-body {
-        padding: 25px;
+        padding: 20px;
     }
 
     .card-title {
-        font-weight: 600;
-        font-size: 1.3rem;
+        font-weight: 700;
+        font-size: 1.2rem;
         color: var(--secondary-color);
     }
 
     .card-text-specs {
-        color: var(--text-light);
-        font-size: 0.95rem;
-        margin-bottom: 20px;
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-bottom: 15px;
     }
 
+    /* Button */
     .btn-primary {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
         border-radius: 50px;
-        padding: 10px 25px;
-        font-weight: 500;
-        transition: background-color 0.3s;
+        background: linear-gradient(45deg, #0056b3, #007bff);
+        border: none;
+        font-weight: 600;
+        transition: all 0.3s ease-in-out;
     }
 
         .btn-primary:hover {
-            background-color: #004494;
+            background: linear-gradient(45deg, #004494, #0069d9);
+            box-shadow: 0 0 12px rgba(0, 86, 179, 0.4);
         }
 
-        .btn-primary:disabled {
-            background-color: #6c757d;
-            border-color: #6c757d;
-            cursor: not-allowed;
-        }
-
-    .modal-dialog {
-        max-width: 750px;
+    /* Modal Zoom Animation */
+    .modal.fade .modal-dialog {
+        transform: scale(0.7);
+        transition: transform 0.3s ease-out;
     }
 
-    .modal-content {
-        border-radius: 15px;
-    }
-
-    .modal-header {
-        border-bottom: 1px solid #dee2e6;
-    }
-
-    .modal-title {
-        color: var(--secondary-color);
-        font-weight: 700;
-    }
-
-    .carousel-inner img {
-        height: 350px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-
-    .details-list .list-group-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 0;
-        border-color: #e9ecef;
-    }
-
-    .details-list .label {
-        color: var(--text-light);
-    }
-
-    .details-list .value {
-        font-weight: 500;
-        color: var(--text-dark);
+    .modal.show .modal-dialog {
+        transform: scale(1);
     }
 </style>
 
 <div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="section-title"><i class="fas fa-list-ul me-2"></i> Our Fleet</h2>
-        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myBookingsModal">
-            <i class="fas fa-receipt me-2"></i> My Bookings
-        </button>
-    </div>
-
     <div class="hero-banner">
         <h1 id="greeting-title"><i class="fas fa-car-on me-2"></i> Find Your Perfect Ride!</h1>
         <p id="greeting-message">Your next adventure awaits. Explore our premium range of available cars.</p>
@@ -187,59 +203,41 @@
         @foreach (var car in Model)
         {
             var isAvailable = car.car_status.Equals("Available", StringComparison.OrdinalIgnoreCase);
+            var images = car.image_path.Split('#');
 
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100">
-                    <div class="card-img-container">
-                        <img src="@car.image_path.Split(',').FirstOrDefault()" class="card-img-top" alt="@car.Car_modalName" />
-                        @if (isAvailable)
-                        {
-                            <div class="status-badge available">
-                                <i class="fas fa-check-circle me-1"></i> Available
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="status-badge unavailable">
-                                <i class="fas fa-times-circle me-1"></i> Unavailable
-                            </div>
-                        }
+                <div class="card h-100 position-relative">
+                    <img src="@images.FirstOrDefault()" class="card-img-top" alt="@car.Car_modalName" />
+                    <div class="status-badge @(isAvailable ? "available" : "unavailable")">
+                        <i class="fas @(isAvailable ? "fa-check-circle" : "fa-times-circle") me-1"></i> @(isAvailable ? "Available" : "Unavailable")
                     </div>
-                    <div class="card-body d-flex flex-column">
+                    <div class="card-body">
                         <h5 class="card-title">@car.Car_modalName (@car.year)</h5>
-                        <p class="card-text-specs">
-                            <i class="fas fa-hashtag fa-fw"></i> @car.number_plact
-                        </p>
-                        <div class="mt-auto">
-                            <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#carModal-@car.CarId">
-                                <i class="fas fa-eye me-1"></i> View Details
-                            </button>
-                        </div>
+                        <p class="card-text-specs"><i class="fas fa-hashtag fa-fw"></i> @car.number_plact</p>
+                        <button class="btn btn-primary mt-auto w-100" data-bs-toggle="modal" data-bs-target="#carModal-@car.CarId">
+                            <i class="fas fa-eye me-1"></i> View Details
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade" id="carModal-@car.CarId" tabindex="-1" aria-hidden="true">
+            <!-- Modal -->
+            <div class="modal fade" id="carModal-@car.CarId" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">
-                                <i class="fas fa-car-side me-2"></i> @car.Car_modalName
-                            </h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title"><i class="fas fa-car-side me-2"></i> @car.Car_modalName</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
-                            @{
-                                var images = car.image_path.Split(',');
-                            }
                             @if (images.Length > 0)
                             {
-                                <div id="carousel-@car.CarId" class="carousel slide mb-4" data-bs-ride="carousel">
+                                <div id="carousel-@car.CarId" class="carousel slide mb-3" data-bs-ride="carousel">
                                     <div class="carousel-inner">
                                         @for (int i = 0; i < images.Length; i++)
                                         {
                                             <div class="carousel-item @(i == 0 ? "active" : "")">
-                                                <img src="@images[i]" class="d-block w-100" alt="Image @(i + 1)">
+                                                <img src="@images[i]" class="d-block w-100" alt="Image @(i + 1)" />
                                             </div>
                                         }
                                     </div>
@@ -257,32 +255,29 @@
 
                             <div class="details-list">
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><span class="label"><i class="fas fa-calendar-alt fa-fw me-2"></i>Year</span> <span class="value">@car.year</span></li>
-                                    <li class="list-group-item"><span class="label"><i class="fas fa-id-card fa-fw me-2"></i>Number Plate</span> <span class="value">@car.number_plact</span></li>
-                                    <li class="list-group-item"><span class="label"><i class="fas fa-wind fa-fw me-2"></i>Air Conditioning</span> <span class="value">@car.ac</span></li>
-                                    <li class="list-group-item"><span class="label"><i class="fas fa-tachometer-alt fa-fw me-2"></i>Top Speed</span> <span class="value">@car.top_speed</span></li>
-                                    <li class="list-group-item"><span class="label"><i class="fas fa-cogs fa-fw me-2"></i>Gear System</span> <span class="value">@car.Gear_System</span></li>
-                                    <li class="list-group-item"><span class="label"><i class="fas fa-road fa-fw me-2"></i>Mileage</span> <span class="value">@car.milage</span></li>
-                                    <li class="list-group-item"><span class="label"><i class="fas fa-dollar-sign fa-fw me-2"></i>Rent Per Day</span> <span class="value font-weight-bold">@car.RentPerDay</span></li>
+                                    <li class="list-group-item"><b>Year:</b> @car.year</li>
+                                    <li class="list-group-item"><b>Number Plate:</b> @car.number_plact</li>
+                                    <li class="list-group-item"><b>AC:</b> @car.ac</li>
+                                    <li class="list-group-item"><b>Top Speed:</b> @car.top_speed</li>
+                                    <li class="list-group-item"><b>Gear:</b> @car.Gear_System</li>
+                                    <li class="list-group-item"><b>Mileage:</b> @car.milage</li>
+                                    <li class="list-group-item"><b>Rent/Day:</b> @car.RentPerDay</li>
                                 </ul>
                             </div>
 
                             @if (!isAvailable)
                             {
                                 <div class="alert alert-warning mt-3">
-                                    <i class="fas fa-exclamation-triangle me-2"></i>
-                                    This car is currently booked, but you can still place a booking request.
+                                    <i class="fas fa-exclamation-triangle me-2"></i> This car is currently booked.
                                 </div>
                             }
                         </div>
                         <div class="modal-footer">
                             <form asp-action="AddBooking" method="get">
                                 <input type="hidden" name="carId" value="@car.CarId" />
-                                <button type="submit" class="btn btn-success">
-                                    <i class="fas fa-check-circle me-2"></i> Book This Car
-                                </button>
+                                <button class="btn btn-success"><i class="fas fa-check-circle me-2"></i> Book This Car</button>
                             </form>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -291,25 +286,10 @@
     </div>
 </div>
 
-<div class="modal fade" id="myBookingsModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"><i class="fas fa-receipt me-2"></i> My Bookings</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="bookingsContent" class="text-center">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Random Greeting Messages
+    // Random greeting change
+    document.addEventListener('DOMContentLoaded', function () {
         const greetings = [
             { title: 'Your Journey Starts Here!', message: 'Find the perfect car for your next road trip.' },
             { title: 'Drive in Style!', message: 'Explore our fleet and book your favorite model today.' },
@@ -318,40 +298,11 @@
         const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
         document.getElementById('greeting-title').innerHTML = `<i class="fas fa-car-on me-2"></i> ${randomGreeting.title}`;
         document.getElementById('greeting-message').textContent = randomGreeting.message;
+
+        // Animate cards one by one
+        const cards = document.querySelectorAll(".card");
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.3}s`;
+        });
     });
-
-    // Load bookings via AJAX
-    document.getElementById('myBookingsModal').addEventListener('show.bs.modal', function() {
-        const bookingsContent = document.getElementById('bookingsContent');
-        bookingsContent.innerHTML = `<div class="text-center p-4"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div><p class="mt-2">Loading your bookings...</p></div>`;
-
-        fetch('@Url.Action("ViewBooking", "Home")')
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.text();
-            })
-            .then(html => {
-                bookingsContent.innerHTML = html;
-            })
-            .catch(error => {
-                bookingsContent.innerHTML = `<div class="alert alert-danger"><i class="fas fa-exclamation-triangle me-2"></i> Failed to load bookings. Please try again later.</div>`;
-            });
-    });
-
-    // Delete booking function (AJAX)
-    function deleteBooking(bookingId) {
-        if (confirm('Are you sure you want to delete this booking?')) {
-            const bookingsContent = document.getElementById('bookingsContent');
-
-            fetch('@Url.Action("DeleteBooking", "Home")?bookingId=' + bookingId, { method: 'POST' })
-                .then(response => response.text())
-                .then(html => {
-                    // Refresh the list after deletion
-                    bookingsContent.innerHTML = html;
-                })
-                .catch(error => {
-                    alert('An error occurred. Could not delete booking.');
-                });
-        }
-    }
 </script>

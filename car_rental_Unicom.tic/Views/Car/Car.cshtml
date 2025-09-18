@@ -28,8 +28,8 @@
 
                     <div class="col-sm-6 col-md-4 col-lg-3 fade-in">
                         <div class="card car-card h-100">
-                            <!-- 🖼️ Car Image -->
-                            <img src="@imageUrl" class="card-img-top car-image" alt="@car.Car_modalName">
+                            <!-- 🖼️ Car Image with ID for slideshow -->
+                            <img src="@imageUrl" class="card-img-top car-image" alt="@car.Car_modalName" id="carImage_@car.CarId">
 
                             <div class="card-body">
                                 <h5 class="card-title">@car.Car_modalName</h5>
@@ -62,7 +62,8 @@
 
 <!-- 🟦 Car Details Modal -->
 <div class="modal fade" id="carDetailsModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-md">
+        <!-- ✅ Changed to modal-md -->
         <div class="modal-content">
             <!-- Header -->
             <div class="modal-header">
@@ -112,32 +113,63 @@
         // 🔹 All cars data serialize
         const carsData = @Html.Raw(Json.Serialize(Model));
 
+        let modalSlideInterval;
+
         // 🔹 Show details modal
         function showCarDetails(carId) {
             const car = carsData.find(c => c.carId === carId);
             if (!car) return;
 
+            let index = 0;
+            const carImage = document.getElementById("carImage");
+
+            carImage.src = car.imagePaths?.[0] || "https://placehold.co/600x400?text=No+Image";
+
+            // Clear old interval
+            if (modalSlideInterval) clearInterval(modalSlideInterval);
+
+            // Auto slideshow (5s)
+            if (car.imagePaths && car.imagePaths.length > 1) {
+                modalSlideInterval = setInterval(() => {
+                    index = (index + 1) % car.imagePaths.length;
+                    carImage.src = car.imagePaths[index];
+                }, 5000);
+            }
+
+            // Fill details
             document.getElementById("carDetailsModalLabel").innerText = car.car_modalName;
-            document.getElementById("carImage").src = (car.imagePaths?.[0]) || "https://placehold.co/600x400?text=No+Image";
-
-            const detailsList = document.getElementById("carDetailsList");
-            detailsList.innerHTML = `
-                        <li class="list-group-item"><strong>Year:</strong> ${car.year}</li>
-                        <li class="list-group-item"><strong>Number Plate:</strong> ${car.number_plact}</li>
-                        <li class="list-group-item"><strong>A/C:</strong> ${car.ac}</li>
-                        <li class="list-group-item"><strong>Gear System:</strong> ${car.gear_System}</li>
-                        <li class="list-group-item"><strong>Mileage:</strong> ${car.milage}</li>
-                        <li class="list-group-item"><strong>Top Speed:</strong> ${car.top_speed}</li>
-                        <li class="list-group-item"><strong>Maintenance Charge:</strong> ${car.maintenanceCharge}</li>
-                        <li class="list-group-item"><strong>Rent/Day:</strong> ${car.rentPerDay}</li>
-                        <li class="list-group-item"><strong>Status:</strong> ${car.car_status}</li>
-                    `;
-
             document.getElementById("editCarId").value = car.carId;
             document.getElementById("deleteCarId").value = car.carId;
 
+            const detailsList = document.getElementById("carDetailsList");
+            detailsList.innerHTML = `
+                <li class="list-group-item"><strong>Year:</strong> ${car.year}</li>
+                <li class="list-group-item"><strong>Number Plate:</strong> ${car.number_plact}</li>
+                <li class="list-group-item"><strong>A/C:</strong> ${car.ac}</li>
+                <li class="list-group-item"><strong>Gear System:</strong> ${car.gear_System}</li>
+                <li class="list-group-item"><strong>Mileage:</strong> ${car.milage}</li>
+                <li class="list-group-item"><strong>Top Speed:</strong> ${car.top_speed}</li>
+                <li class="list-group-item"><strong>Maintenance Charge:</strong> ${car.maintenanceCharge}</li>
+                <li class="list-group-item"><strong>Rent/Day:</strong> ${car.rentPerDay}</li>
+                <li class="list-group-item"><strong>Status:</strong> ${car.car_status}</li>
+            `;
+
             new bootstrap.Modal(document.getElementById("carDetailsModal")).show();
         }
+
+        // 🔹 Auto Image Slideshow for cards
+        carsData.forEach(car => {
+            if (car.imagePaths && car.imagePaths.length > 1) {
+                let index = 0;
+                setInterval(() => {
+                    const imgElement = document.getElementById(`carImage_${car.carId}`);
+                    if (imgElement) {
+                        index = (index + 1) % car.imagePaths.length;
+                        imgElement.src = car.imagePaths[index];
+                    }
+                }, 5000); // 5s
+            }
+        });
 
         // 🔹 Show non available cars
         document.getElementById("showNonAvailableBtn").addEventListener("click", () => {
@@ -149,7 +181,7 @@
                             <div class="col-sm-6 col-md-4 fade-in">
                                 <div class="card car-card h-100">
                                     <img src="${car.imagePaths?.[0] || 'https://placehold.co/600x400?text=No+Image'}"
-                                         class="card-img-top car-image">
+                                         class="card-img-top car-image" id="carImage_${car.carId}">
                                     <div class="card-body">
                                         <h6 class="card-title">${car.car_modalName}</h6>
                                         <span class="badge bg-danger">${car.car_status}</span>
@@ -171,7 +203,7 @@
 <style>
     /* 🟦 Background */
     body {
-        background: linear-gradient(135deg, #1e293b, #3b82f6); /* gray-blue gradient */
+        background: linear-gradient(135deg, #1e293b, #3b82f6);
         min-height: 100vh;
         font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         padding: 20px;
@@ -189,19 +221,17 @@
         transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-        /* 🟩 Card hover - full zoom */
         .car-card:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 28px rgba(59, 130, 246, 0.4);
         }
 
-    /* 🖼️ Car Image */
     .car-image {
         border-radius: 20px;
         object-fit: cover;
+        height: 200px;
     }
 
-    /* 🟩 Buttons */
     .btn {
         border-radius: 12px;
         padding: 8px 16px;
@@ -229,7 +259,6 @@
         border: none;
     }
 
-    /* ✨ Fade-in animation */
     .fade-in {
         animation: fadeInUp 0.8s ease-in-out;
     }

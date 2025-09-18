@@ -4,6 +4,8 @@ using car_rental_Unicom.tic.Vew_modal;
 using car_rental_Unicom.tic.View_modal; // ✅ spelling correct
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
+using System.Net.Mail;
 
 namespace car_rental_Unicom.tic.Controllers
 {
@@ -15,7 +17,52 @@ namespace car_rental_Unicom.tic.Controllers
         {
             this.dbContext = dbContext;
         }
+        [HttpPost]
+        public IActionResult SendOtp(string email)
+        {
+            try
+            {
+                Random rnd = new Random();
+                int otp = rnd.Next(100000, 999999); // 6 digit OTP
 
+                // Save OTP in static session class
+                Sacation.Email_otp = otp;
+
+                using (var client = new SmtpClient("smtp.gmail.com", 587))
+                {
+                    client.EnableSsl = true;
+                    client.Credentials = new NetworkCredential("carrental2025unicom@gmail.com", "niksan2004");
+
+                    var mailMessage = new MailMessage();
+                    mailMessage.From = new MailAddress("carrental2025unicom@gmail.com");
+                    mailMessage.To.Add(email);
+                    mailMessage.Subject = "Your Car Rental OTP Code";
+                    mailMessage.Body = $"Hello,\n\nYour OTP code is: {otp}\n\nUse this code to verify your email.\n\nCar Rental System";
+
+                    client.Send(mailMessage);
+                }
+
+                return Json(new { success = true, message = "OTP sent successfully!" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult VerifyOtp(string otp)
+        {
+            if (Sacation.Email_otp.ToString() == otp)
+            {
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false, message = "Invalid OTP. Try again." });
+            }
+        }
+    
         public IActionResult Login()
         {
             if (!dbContext.Users.Any())
