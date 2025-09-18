@@ -4,14 +4,14 @@
     ViewData["Title"] = "Booking Details";
 }
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-<div class="container py-5">
+<!-- Container -->
+<div class="container py-5 fade-in">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card shadow-lg border-0 rounded-4">
-                <div class="card-header bg-primary text-white rounded-top-4">
-                    <h3 class="mb-0 text-center">Car & Booking Details</h3>
+            <!-- Glass-card -->
+            <div class="card shadow-lg border-0 rounded-4 booking-card">
+                <div class="card-header bg-primary text-white rounded-top-4 text-center">
+                    <h3 class="mb-0">Car & Booking Details</h3>
                 </div>
                 <div class="card-body p-4">
                     <!-- Car Images Gallery -->
@@ -24,7 +24,7 @@
                                     if (!string.IsNullOrWhiteSpace(img))
                                     {
                                         <div class="col-6 col-md-4 col-lg-3">
-                                            <img src="@img" class="img-fluid rounded shadow-sm border" style="object-fit:cover; width:100%; height:120px;" alt="Car Image" />
+                                            <img src="@img" class="img-fluid rounded shadow-sm border car-image" style="object-fit:cover; width:100%; height:120px;" alt="Car Image" />
                                         </div>
                                     }
                                 }
@@ -35,6 +35,8 @@
                             }
                         </div>
                     </div>
+
+                    <!-- Booking Form -->
                     <form id="checkoutForm" asp-action="Checkout" asp-controller="Chack_out" method="post" class="needs-validation" novalidate>
                         <input type="hidden" name="id" value="@Model.booking_id" />
                         <input type="hidden" name="car_id" value="@Model.car_id" />
@@ -93,12 +95,16 @@
                                 <tr>
                                     <th class="text-end">Enter License Number</th>
                                     <td>
-                                        <input type="number" class="form-control" name="licence_number" id="licence_number" required autocomplete="off" />
-                                        <div class="invalid-feedback">License number is required.</div>
+                                        <div class="input-icon-wrapper">
+                                            <i class="bi bi-card-text icon"></i>
+                                            <input type="number" class="form-control rounded-3" name="licence_number" id="licence_number" placeholder="License Number" required autocomplete="off" />
+                                            <div class="invalid-feedback">License number is required.</div>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-lg shadow-sm">Checkout</button>
                         </div>
@@ -108,3 +114,144 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // 🚨 Shake animation on invalid submit
+        const form = document.getElementById("checkoutForm");
+        form.addEventListener("submit", function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                form.classList.add("shake");
+                setTimeout(() => form.classList.remove("shake"), 500);
+            }
+        });
+
+        // Real-time validation for License Number
+        const licenceInput = document.getElementById("licence_number");
+        licenceInput.addEventListener("input", function () {
+            if (this.value.trim() === "") {
+                this.classList.add("is-invalid");
+            } else {
+                this.classList.remove("is-invalid");
+                this.classList.add("is-valid");
+            }
+        });
+    </script>
+}
+
+<style>
+    /* Background */
+    body {
+        background: linear-gradient(135deg, #1e293b, #3b82f6);
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    /* Glass-card style */
+    .booking-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(15px) saturate(180%);
+        -webkit-backdrop-filter: blur(15px) saturate(180%);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Car Images */
+    .car-image {
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .car-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+        }
+
+    /* Input focus glow */
+    .form-control:focus {
+        outline: none;
+        box-shadow: 0 0 8px #1CB5E0;
+        border-color: #1CB5E0;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+        animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Shake animation */
+    .shake {
+        animation: shakeAnim 0.5s;
+    }
+
+    @@keyframes shakeAnim {
+        0% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-6px);
+        }
+
+        50% {
+            transform: translateX(6px);
+        }
+
+        75% {
+            transform: translateX(-6px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    /* Buttons */
+    .btn-primary {
+        background-color: #1CB5E0;
+        border: none;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background-color: #1595c1;
+            transform: translateY(-2px);
+        }
+
+    /* Input icon wrapper */
+    .input-icon-wrapper {
+        position: relative;
+    }
+
+        .input-icon-wrapper .icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1CB5E0;
+            font-size: 1.1rem;
+        }
+
+        .input-icon-wrapper input {
+            padding-left: 2.5rem;
+        }
+</style>

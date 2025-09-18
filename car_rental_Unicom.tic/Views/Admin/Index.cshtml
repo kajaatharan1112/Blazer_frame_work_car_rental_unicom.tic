@@ -9,60 +9,54 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Custom Styles for Glass Card, Inputs, Buttons -->
+<!-- Custom Styles -->
 <style>
     body {
         font-family: 'Poppins', sans-serif;
         background: linear-gradient(135deg, #e0f7fa, #ffffff);
     }
 
-    .glass-card {
+    .admin-card {
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border-radius: 15px;
-        padding: 30px;
-        margin-bottom: 20px;
+        padding: 20px;
+        margin: 15px;
         box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         transition: transform 0.3s, box-shadow 0.3s;
+        text-align: center;
+        width: 250px;
     }
 
-        .glass-card:hover {
+        .admin-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
         }
 
-    .input-icon-wrapper {
-        position: relative;
+    .admin-icon {
+        font-size: 40px;
+        color: #1CB5E0;
+        margin-bottom: 10px;
     }
 
-        .input-icon-wrapper i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #1CB5E0;
-        }
+    .admin-name {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
 
-        .input-icon-wrapper input {
-            padding-left: 35px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            box-shadow: inset 0 0 5px rgba(28, 181, 224, 0.2);
-            transition: 0.3s;
-        }
-
-            .input-icon-wrapper input:focus {
-                outline: none;
-                border-color: #1CB5E0;
-                box-shadow: 0 0 8px #1CB5E0;
-            }
+    .admin-info {
+        font-size: 14px;
+        color: #333;
+        margin-bottom: 5px;
+    }
 
     .btn-custom {
         background-color: #1CB5E0;
         color: white;
         border-radius: 10px;
         transition: background-color 0.3s;
+        margin: 2px;
     }
 
         .btn-custom:hover {
@@ -70,157 +64,124 @@
             color: white;
         }
 
-    .shake {
-        animation: shake 0.3s;
-        animation-iteration-count: 1;
-    }
-
-    @@keyframes shake {
-        0%
-
-    {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-5px);
-    }
-
-    50% {
-        transform: translateX(5px);
-    }
-
-    75% {
-        transform: translateX(-5px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 </style>
 
 <div class="container mt-4">
-    <h2 class="mb-4 text-center">Admin List</h2>
+    <h2 class="mb-4 text-center">Admin Profiles</h2>
 
-    <div class="glass-card">
-        <table class="table table-bordered table-striped table-hover align-middle">
-            <thead class="table-light">
-                <tr>
-                    <th>Name</th>
-                    <th>Contact No</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>UserName</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var admin in Model)
-                {
-                    <tr>
-                        <td>@admin.Name</td>
-                        <td>@admin.ContactNo</td>
-                        <td>@admin.Age</td>
-                        <td>@admin.Gender</td>
-                        <td>@admin.Email</td>
-                        <td>@admin.Role</td>
-                        <td>@admin.UserName</td>
-                        <td>
-                            <button class="btn btn-custom btn-sm me-1" data-bs-toggle="modal" data-bs-target="#editModal-@admin.Id">
-                                <i class="fa fa-pen"></i> Edit
-                            </button>
-                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#changePwdModal-@admin.Id">
-                                <i class="fa fa-key"></i> Change Password
-                            </button>
-                        </td>
-                    </tr>
+    <div class="cards-container">
+        @foreach (var admin in Model)
+        {
+            <div class="admin-card">
+                <div class="admin-icon"><i class="fa fa-user-circle"></i></div>
+                <div class="admin-name">@admin.Name</div>
+                <div class="admin-info"><i class="fa fa-phone"></i> @admin.ContactNo</div>
+                <div class="admin-info"><i class="fa fa-envelope"></i> @admin.Email</div>
+                <div class="admin-info"><i class="fa fa-venus-mars"></i> @admin.Gender, @admin.Age yrs</div>
+                <div class="admin-info"><i class="fa fa-user-tag"></i> @admin.Role</div>
+                <div class="admin-info"><i class="fa fa-user"></i> @admin.UserName</div>
 
-                    <!-- Edit Modal -->
-                    <div class="modal fade" id="editModal-@admin.Id" tabindex="-1" aria-labelledby="editModalLabel-@admin.Id" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form asp-action="Edit" method="post">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="editModalLabel-@admin.Id">Edit Admin</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <input type="hidden" name="Id" value="@admin.Id" />
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-user"></i>
-                                            <input type="text" name="Name" class="form-control" value="@admin.Name" required />
-                                        </div>
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-phone"></i>
-                                            <input type="text" name="ContactNo" class="form-control" value="@admin.ContactNo" required pattern="\d{10}" title="Enter 10 digit number" />
-                                        </div>
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-calendar"></i>
-                                            <input type="number" name="Age" class="form-control" value="@admin.Age" required min="18" max="100" />
-                                        </div>
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-venus-mars"></i>
-                                            <input type="text" name="Gender" class="form-control" value="@admin.Gender" required />
-                                        </div>
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-envelope"></i>
-                                            <input type="email" name="Email" class="form-control" value="@admin.Email" required />
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success btn-custom">Save</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </form>
+                <button class="btn btn-custom btn-sm" data-bs-toggle="modal" data-bs-target="#editModal-@admin.Id">
+                    <i class="fa fa-pen"></i> Edit
+                </button>
+                <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#changePwdModal-@admin.Id">
+                    <i class="fa fa-key"></i> Change Password
+                </button>
+            </div>
+
+            <!-- Edit Modal -->
+            <div class="modal fade" id="editModal-@admin.Id" tabindex="-1" aria-labelledby="editModalLabel-@admin.Id" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form asp-action="Edit" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel-@admin.Id">Edit Admin</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Change Password Modal -->
-                    <div class="modal fade" id="changePwdModal-@admin.Id" tabindex="-1" aria-labelledby="changePwdModalLabel-@admin.Id" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <form asp-action="ChangePassword" method="post">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="changePwdModalLabel-@admin.Id">Change Password</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <input type="hidden" name="Id" value="@admin.Id" />
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-user"></i>
-                                            <input type="text" name="UserName" class="form-control" value="@admin.UserName" required />
-                                        </div>
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-lock"></i>
-                                            <input type="password" name="CurrentPassword" class="form-control" />
-                                        </div>
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-lock"></i>
-                                            <input type="password" name="NewPassword" class="form-control" required id="newPwd-@admin.Id" />
-                                            <i class="fa fa-eye toggle-password" data-target="#newPwd-@admin.Id" style="position:absolute; right:12px; top:12px; cursor:pointer;"></i>
-                                        </div>
-                                        <div class="mb-3 input-icon-wrapper">
-                                            <i class="fa fa-lock"></i>
-                                            <input type="password" name="ConfirmPassword" class="form-control" required id="confirmPwd-@admin.Id" />
-                                            <i class="fa fa-eye toggle-password" data-target="#confirmPwd-@admin.Id" style="position:absolute; right:12px; top:12px; cursor:pointer;"></i>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success btn-custom">Change</button>
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </form>
+                            <div class="modal-body">
+                                <input type="hidden" name="Id" value="@admin.Id" />
+                                <div class="mb-3 input-icon-wrapper">
+                                    <i class="fa fa-user"></i>
+                                    <input type="text" name="Name" class="form-control" value="@admin.Name" required />
+                                </div>
+                                <div class="mb-3 input-icon-wrapper">
+                                    <i class="fa fa-phone"></i>
+                                    <input type="text" name="ContactNo" class="form-control" value="@admin.ContactNo" required pattern="\d{10}" title="Enter 10 digit number" />
+                                </div>
+                                <div class="mb-3 input-icon-wrapper">
+                                    <i class="fa fa-calendar"></i>
+                                    <input type="number" name="Age" class="form-control" value="@admin.Age" required min="18" max="100" />
+                                </div>
+                                <div class="mb-3 input-icon-wrapper">
+                                    <i class="fa fa-venus-mars"></i>
+                                    <input type="text" name="Gender" class="form-control" value="@admin.Gender" required />
+                                </div>
+                                <div class="mb-3 input-icon-wrapper">
+                                    <i class="fa fa-envelope"></i>
+                                    <input type="email" name="Email" class="form-control" value="@admin.Email" required />
+                                </div>
                             </div>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success btn-custom">Save</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
                     </div>
-                }
-            </tbody>
-        </table>
+                </div>
+            </div>
+            <!-- Change Password Modal -->
+            <div class="modal fade" id="changePwdModal-@admin.Id" tabindex="-1" aria-labelledby="changePwdModalLabel-@admin.Id" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form asp-action="ChangePassword" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="changePwdModalLabel-@admin.Id">Change Password</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="hidden" name="Id" value="@admin.Id" />
+
+                                <!-- UserName -->
+                                <div class="mb-3 input-icon-wrapper">
+                                    <label class="form-label"><i class="fa fa-user"></i> User Name</label>
+                                    <input type="text" name="UserName" class="form-control" value="@admin.UserName" required />
+                                </div>
+
+                                <!-- Current Password -->
+                                <div class="mb-3 input-icon-wrapper">
+                                    <label class="form-label"><i class="fa fa-lock"></i> Current Password</label>
+                                    <input type="password" name="CurrentPassword" class="form-control" />
+                                </div>
+
+                                <!-- New Password -->
+                                <div class="mb-3 input-icon-wrapper">
+                                    <label class="form-label"><i class="fa fa-lock"></i> New Password</label>
+                                    <input type="password" name="NewPassword" class="form-control" required id="newPwd-@admin.Id" />
+                                    <i class="fa fa-eye toggle-password" data-target="#newPwd-@admin.Id" style="position:absolute; right:12px; top:38px; cursor:pointer;"></i>
+                                </div>
+
+                                <!-- Confirm Password -->
+                                <div class="mb-3 input-icon-wrapper">
+                                    <label class="form-label"><i class="fa fa-lock"></i> Confirm Password</label>
+                                    <input type="password" name="ConfirmPassword" class="form-control" required id="confirmPwd-@admin.Id" />
+                                    <i class="fa fa-eye toggle-password" data-target="#confirmPwd-@admin.Id" style="position:absolute; right:12px; top:38px; cursor:pointer;"></i>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success btn-custom">Change</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        }
     </div>
 </div>
 

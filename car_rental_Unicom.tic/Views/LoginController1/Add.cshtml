@@ -5,6 +5,7 @@
     ViewData["Title"] = "Add Customer";
 }
 
+<!-- Bootstrap, jQuery, Icons, Fonts -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
@@ -16,15 +17,16 @@
         font-family: 'Poppins', sans-serif;
         background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
         min-height: 100vh;
+        color: #fff;
     }
 
+    /* Glass-card container */
     .glass-card {
         background: rgba(255,255,255,0.05);
         backdrop-filter: blur(10px);
         border-radius: 20px;
         border: 1px solid rgba(255,255,255,0.2);
         padding: 25px;
-        color: #fff;
         box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         transition: transform 0.3s ease;
     }
@@ -33,6 +35,7 @@
             transform: translateY(-5px);
         }
 
+    /* Input-icon wrapper */
     .input-icon-wrapper {
         position: relative;
         display: flex;
@@ -59,6 +62,10 @@
             transition: box-shadow 0.3s, border 0.3s;
         }
 
+            .input-icon-wrapper input::placeholder {
+                color: #bbb;
+            }
+
             .input-icon-wrapper input:focus,
             .input-icon-wrapper select:focus {
                 box-shadow: 0 0 10px #1CB5E0;
@@ -66,6 +73,7 @@
                 outline: none;
             }
 
+    /* Labels & buttons */
     .form-label {
         font-weight: 500;
         color: #fff;
@@ -95,12 +103,12 @@
         font-size: 0.85rem;
     }
 
+    /* Shake animation */
     .shake {
         animation: shake 0.4s;
     }
-
     @@keyframes shake {
-        0%
+        0%,100%
 
     {
         transform: translateX(0px);
@@ -118,10 +126,6 @@
         transform: translateX(-5px);
     }
 
-    100% {
-        transform: translateX(0px);
-    }
-
     }
 </style>
 
@@ -130,13 +134,14 @@
         <div class="col-lg-7">
             <div class="glass-card">
                 <h3 class="mb-4 text-center">Add New Customer</h3>
+
                 <form asp-action="Add" method="post" autocomplete="off" id="customerForm">
                     <div class="row">
                         <div class="col-md-6">
                             <label asp-for="Name" class="form-label">Name</label>
                             <div class="input-icon-wrapper">
                                 <i class="bi bi-person"></i>
-                                <input asp-for="Name" class="form-control" required />
+                                <input asp-for="Name" class="form-control" placeholder="Full Name" required />
                             </div>
                             <span asp-validation-for="Name" class="text-danger"></span>
                         </div>
@@ -144,7 +149,7 @@
                             <label asp-for="contactNo" class="form-label">Contact No</label>
                             <div class="input-icon-wrapper">
                                 <i class="bi bi-telephone"></i>
-                                <input asp-for="contactNo" class="form-control" required pattern="^[0-9]{10}$" />
+                                <input asp-for="contactNo" class="form-control" placeholder="0123456789" required pattern="^[0-9]{10}$" />
                             </div>
                             <span asp-validation-for="contactNo" class="text-danger"></span>
                         </div>
@@ -155,7 +160,7 @@
                             <label asp-for="Age" class="form-label">Age</label>
                             <div class="input-icon-wrapper">
                                 <i class="bi bi-calendar"></i>
-                                <input asp-for="Age" class="form-control" required min="18" id="Age" />
+                                <input asp-for="Age" class="form-control" placeholder="18" required min="18" id="Age" />
                             </div>
                             <span asp-validation-for="Age" class="text-danger"></span>
                         </div>
@@ -176,7 +181,7 @@
                             <label asp-for="Email" class="form-label">Email</label>
                             <div class="input-icon-wrapper">
                                 <i class="bi bi-envelope"></i>
-                                <input asp-for="Email" class="form-control" required id="EmailField" />
+                                <input asp-for="Email" class="form-control" placeholder="example@email.com" required id="EmailField" />
                             </div>
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
@@ -187,7 +192,7 @@
                             <label asp-for="UserName" class="form-label">Username</label>
                             <div class="input-icon-wrapper">
                                 <i class="bi bi-person-badge"></i>
-                                <input asp-for="UserName" class="form-control" id="UserName" required autocomplete="off" />
+                                <input asp-for="UserName" class="form-control" placeholder="Username" id="UserName" required autocomplete="off" />
                             </div>
                             <span asp-validation-for="UserName" class="text-danger"></span>
                             <span id="usernameStatus" class="text-danger small"></span>
@@ -196,7 +201,7 @@
                             <label asp-for="password" class="form-label">Password</label>
                             <div class="input-icon-wrapper">
                                 <i class="bi bi-lock"></i>
-                                <input asp-for="password" class="form-control" required type="password" id="passwordField" />
+                                <input asp-for="password" class="form-control" placeholder="Password" required type="password" id="passwordField" />
                                 <button type="button" class="btn btn-outline-light btn-sm" id="togglePassword" style="position:absolute; right:10px; top:50%; transform:translateY(-50%);">
                                     <span id="togglePasswordIcon" class="bi bi-eye"></span>
                                 </button>
@@ -218,7 +223,7 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
-        // Shake error animation
+        // Shake animation helper
         function shakeField(field) {
             $(field).addClass('shake');
             setTimeout(function(){ $(field).removeClass('shake'); }, 400);

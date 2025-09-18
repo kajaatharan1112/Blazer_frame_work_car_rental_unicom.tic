@@ -19,11 +19,100 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <style>
-    /* Optional: z-index fix if Flatpickr calendar goes behind modal or other elements */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #c3ecff 0%, #ffffff 100%);
+    }
+
+    /* Glass-card style */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+    /* Buttons */
+    .btn-primary, .btn-success, .btn-secondary {
+        border-radius: 50px;
+        transition: background-color 0.3s;
+    }
+
+        .btn-primary:hover, .btn-success:hover {
+            background-color: #159ec6;
+        }
+
+        .btn-secondary:hover {
+            background-color: #6c757d;
+        }
+
+    /* Input wrapper with icon */
+    .input-icon-wrapper {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+        .input-icon-wrapper i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .input-icon-wrapper input, .input-icon-wrapper select {
+            padding-left: 2.5rem;
+        }
+
+    /* Focus glow */
+    input:focus, select:focus {
+        border-color: #1CB5E0;
+        box-shadow: 0 0 8px rgba(28, 181, 224, 0.5);
+        outline: none;
+    }
+
+    /* Shake animation */
+    .shake {
+        animation: shake 0.3s;
+        border-color: #e74c3c;
+    }
+    @@keyframes shake {
+        0%
+
+    {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+    }
+
+    /* Flatpickr z-index */
     .flatpickr-calendar {
         z-index: 1050 !important;
     }
-    /* Style booked dates */
+
     .flatpickr-day.booked-date {
         background: #ff6b6b !important;
         color: white !important;
@@ -34,140 +123,53 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h3 class="mb-0">Book Car</h3>
-                </div>
-                <div class="card-body">
-                    <div class="row mb-4">
-                        <div class="col-md-4">
-                            <img src="@Model.image_path" class="img-fluid rounded" alt="@Model.Car_modalName" />
-                        </div>
-                        <div class="col-md-8">
-                            <h5>@Model.Car_modalName (@Model.year)</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Number Plate: <strong>@Model.number_plact</strong></li>
-                                <li class="list-group-item">AC: <strong>@Model.ac</strong></li>
-                                <li class="list-group-item">Top Speed: <strong>@Model.top_speed</strong></li>
-                                <li class="list-group-item">Gear System: <strong>@Model.Gear_System</strong></li>
-                                <li class="list-group-item">Milage: <strong>@Model.milage</strong></li>
-                                <li class="list-group-item">Status: <strong>@Model.car_status</strong></li>
-                                <li class="list-group-item">Maintenance Charge: <strong>@Model.MaintenanceCharge</strong></li>
-                                <li class="list-group-item">Rent Per Day: <strong>@Model.RentPerDay</strong></li>
-                            </ul>
-                        </div>
+            <div class="glass-card">
+                <!-- Car Details -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <img src="@Model.image_path" class="img-fluid rounded" alt="@Model.Car_modalName" />
                     </div>
-
-                    <!-- Booking Form -->
-                    <form asp-action="AddBooking" method="post" id="bookingForm">
-                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
-                        <input type="hidden" asp-for="CarId" />
-
-                        <div class="mb-3">
-                            <label asp-for="licence_number" class="form-label">License Number</label>
-                            <input asp-for="licence_number" class="form-control" required />
-                            <span asp-validation-for="licence_number" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="start_date" class="form-label">Start Date</label>
-                            <div class="input-group">
-                                <input asp-for="start_date" type="text" class="form-control" id="startDate" autocomplete="off" placeholder="Select start date" required />
-                                <span class="input-group-text" style="cursor: pointer;" tabindex="0" id="calendarIcon">
-                                    <i class="bi bi-calendar-date"></i>
-                                </span>
-                            </div>
-                            <span asp-validation-for="start_date" class="text-danger"></span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label asp-for="dayes" class="form-label">Number of Days</label>
-                            <input asp-for="dayes" type="number" class="form-control" min="1" required />
-                            <span asp-validation-for="dayes" class="text-danger"></span>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <button type="submit" class="btn btn-success" id="bookNowBtn">Book Now</button>
-                            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Dummy Payment Modal -->
-<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="paymentForm">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="paymentModalLabel">Payment & Booking Summary</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- Booking Summary -->
-                    <div class="mb-3">
-                        <h6>Booking Details</h6>
-                        <ul class="list-group">
-                            <li class="list-group-item"><strong>Car:</strong> <span id="summaryCar"></span></li>
-                            <li class="list-group-item"><strong>License Number:</strong> <span id="summaryLicense"></span></li>
-                            <li class="list-group-item"><strong>Start Date:</strong> <span id="summaryStart"></span></li>
-                            <li class="list-group-item"><strong>Days:</strong> <span id="summaryDays"></span></li>
-                            <li class="list-group-item"><strong>Rent Per Day:</strong> <span id="summaryRent"></span></li>
+                    <div class="col-md-8">
+                        <h5>@Model.Car_modalName (@Model.year)</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Number Plate: <strong>@Model.number_plact</strong></li>
+                            <li class="list-group-item">AC: <strong>@Model.ac</strong></li>
+                            <li class="list-group-item">Top Speed: <strong>@Model.top_speed</strong></li>
+                            <li class="list-group-item">Gear System: <strong>@Model.Gear_System</strong></li>
+                            <li class="list-group-item">Milage: <strong>@Model.milage</strong></li>
+                            <li class="list-group-item">Status: <strong>@Model.car_status</strong></li>
+                            <li class="list-group-item">Maintenance Charge: <strong>@Model.MaintenanceCharge</strong></li>
+                            <li class="list-group-item">Rent Per Day: <strong>@Model.RentPerDay</strong></li>
                         </ul>
                     </div>
-                    <hr />
-                    <!-- Dummy Payment Fields -->
-                    <div class="mb-3">
-                        <label class="form-label">Payment Method</label>
-                        <select class="form-select" id="paymentMethod" required>
-                            <option value="">Select</option>
-                            <option value="card">Credit/Debit Card</option>
-                            <option value="upi">UPI</option>
-                            <option value="netbanking">Net Banking</option>
-                        </select>
-                        <div class="invalid-feedback">Please select a payment method.</div>
-                    </div>
-                    <div id="cardFields" style="display:none;">
-                        <div class="mb-2">
-                            <label class="form-label">Card Number</label>
-                            <input type="text" class="form-control" id="cardNumber" maxlength="16" pattern="\d{16}" />
-                            <div class="invalid-feedback">Enter a valid 16-digit card number.</div>
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">Expiry (MM/YY)</label>
-                            <input type="text" class="form-control" id="cardExpiry" maxlength="5" placeholder="MM/YY" pattern="\d{2}/\d{2}" />
-                            <div class="invalid-feedback">Enter expiry as MM/YY.</div>
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">CVV</label>
-                            <input type="password" class="form-control" id="cardCVV" maxlength="3" pattern="\d{3}" />
-                            <div class="invalid-feedback">Enter a valid 3-digit CVV.</div>
-                        </div>
-                    </div>
-                    <div id="upiFields" style="display:none;">
-                        <div class="mb-2">
-                            <label class="form-label">UPI ID</label>
-                            <input type="text" class="form-control" id="upiId" placeholder="example@upi" />
-                            <div class="invalid-feedback">Enter a valid UPI ID.</div>
-                        </div>
-                    </div>
-                    <div id="netbankingFields" style="display:none;">
-                        <div class="mb-2">
-                            <label class="form-label">Bank Name</label>
-                            <input type="text" class="form-control" id="bankName" />
-                            <div class="invalid-feedback">Enter your bank name.</div>
-                        </div>
-                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Confirm Booking</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </form>
+
+                <!-- Booking Form -->
+                <form asp-action="AddBooking" method="post" id="bookingForm">
+                    <input type="hidden" asp-for="CarId" />
+
+                    <div class="input-icon-wrapper">
+                        <i class="bi bi-card-text"></i>
+                        <input asp-for="licence_number" class="form-control" placeholder="License Number" required />
+                        <span asp-validation-for="licence_number" class="text-danger"></span>
+                    </div>
+
+                    <div class="input-icon-wrapper">
+                        <i class="bi bi-calendar-date"></i>
+                        <input asp-for="start_date" type="text" class="form-control" id="startDate" placeholder="Select start date" autocomplete="off" required />
+                    </div>
+
+                    <div class="input-icon-wrapper">
+                        <i class="bi bi-calendar-day"></i>
+                        <input asp-for="dayes" type="number" class="form-control" min="1" placeholder="Number of Days" required />
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-success">Book Now</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -178,26 +180,22 @@
         $(document).ready(function () {
             // Fetch booked dates from server
             $.get('@Url.Action("GetBookedDates", "Home", new { carId = Model.CarId })', function (bookedDates) {
-                // Convert booked dates array to a Set for fast lookup
                 const bookedSet = new Set(bookedDates);
 
-                // Initialize flatpickr on startDate input
+                // Initialize flatpickr
                 const fp = flatpickr("#startDate", {
                     dateFormat: "Y-m-d",
                     minDate: "today",
-                    maxDate: new Date(new Date().setMonth(new Date().getMonth() + 2)), // 2 months from today
+                    maxDate: new Date(new Date().setMonth(new Date().getMonth() + 2)),
                     disable: [
                         function (date) {
-                            // Disable dates that are booked
                             const y = date.getFullYear();
                             const m = (date.getMonth() + 1).toString().padStart(2, '0');
                             const d = date.getDate().toString().padStart(2, '0');
-                            const dateStr = `${y}-${m}-${d}`;
-                            return bookedSet.has(dateStr);
+                            return bookedSet.has(`${y}-${m}-${d}`);
                         }
                     ],
-                    onReady: function (selectedDates, dateStr, instance) {
-                        // Add custom class to disabled booked dates for styling
+                    onReady: function (_, __, instance) {
                         instance.days.forEach(dayElem => {
                             if (dayElem.dateObj && bookedSet.has(instance.formatDate(dayElem.dateObj, "Y-m-d"))) {
                                 dayElem.classList.add('booked-date');
@@ -207,12 +205,16 @@
                     },
                 });
 
-                // Open datepicker when calendar icon is clicked or keyboard key pressed
+                // Calendar icon click opens datepicker
                 $('#calendarIcon').on('click keypress', function (e) {
-                    if (e.type === 'click' || e.which === 13 || e.which === 32) {
-                        fp.open();
-                    }
+                    if (e.type === 'click' || e.which === 13 || e.which === 32) fp.open();
                 });
+            });
+
+            // Real-time validation example
+            $('#bookingForm input[required]').on('input', function () {
+                if (!this.checkValidity()) $(this).addClass('shake');
+                else $(this).removeClass('shake');
             });
         });
     </script>

@@ -4,6 +4,7 @@
     ViewData["Title"] = "Car Page";
 }
 
+<!-- Bootstrap & FontAwesome & Google Fonts -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,21 +12,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
-    :root {
-        --primary-color: #0056b3;
-        --secondary-color: #1f2a40;
-        --success-color: #28a745;
-        --danger-color: #dc3545;
-    }
-
     body {
         font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #f9f9f9, #e9f0f9);
-        color: var(--secondary-color);
+        background: linear-gradient(135deg, #f0f4f8, #e0e9f8);
+        color: #1f2a40;
     }
 
+    /* Hero Banner */
     .hero-banner {
-        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop');
+        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop');
         background-size: cover;
         background-position: center;
         padding: 50px 20px;
@@ -77,42 +72,28 @@
 
     }
 
-    /* Card Styling */
-    .card {
-        border-radius: 20px;
+    /* Glass-card style */
+    .glass-card {
+        background: rgba(255,255,255,0.15);
         backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.85);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        transform: translateY(50px);
-        opacity: 0;
-        animation: slideUp 0.8s forwards;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
     }
 
-        .card:hover {
-            transform: translateY(-10px) scale(1.02);
-            transition: all 0.4s ease-in-out;
-            box-shadow: 0 12px 40px rgba(0, 86, 179, 0.25);
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
         }
 
-    @@keyframes slideUp {
-        to
-
-    {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    }
-
-    /* Card Image */
+    /* Card image */
     .card-img-top {
         height: 220px;
         object-fit: cover;
         border-bottom: 3px solid #eee;
     }
 
-    /* Status Badge */
+    /* Status badge */
     .status-badge {
         position: absolute;
         top: 15px;
@@ -151,38 +132,58 @@
 
     }
 
-    /* Card Body */
-    .card-body {
-        padding: 20px;
-    }
-
-    .card-title {
-        font-weight: 700;
-        font-size: 1.2rem;
-        color: var(--secondary-color);
-    }
-
-    .card-text-specs {
-        font-size: 0.9rem;
-        color: #6c757d;
-        margin-bottom: 15px;
-    }
-
-    /* Button */
-    .btn-primary {
+    /* Buttons */
+    .btn-primary, .btn-success, .btn-secondary {
         border-radius: 50px;
-        background: linear-gradient(45deg, #0056b3, #007bff);
-        border: none;
         font-weight: 600;
         transition: all 0.3s ease-in-out;
     }
 
+    .btn-primary {
+        background: #1CB5E0;
+        border: none;
+    }
+
         .btn-primary:hover {
-            background: linear-gradient(45deg, #004494, #0069d9);
-            box-shadow: 0 0 12px rgba(0, 86, 179, 0.4);
+            background: #159ec6;
+            box-shadow: 0 0 12px rgba(28,181,224,0.4);
         }
 
-    /* Modal Zoom Animation */
+    .btn-success {
+        background: #28a745;
+        border: none;
+    }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        border: none;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+    /* Card animation */
+    .card {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: slideUp 0.8s forwards;
+    }
+    @@keyframes slideUp {
+        to
+
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    /* Modal Zoom */
     .modal.fade .modal-dialog {
         transform: scale(0.7);
         transition: transform 0.3s ease-out;
@@ -194,11 +195,13 @@
 </style>
 
 <div class="container mt-4">
+    <!-- Hero Banner -->
     <div class="hero-banner">
         <h1 id="greeting-title"><i class="fas fa-car-on me-2"></i> Find Your Perfect Ride!</h1>
         <p id="greeting-message">Your next adventure awaits. Explore our premium range of available cars.</p>
     </div>
 
+    <!-- Car Cards -->
     <div class="row">
         @foreach (var car in Model)
         {
@@ -206,12 +209,12 @@
             var images = car.image_path.Split('#');
 
             <div class="col-lg-4 col-md-6 mb-4">
-                <div class="card h-100 position-relative">
+                <div class="card glass-card position-relative h-100">
                     <img src="@images.FirstOrDefault()" class="card-img-top" alt="@car.Car_modalName" />
                     <div class="status-badge @(isAvailable ? "available" : "unavailable")">
                         <i class="fas @(isAvailable ? "fa-check-circle" : "fa-times-circle") me-1"></i> @(isAvailable ? "Available" : "Unavailable")
                     </div>
-                    <div class="card-body">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@car.Car_modalName (@car.year)</h5>
                         <p class="card-text-specs"><i class="fas fa-hashtag fa-fw"></i> @car.number_plact</p>
                         <button class="btn btn-primary mt-auto w-100" data-bs-toggle="modal" data-bs-target="#carModal-@car.CarId">
@@ -224,7 +227,7 @@
             <!-- Modal -->
             <div class="modal fade" id="carModal-@car.CarId" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
+                    <div class="modal-content glass-card p-3">
                         <div class="modal-header">
                             <h5 class="modal-title"><i class="fas fa-car-side me-2"></i> @car.Car_modalName</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -237,7 +240,7 @@
                                         @for (int i = 0; i < images.Length; i++)
                                         {
                                             <div class="carousel-item @(i == 0 ? "active" : "")">
-                                                <img src="@images[i]" class="d-block w-100" alt="Image @(i + 1)" />
+                                                <img src="@images[i]" class="d-block w-100 rounded" alt="Image @(i + 1)" />
                                             </div>
                                         }
                                     </div>
@@ -252,18 +255,15 @@
                                     }
                                 </div>
                             }
-
-                            <div class="details-list">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><b>Year:</b> @car.year</li>
-                                    <li class="list-group-item"><b>Number Plate:</b> @car.number_plact</li>
-                                    <li class="list-group-item"><b>AC:</b> @car.ac</li>
-                                    <li class="list-group-item"><b>Top Speed:</b> @car.top_speed</li>
-                                    <li class="list-group-item"><b>Gear:</b> @car.Gear_System</li>
-                                    <li class="list-group-item"><b>Mileage:</b> @car.milage</li>
-                                    <li class="list-group-item"><b>Rent/Day:</b> @car.RentPerDay</li>
-                                </ul>
-                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><b>Year:</b> @car.year</li>
+                                <li class="list-group-item"><b>Number Plate:</b> @car.number_plact</li>
+                                <li class="list-group-item"><b>AC:</b> @car.ac</li>
+                                <li class="list-group-item"><b>Top Speed:</b> @car.top_speed</li>
+                                <li class="list-group-item"><b>Gear:</b> @car.Gear_System</li>
+                                <li class="list-group-item"><b>Mileage:</b> @car.milage</li>
+                                <li class="list-group-item"><b>Rent/Day:</b> @car.RentPerDay</li>
+                            </ul>
 
                             @if (!isAvailable)
                             {
@@ -286,9 +286,11 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-    // Random greeting change
+    // Random greeting and card animation
     document.addEventListener('DOMContentLoaded', function () {
         const greetings = [
             { title: 'Your Journey Starts Here!', message: 'Find the perfect car for your next road trip.' },
@@ -299,10 +301,8 @@
         document.getElementById('greeting-title').innerHTML = `<i class="fas fa-car-on me-2"></i> ${randomGreeting.title}`;
         document.getElementById('greeting-message').textContent = randomGreeting.message;
 
-        // Animate cards one by one
+        // Animate cards with delay
         const cards = document.querySelectorAll(".card");
-        cards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.3}s`;
-        });
+        cards.forEach((card, index) => { card.style.animationDelay = `${index * 0.3}s`; });
     });
 </script>

@@ -4,56 +4,154 @@
     ViewData["Title"] = "Add Bill";
 }
 
-<div class="container mt-5">
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    /* Glass card style */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #c3ecf9, #1cb5e0);
+        min-height: 100vh;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px 0 rgba(31, 38, 135, 0.5);
+        }
+
+    .form-control:focus {
+        box-shadow: 0 0 8px #1CB5E0;
+        border-color: #1CB5E0;
+    }
+
+    .input-icon-wrapper {
+        position: relative;
+    }
+
+        .input-icon-wrapper i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1CB5E0;
+        }
+
+        .input-icon-wrapper input {
+            padding-left: 2.5rem;
+        }
+
+    .btn-custom {
+        background-color: #1CB5E0;
+        color: white;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+        .btn-custom:hover {
+            background-color: #17a2c0;
+        }
+    /* Shake animation */
+    .shake {
+        animation: shake 0.3s;
+        border-color: #dc3545 !important;
+    }
+    @@keyframes shake {
+        0%
+
+    {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+    }
+    /* Error messages */
+    .text-danger {
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+    }
+</style>
+
+<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
-            <div class="card shadow">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">Check In & Add Bill</h4>
+            <div class="glass-card">
+                <div class="text-center mb-4">
+                    <h4 class="text-white">Check In & Add Bill</h4>
                 </div>
-                <div class="card-body">
-                    <form asp-action="AddBill" method="post" autocomplete="off">
-                        <input type="hidden" asp-for="booking_id" />
-                        <input type="hidden" asp-for="CarId" />
 
-                        <!-- Customer Info -->
-                        <div class="mb-3">
-                            <label class="form-label">Customer Name</label>
-                            <input class="form-control" asp-for="name" readonly />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Car Model</label>
-                            <input class="form-control" asp-for="Car_modalName" readonly />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Rent Per Day</label>
-                            <input class="form-control" asp-for="RentPerDay" readonly id="rentPerDay" />
-                        </div>
+                <form asp-action="AddBill" method="post" autocomplete="off" id="billForm">
+                    <input type="hidden" asp-for="booking_id" />
+                    <input type="hidden" asp-for="CarId" />
 
-                        <!-- Rental Duration -->
-                        <div class="mb-3">
-                            <label class="form-label">Rental Duration (days)</label>
-                            <input class="form-control" asp-for="RentalDuration" type="number" min="1" id="rentalDays" />
-                            <span asp-validation-for="RentalDuration" class="text-danger"></span>
-                        </div>
+                    <!-- Customer Name -->
+                    <div class="mb-3 input-icon-wrapper">
+                        <i class="bi bi-person-fill"></i>
+                        <input type="text" class="form-control" asp-for="name" placeholder="Customer Name" readonly />
+                    </div>
 
-                        <!-- Maintenance Charge -->
-                        <div class="mb-3">
-                            <label class="form-label">Maintenance Charge</label>
-                            <input class="form-control" asp-for="MaintenanceCharge" type="number" min="0" id="maintenanceCharge" />
-                            <span asp-validation-for="MaintenanceCharge" class="text-danger"></span>
-                        </div>
+                    <!-- Car Model -->
+                    <div class="mb-3 input-icon-wrapper">
+                        <i class="bi bi-car-front-fill"></i>
+                        <input type="text" class="form-control" asp-for="Car_modalName" placeholder="Car Model" readonly />
+                    </div>
 
-                        <!-- Total -->
-                        <div class="mb-3">
-                            <label class="form-label">Total Amount</label>
-                            <input class="form-control" asp-for="total_amount" id="totalAmount" readonly />
-                        </div>
+                    <!-- Rent Per Day -->
+                    <div class="mb-3 input-icon-wrapper">
+                        <i class="bi bi-cash-stack"></i>
+                        <input type="number" class="form-control" asp-for="RentPerDay" placeholder="Rent Per Day" readonly id="rentPerDay" />
+                    </div>
 
-                        <button type="submit" class="btn btn-success w-100">Submit & Check In</button>
-                        <a asp-action="Bookings" class="btn btn-link w-100 mt-2">Back to Bookings</a>
-                    </form>
-                </div>
+                    <!-- Rental Duration -->
+                    <div class="mb-3 input-icon-wrapper">
+                        <i class="bi bi-clock-fill"></i>
+                        <input type="number" class="form-control" asp-for="RentalDuration" placeholder="Rental Duration (days)" min="1" id="rentalDays" required />
+                        <span asp-validation-for="RentalDuration" class="text-danger"></span>
+                    </div>
+
+                    <!-- Maintenance Charge -->
+                    <div class="mb-3 input-icon-wrapper">
+                        <i class="bi bi-tools"></i>
+                        <input type="number" class="form-control" asp-for="MaintenanceCharge" placeholder="Maintenance Charge" min="0" id="maintenanceCharge" required />
+                        <span asp-validation-for="MaintenanceCharge" class="text-danger"></span>
+                    </div>
+
+                    <!-- Total Amount -->
+                    <div class="mb-3 input-icon-wrapper">
+                        <i class="bi bi-wallet-fill"></i>
+                        <input type="text" class="form-control" asp-for="total_amount" placeholder="Total Amount" id="totalAmount" readonly />
+                    </div>
+
+                    <button type="submit" class="btn btn-custom w-100 mb-2">Submit & Check In</button>
+                    <a asp-action="Bookings" class="btn btn-link w-100 text-white">Back to Bookings</a>
+                </form>
             </div>
         </div>
     </div>
@@ -63,6 +161,7 @@
     <partial name="_ValidationScriptsPartial" />
 
     <script>
+        // Calculate total amount
         function calculateTotal() {
             let rentPerDay = parseFloat(document.getElementById("rentPerDay").value) || 0;
             let days = parseInt(document.getElementById("rentalDays").value) || 0;
@@ -74,5 +173,20 @@
 
         document.getElementById("rentalDays").addEventListener("input", calculateTotal);
         document.getElementById("maintenanceCharge").addEventListener("input", calculateTotal);
+
+        // Real-time validation with shake animation
+        $("#billForm").on("submit", function (e) {
+            let isValid = true;
+
+            $("#billForm input[required]").each(function () {
+                if (!$(this).val()) {
+                    $(this).addClass("shake");
+                    isValid = false;
+                    setTimeout(() => { $(this).removeClass("shake"); }, 500);
+                }
+            });
+
+            if (!isValid) e.preventDefault();
+        });
     </script>
 }

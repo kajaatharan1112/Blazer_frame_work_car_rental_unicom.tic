@@ -4,53 +4,163 @@
     ViewData["Title"] = "Bookings";
 }
 
-<h2>Bookings</h2>
+<!-- Bootstrap & Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Button to view bill history -->
-<div class="mb-3">
-    <a asp-action="Bills" class="btn btn-primary">View Bill History</a>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #c3ecf9, #1cb5e0);
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+
+    /* Glass card style */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(31, 38, 135, 0.5);
+        }
+
+    .btn-custom {
+        background-color: #1CB5E0;
+        color: white;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+        .btn-custom:hover {
+            background-color: #17a2c0;
+        }
+
+    /* Shake animation for invalid input */
+    .shake {
+        animation: shake 0.3s;
+        border-color: #dc3545 !important;
+    }
+
+    @@keyframes shake {
+        0%
+
+    {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 8px #1CB5E0;
+        border-color: #1CB5E0;
+    }
+
+    .table thead th {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+
+    .table tbody td {
+        vertical-align: middle;
+        color: #fff;
+    }
+
+    a.btn-link, .btn-link {
+        color: #fff;
+        text-decoration: none;
+    }
+
+</style>
+
+<div class="container">
+    <h2 class="text-white mb-4">Bookings</h2>
+
+    <!-- Button to view bill history -->
+    <div class="mb-3">
+        <a asp-action="Bills" class="btn btn-custom">View Bill History</a>
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered glass-card">
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Name</th>
+                        <th>Car Model</th>
+                        <th>Car ID</th>
+                        <th>User ID</th>
+                        <th>Start Date</th>
+                        <th>Days</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model.Where(b => b.boking_status == "booking_fnnisheg"))
+                    {
+                        <tr>
+                            <td>@booking.booking_id</td>
+                            <td>@booking.name</td>
+                            <td>@booking.Car_modalName</td>
+                            <td>@booking.car_id</td>
+                            <td>@booking.user_id</td>
+                            <td>@booking.start_date</td>
+                            <td>@booking.dayes</td>
+                            <td>@booking.boking_status</td>
+                            <td>
+                                <a asp-action="AddBill" asp-route-bookingId="@booking.booking_id" class="btn btn-success btn-sm btn-custom">
+                                    Check In
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning glass-card text-center">No bookings found.</div>
+    }
 </div>
 
-@if (Model != null && Model.Any())
-{
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Booking ID</th>
-                <th>Name</th>
-                <th>Car Model</th>
-                <th>Car ID</th>
-                <th>User ID</th>
-                <th>Start Date</th>
-                <th>Days</th>
-                <th>Status</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var booking in Model.Where(b => b.boking_status == "booking_fnnisheg"))
-            {
-                <tr>
-                    <td>@booking.booking_id</td>
-                    <td>@booking.name</td>
-                    <td>@booking.Car_modalName</td>
-                    <td>@booking.car_id</td>
-                    <td>@booking.user_id</td>
-                    <td>@booking.start_date</td>
-                    <td>@booking.dayes</td>
-                    <td>@booking.boking_status</td>
-                    <td>
-                        <!-- Check In button -->
-                        <a asp-action="AddBill" asp-route-bookingId="@booking.booking_id" class="btn btn-success btn-sm">
-                            Check In
-                        </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <div class="alert alert-warning">No bookings found.</div>
+@section Scripts {
+    <script>
+        // Real-time validation placeholder example (if inputs are added later)
+        $(document).ready(function () {
+            $(".form-control[required]").on("input", function () {
+                if ($(this).val() === "") {
+                    $(this).addClass("shake");
+                    setTimeout(() => { $(this).removeClass("shake"); }, 500);
+                }
+            });
+        });
+    </script>
 }

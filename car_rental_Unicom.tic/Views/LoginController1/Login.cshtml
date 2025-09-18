@@ -9,12 +9,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Rental - Login</title>
+
+    <!-- Bootstrap 5 & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+
     <style>
+        /* Body & background */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #007bff, #6c757d);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1CB5E0, #000046);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -22,103 +31,164 @@
             margin: 0;
         }
 
+        /* Glass-card container */
         .login-container {
-            background-color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 15px;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             width: 100%;
             max-width: 400px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .login-container h1 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: #007bff;
-            text-align: center;
+            .login-container:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Title */
+            .login-container h1 {
+                font-size: 2rem;
+                color: #fff;
+                text-align: center;
+                margin-bottom: 1.5rem;
+            }
+
+        /* Input wrapper with icons */
+        .input-icon-wrapper {
+            position: relative;
         }
 
+            .input-icon-wrapper i {
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #1CB5E0;
+            }
+
+            .input-icon-wrapper input {
+                padding-left: 2.5rem;
+            }
+
+        /* Inputs */
         .form-control {
-            border-radius: 5px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            transition: 0.3s;
         }
 
+            .form-control:focus {
+                box-shadow: 0 0 8px #1CB5E0;
+                border-color: #1CB5E0;
+            }
+
+        /* Shake animation for invalid input */
+        .shake {
+            animation: shake 0.3s;
+            border-color: red !important;
+        }
+        @@keyframes shake {
+            0%, 100%
+
+        {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-5px);
+        }
+
+        50% {
+            transform: translateX(5px);
+        }
+
+        75% {
+            transform: translateX(-5px);
+        }
+
+        }
+
+        /* Buttons */
         .btn-primary {
-            background-color: #007bff;
+            background-color: #1CB5E0;
             border: none;
-            border-radius: 5px;
-            padding: 0.5rem 1rem;
+            border-radius: 10px;
             width: 100%;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border: none;
-            border-radius: 5px;
             padding: 0.5rem 1rem;
-            width: 100%;
+            transition: 0.3s;
         }
 
-        .btn-secondary:hover {
-            background-color: #5a6268;
+            .btn-primary:hover {
+                background-color: #1594c3;
+            }
+
+        .btn-outline-secondary {
+            border-radius: 10px;
         }
 
+        /* Error messages */
         .text-danger {
-            color: red;
             font-size: 0.9rem;
-            margin-bottom: 1rem;
             display: block;
+            margin-top: 0.25rem;
         }
 
+        /* Show password */
         .show-password {
             display: flex;
             align-items: center;
             margin-top: 0.5rem;
+            color: #fff;
         }
 
-        .show-password label {
-            margin-left: 0.5rem;
-            font-size: 0.9rem;
-        }
+            .show-password input {
+                margin-right: 0.5rem;
+            }
 
+        /* Signup link */
         .signup-link {
             text-align: center;
             margin-top: 1rem;
+            color: #fff;
         }
 
-        .signup-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
+            .signup-link a {
+                color: #1CB5E0;
+                text-decoration: none;
+            }
 
-        .signup-link a:hover {
-            text-decoration: underline;
-        }
+                .signup-link a:hover {
+                    text-decoration: underline;
+                }
     </style>
 </head>
 <body>
     <div class="login-container">
         <h1>Car Rental Login</h1>
 
+        @* Server-side error *@
         @if (ViewBag.Error != null)
         {
             <span class="text-danger">@ViewBag.Error</span>
         }
 
-        <form method="post" asp-controller="LoginController1" asp-action="Login">
-            <div class="mb-3">
-                <label asp-for="username" class="form-label">Username</label>
-                <input asp-for="username" class="form-control" placeholder="Enter your username" required />
+        <form method="post" asp-controller="LoginController1" asp-action="Login" id="loginForm">
+            <!-- Username -->
+            <div class="mb-3 input-icon-wrapper">
+                <i class="bi bi-person"></i>
+                <input asp-for="username" class="form-control" placeholder="Username" required />
                 <span asp-validation-for="username" class="text-danger"></span>
             </div>
 
-            <div class="mb-3">
-                <label asp-for="password" class="form-label">Password</label>
+            <!-- Password -->
+            <div class="mb-3 input-icon-wrapper">
+                <i class="bi bi-lock"></i>
                 <div class="input-group">
-                    <input asp-for="password" id="password" class="form-control" placeholder="Enter your password" type="password" required />
+                    <input asp-for="password" id="password" class="form-control" placeholder="Password" type="password" required />
                     <button type="button" class="btn btn-outline-secondary" id="togglePassword">
                         <i class="bi bi-eye" id="togglePasswordIcon"></i>
                     </button>
@@ -126,15 +196,18 @@
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
 
+            <!-- Show password -->
             <div class="show-password">
                 <input type="checkbox" id="showPasswordCheckbox" onclick="togglePasswordVisibility()" />
                 <label for="showPasswordCheckbox">Show Password</label>
             </div>
 
+            <!-- Submit button -->
             <div class="mt-4">
                 <button type="submit" class="btn btn-primary">Sign In</button>
             </div>
 
+            <!-- Signup link -->
             <div class="signup-link">
                 <p>Don't have an account? <a href="/LoginController1/Add">Sign Up</a></p>
             </div>
@@ -156,6 +229,17 @@
                 toggleIcon.classList.add("bi-eye");
             }
         }
+
+        // Real-time validation with shake animation
+        $(document).ready(function () {
+            $("#loginForm input[required]").on("input", function () {
+                if ($(this).val().trim() === "") {
+                    $(this).addClass("shake");
+                } else {
+                    $(this).removeClass("shake");
+                }
+            });
+        });
     </script>
 </body>
 </html>
