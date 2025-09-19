@@ -85,6 +85,7 @@ wwwroot\uploads\c69e41c3-934f-4156-b4e5-8343bc72667f.webp
 wwwroot\uploads\cf1a1dbd-26fb-464d-ae0a-de4cb60ffb2e.jpg
 wwwroot\uploads\cf92cf01-62d2-403f-8dd2-ec97616377cd.jpg
 wwwroot\uploads\d4a830d3-3329-4db5-93a5-bfa5a0e58752.jpg
+wwwroot\uploads\dc25adca-abae-40bd-8d5f-d074aadbbf96.jpg
 wwwroot\uploads\dfcd7610-2458-465c-84ce-f9153a4ddc54.webp
 wwwroot\uploads\e2d3fad5-e0c6-463f-b9bb-a9e29f97c9a1.jpg
 wwwroot\uploads\e88d7670-3973-4ca8-9a90-d70c8526127d.jpg
